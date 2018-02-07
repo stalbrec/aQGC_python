@@ -1,7 +1,9 @@
 from ROOT import gROOT, gStyle, TCanvas, TColor, TF1, TFile, TLegend, THStack
+import csv
 #import myutils,shutil,os
 gROOT.Reset()
 
+sets1={}
 sets={
     "S0":[91,-900.0,20.0],
     "S1":[67,-330.0,10.0],
@@ -16,8 +18,21 @@ sets={
 
 
 class Set:
-    def __init__(self, dim8op):
-        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_WPWPjj_hadronic.root")
+    def __init__(self, dim8op,channelname):
+        
+        with open("ReweightingRanges/"+channelname+'Range.csv','rb') as csvfile:
+            setreader=csv.DictReader(csvfile)
+            for row in setreader:
+                sets1.update({row['parameter']:[
+                            int(row['Npoints']),
+                            float(row['start']),
+                            float(row['stepsize'])
+                            ]})
+        # print 'sets:',sets
+        # print 'sets1:',sets1
+
+        self.channel=channelname
+        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%self.channel)
         self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
         self.SHistNames=[]
         self.OpName=dim8op
@@ -39,7 +54,7 @@ class Set:
 
         #self.Limits=(,)
 
-    def exportPlot(self,logY=True,path="./plots"):
+    def exportPlot(self,logY=True,path="./output/plots"):
         plottitle="invariant Mass of AK8 Jets (%s-Operator)"%self.OpName
         #canv = TCanvas(plottitle,plottitle,200,10,700,500)
         canv = TCanvas(plottitle,plottitle,600,600)
@@ -106,7 +121,7 @@ class Set:
         canv.SetTitle(plottitle)
         legend.Draw()        
         canv.Update()
-        canv.Print("%s/%s.eps"%(path,self.OpName))
+        canv.Print("%s/%s_%s.eps"%(path,self.channel,self.OpName))
         
 
     def calcLimits(self):
@@ -164,11 +179,11 @@ def approxLimit(S,X1,Y1,X2,Y2):
 
 def getParName(OpName,startx, increment, i):
     name="M_jj_AK8_%s_"%OpName
-    parameter=10*startx+i*10*increment
+    parameter=100*startx+i*100*increment
     if(parameter>=0):
-        name+="%ip%i"%(parameter/10,parameter%10)
+        name+="%ip%i"%(parameter/100,parameter%100)
     else:
-        name+="m%ip%i"%(-parameter/10,-parameter%10)
+        name+="m%ip%i"%(-parameter/100,-parameter%100)
     return name
 
 def fillHistNames(HistNames,OpName):
