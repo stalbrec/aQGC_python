@@ -20,6 +20,8 @@ sets=collections.OrderedDict()
 class Set:
     def __init__(self, dim8op,channelname):
         
+        #Cut='invMAk4sel_allcuts'
+        Cut='detaAk4sel'
         with open("ReweightingRanges/"+channelname+'Range.csv','rb') as csvfile:
             setreader=csv.DictReader(csvfile)
             for row in setreader:
@@ -28,42 +30,27 @@ class Set:
                             float(row['start']),
                             float(row['stepsize'])
                             ]})
-        # sets=sets1
-        # print 'sets:',sets
-        # print 'sets1:',sets1
         self.channel=channelname
-        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic_newrange.root"%self.channel)
+        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%self.channel)
         self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
         self.SHistNames=[]
         self.OpName=dim8op
+
         fillHistNames(self.SHistNames,self.OpName)
         self.SHists=[]
-        #print "getting %s Hists.."%self.OpName
         
 
-        SHistDir=self.SFile.GetDirectory('MjjHists_invMAk4sel_allcuts')
+        SHistDir=self.SFile.GetDirectory('MjjHists_%s'%Cut)
         SHistkeys=SHistDir.GetListOfKeys()
         for key in SHistkeys:
             if dim8op not in str(key): 
                 continue
             self.SHists.append(key.ReadObj())
-            print key.ReadObj()
 
-        #getting S- and B-Hist from respective file:
-        # for histname in self.SHistNames:
-        #     #print 'getting',histname,"..."
-        #     current_hist=self.SFile.Get('MjjHists_invMAk4sel_allcuts/%s'%histname)
-        #     current_hist.SetTitle(histname)
-        #     self.SHists.append(current_hist)
-
-        self.BHist=self.BFile.Get("invMAk4sel_allcuts/M_jj_AK8")
-
-    
-        #self.Limits=(,)
+        self.BHist=self.BFile.Get("%s/M_jj_AK8"%Cut)
 
     def exportPlot(self,logY=True,path="./output/plots"):
         plottitle="invariant Mass of AK8 Jets (%s-Operator)"%self.OpName
-        #canv = TCanvas(plottitle,plottitle,200,10,700,500)
         canv = TCanvas(plottitle,plottitle,600,600)
         
         #turning off the standard Statistic-Box
@@ -89,23 +76,7 @@ class Set:
 
         legend.AddEntry(self.BHist,"QCD","f")
         self.BHist.Draw(""+drawOptions)
-                
-        
-        # stack=THStack("qcdstack",plottitle)
-        # stack.Add(self.BHist)
-        # stack.Draw(""+drawOptions)
-
-        # stack.GetXaxis().SetTitle('M_{jj-AK8} [GeV/c^{2}]')
-        # stack.GetYaxis().SetTitle('Events')
-        # stack.GetXaxis().SetLimits(0,7500)
-        # stack.GetYaxis().SetLimits(10**(-10),10**5)
-
-        
-        # legend.AddEntry(stack,"QCD","l")
-        # stack.Draw(""+drawOptions)
-        #canv.Update()
-
-        
+                       
         histcounter=2
         
         #number of Parameters to plot:
@@ -114,11 +85,7 @@ class Set:
         n=n/6
         for i in [0,n,2*n,4*n,5*n,6*n-1]:
             hist=self.SHists[i]
-        #for hist in self.SHists:
-            #hist.SetLineColor(TColor.kAzure+histcounter)
             hist.SetLineColor(histcounter)
-            #hist.SetLineStyle(histcounter)
-            #hist.Draw("H][SAME"+drawOptions)
             hist.Draw("SAME"+drawOptions)
             point=sets[self.OpName][1]+i*sets[self.OpName][2]
             legend.AddEntry(hist,"W^{+}W^{+}jj (%s=%.1fTeV^{-4})"%(self.OpName,point))
@@ -139,7 +106,6 @@ class Set:
         for hist in self.SHists:
             SSums.append(0)
         for i in list(reversed(range(Nbins))):
-            #print 'SHists[0].GetBinError(',i,'):',self.SHists[0].GetBinError(i)
             if(BSum>=10):
                 break
             BSum+=self.BHist.GetBinContent(i)
@@ -149,23 +115,39 @@ class Set:
         
         print 'BSum=',BSum,' -> bin:',bin,';BinCenter:',self.BHist.GetBinCenter(bin)
 
-
         lower_limit_index= -1
         upper_limit_index= -1
 
         expectedLimit_S=7.5312
 
         for i in range(0,len(SSums)):           
-            if(i<=(len(SSums)/2)):
-                if( SSums[i]<=expectedLimit_S and lower_limit_index==-1):
+            if(lower_limit_index==-1):
+                if( SSums[i]<=expectedLimit_S):
                     lower_limit_index=i
-            elif(i>(len(SSums)/2)):
-                if( SSums[i]>=expectedLimit_S and upper_limit_index==-1):
+            elif(upper_limit_index==-1):
+                if( SSums[i]>=expectedLimit_S):
                     upper_limit_index=i-1
+            
+                    
+        # for i in range(0,len(SSums)):           
+        #     if(i<=(len(SSums)/2)):
+        #         if( SSums[i]<=expectedLimit_S and lower_limit_index==-1):
+        #             lower_limit_index=i
+        #     elif(i>(len(SSums)/2)):
+        #         if( SSums[i]>=expectedLimit_S and upper_limit_index==-1):
+        #             upper_limit_index=i-1
+                    
+        if(lower_limit_index==-1 and upper_limit_index==-1):
+            print 'COUDLNT EXCLUDE ANYTHING'
+        elif(lower_limit_index==-1):
+            print 'COUDLNT DETERMINE LOWER LIMIT'
+        elif(upper_limit_index==-1):
+            print 'COUDLNT DETERMINE UPPER LIMIT'
 
 
-        print self.OpName,'-',SSums[lower_limit_index],'-',self.getPoint(lower_limit_index)
-        
+        print self.OpName,'/',lower_limit_index,'-',SSums[lower_limit_index],'-',self.getPoint(lower_limit_index) 
+        print self.OpName,'/',upper_limit_index,'-',SSums[upper_limit_index],'-',self.getPoint(upper_limit_index)
+       
         lower_limit=approxLimit(expectedLimit_S,self.getPoint(lower_limit_index-1),SSums[lower_limit_index-1],self.getPoint(lower_limit_index),SSums[lower_limit_index])
         upper_limit=approxLimit(expectedLimit_S,self.getPoint(upper_limit_index),SSums[upper_limit_index],self.getPoint(upper_limit_index+1),SSums[upper_limit_index+1])
 
