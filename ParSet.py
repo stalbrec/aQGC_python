@@ -1,19 +1,19 @@
 from ROOT import gROOT, gStyle, TCanvas, TColor, TF1, TFile, TLegend, THStack
-import csv
+import csv,collections
 #import myutils,shutil,os
 gROOT.Reset()
 
-sets1={}
-sets={
-    "S0":[91,-900.0,20.0],
-    "S1":[67,-330.0,10.0],
-    "M0":[85,-42.0,1.0],
-    "M1":[67,-165.0,5.0],
-    "M6":[85,-84.0,2.0],
-    "M7":[121,-300.0,5.0],
-    "T0":[69,-6.8,0.2],
-    "T1":[51,-12.5,0.5],
-    "T2":[83,-20.5,0.5]}
+sets=collections.OrderedDict()
+# sets={
+#     "S0":[91,-900.0,20.0],
+#     "S1":[67,-330.0,10.0],
+#     "M0":[85,-42.0,1.0],
+#     "M1":[67,-165.0,5.0],
+#     "M6":[85,-84.0,2.0],
+#     "M7":[121,-300.0,5.0],
+#     "T0":[69,-6.8,0.2],
+#     "T1":[51,-12.5,0.5],
+#     "T2":[83,-20.5,0.5]}
 
 
 
@@ -23,16 +23,16 @@ class Set:
         with open("ReweightingRanges/"+channelname+'Range.csv','rb') as csvfile:
             setreader=csv.DictReader(csvfile)
             for row in setreader:
-                sets1.update({row['parameter']:[
+                sets.update({row['parameter']:[
                             int(row['Npoints']),
                             float(row['start']),
                             float(row['stepsize'])
                             ]})
+        # sets=sets1
         # print 'sets:',sets
         # print 'sets1:',sets1
-
         self.channel=channelname
-        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%self.channel)
+        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic_newrange.root"%self.channel)
         self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
         self.SHistNames=[]
         self.OpName=dim8op
@@ -41,17 +41,24 @@ class Set:
         #print "getting %s Hists.."%self.OpName
         
 
+        SHistDir=self.SFile.GetDirectory('MjjHists_invMAk4sel_allcuts')
+        SHistkeys=SHistDir.GetListOfKeys()
+        for key in SHistkeys:
+            if dim8op not in str(key): 
+                continue
+            self.SHists.append(key.ReadObj())
+            print key.ReadObj()
+
         #getting S- and B-Hist from respective file:
-        for histname in self.SHistNames:
-            #print 'getting',histname,"..."
-            current_hist=self.SFile.Get('MjjHists_invMAk4sel_allcuts/%s'%histname)
-            current_hist.SetTitle(histname)
-            self.SHists.append(current_hist)
-            
+        # for histname in self.SHistNames:
+        #     #print 'getting',histname,"..."
+        #     current_hist=self.SFile.Get('MjjHists_invMAk4sel_allcuts/%s'%histname)
+        #     current_hist.SetTitle(histname)
+        #     self.SHists.append(current_hist)
+
         self.BHist=self.BFile.Get("invMAk4sel_allcuts/M_jj_AK8")
 
-
-
+    
         #self.Limits=(,)
 
     def exportPlot(self,logY=True,path="./output/plots"):

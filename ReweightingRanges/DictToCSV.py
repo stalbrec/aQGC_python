@@ -36,5 +36,6 @@ if(__name__=="__main__"):
         "T0":[69,-6.8,0.2],
         "T1":[51,-12.5,0.5],
         "T2":[83,-20.5,0.5]}
-
-    writeDict(sets,'WPWMRange')
+    channels=["WPWM","WMWM","WPZ","WMZ","ZZ"]
+    for channel in channels:
+        writeDict(sets,'%sRange'%channel)
