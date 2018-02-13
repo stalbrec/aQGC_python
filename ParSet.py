@@ -1,27 +1,13 @@
-from ROOT import gROOT, gStyle, TCanvas, TColor, TF1, TFile, TLegend, THStack
+from ROOT import gROOT, gStyle, TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph
+from array import array
 import csv,collections
 #import myutils,shutil,os
 gROOT.Reset()
 
 sets=collections.OrderedDict()
-# sets={
-#     "S0":[91,-900.0,20.0],
-#     "S1":[67,-330.0,10.0],
-#     "M0":[85,-42.0,1.0],
-#     "M1":[67,-165.0,5.0],
-#     "M6":[85,-84.0,2.0],
-#     "M7":[121,-300.0,5.0],
-#     "T0":[69,-6.8,0.2],
-#     "T1":[51,-12.5,0.5],
-#     "T2":[83,-20.5,0.5]}
-
-
 
 class Set:
-    def __init__(self, dim8op,channelname):
-        
-        #Cut='invMAk4sel_allcuts'
-        Cut='detaAk4sel'
+    def __init__(self, dim8op,channelname,Cut):        
         with open("ReweightingRanges/"+channelname+'Range.csv','rb') as csvfile:
             setreader=csv.DictReader(csvfile)
             for row in setreader:
@@ -31,16 +17,15 @@ class Set:
                             float(row['stepsize'])
                             ]})
         self.channel=channelname
-        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%self.channel)
+        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic_test.root"%self.channel)
         self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
         self.SHistNames=[]
         self.OpName=dim8op
-
+        self.LastCut=Cut
         fillHistNames(self.SHistNames,self.OpName)
         self.SHists=[]
         
-
-        SHistDir=self.SFile.GetDirectory('MjjHists_%s'%Cut)
+        SHistDir=self.SFile.GetDirectory('MjjHists_%s_%s'%(self.LastCut,self.channel))
         SHistkeys=SHistDir.GetListOfKeys()
         for key in SHistkeys:
             if dim8op not in str(key): 
@@ -57,8 +42,7 @@ class Set:
         gStyle.SetOptStat(0)
 
         legend = TLegend(0.5,0.7,0.9,0.9)
-        #legend.SetHeader("Legend","C") #option "C" allows to center the header
-     
+        
         drawOptions="HE"
         if(logY):
             canv.SetLogy()
@@ -76,21 +60,20 @@ class Set:
 
         legend.AddEntry(self.BHist,"QCD","f")
         self.BHist.Draw(""+drawOptions)
-                       
+        
         histcounter=2
         
-        #number of Parameters to plot:
-        
-        n=(sets[self.OpName][0]-1)/2
-        n=n/6
-        for i in [0,n,2*n,4*n,5*n,6*n-1]:
-            hist=self.SHists[i]
+        #number of Parameters to plot:        
+        n=5
+        starti=(sets[self.OpName][0]-1)/2-n
+
+        for i in range(0,2*n+1):
+            index=starti+i
+            hist=self.SHists[index]
             hist.SetLineColor(histcounter)
             hist.Draw("SAME"+drawOptions)
-            point=sets[self.OpName][1]+i*sets[self.OpName][2]
-            legend.AddEntry(hist,"W^{+}W^{+}jj (%s=%.1fTeV^{-4})"%(self.OpName,point))
+            legend.AddEntry(hist,"%sjj (%s=%.1fTeV^{-4})"%(self.channel,self.OpName,self.getPoint(index)))
             histcounter+=1
-
 
         canv.SetTitle(plottitle)
         legend.Draw()        
@@ -98,7 +81,7 @@ class Set:
         canv.Print("%s/%s_%s.eps"%(path,self.channel,self.OpName))
         
 
-    def calcLimits(self):
+    def calcLimits(self,path="./output/plots"):
         Nbins = self.BHist.GetNbinsX()
         bin=0
         BSum=0
@@ -109,16 +92,28 @@ class Set:
             if(BSum>=10):
                 break
             BSum+=self.BHist.GetBinContent(i)
+            
             for j in range(0,len(self.SHists)):
                 SSums[j]+=self.SHists[j].GetBinContent(i)
             bin=i
-        
         print 'BSum=',BSum,' -> bin:',bin,';BinCenter:',self.BHist.GetBinCenter(bin)
+
+
+        #Save SSums to file
+
+        # integraloutput=open('%s_%s_integral.txt'%(self.channel,self.OpName),'wt')
+        # integraloutput.write('\n--------------bin %i (%.0f GeV)--------------\n'%(bin,self.BHist.GetBinCenter(bin)))
+        # integraloutput.write('BSum=%.2f\n'%BSum)
+        # for i in range(0,len(SSums)):
+        #     integraloutput.write('SSum(%s)=%.2f\n'%(self.SHists[i],SSums[i]))
 
         lower_limit_index= -1
         upper_limit_index= -1
 
-        expectedLimit_S=7.5312
+        #expectedLimit_S=7.5312 #for B=10
+        expectedLimit_S=7.8438 #for B=11.08
+        #expectedLimit_S=20.8750 #for B=100
+        #expectedLimit_S=63.2500 #for B=1000
 
         for i in range(0,len(SSums)):           
             if(lower_limit_index==-1):
@@ -127,8 +122,7 @@ class Set:
             elif(upper_limit_index==-1):
                 if( SSums[i]>=expectedLimit_S):
                     upper_limit_index=i-1
-            
-                    
+
         # for i in range(0,len(SSums)):           
         #     if(i<=(len(SSums)/2)):
         #         if( SSums[i]<=expectedLimit_S and lower_limit_index==-1):
@@ -136,22 +130,121 @@ class Set:
         #     elif(i>(len(SSums)/2)):
         #         if( SSums[i]>=expectedLimit_S and upper_limit_index==-1):
         #             upper_limit_index=i-1
-                    
-        if(lower_limit_index==-1 and upper_limit_index==-1):
-            print 'COUDLNT EXCLUDE ANYTHING'
-        elif(lower_limit_index==-1):
-            print 'COUDLNT DETERMINE LOWER LIMIT'
-        elif(upper_limit_index==-1):
-            print 'COUDLNT DETERMINE UPPER LIMIT'
+        
+        # if(lower_limit_index==-1 and upper_limit_index==-1):
+        #     print 'COUDLNT EXCLUDE ANYTHING'
+        # elif(lower_limit_index==-1):
+        #     print 'COUDLNT DETERMINE LOWER LIMIT'
+        # elif(upper_limit_index==-1):
+        #     print 'COUDLNT DETERMINE UPPER LIMIT'
 
+        self.limitCalc_succeeded=(lower_limit_index!=-1 and upper_limit_index!=-1)
 
-        print self.OpName,'/',lower_limit_index,'-',SSums[lower_limit_index],'-',self.getPoint(lower_limit_index) 
-        print self.OpName,'/',upper_limit_index,'-',SSums[upper_limit_index],'-',self.getPoint(upper_limit_index)
-       
+        #print self.OpName,'/',lower_limit_index,'-',SSums[lower_limit_index],'-',self.getPoint(lower_limit_index) 
+        #print self.OpName,'/',upper_limit_index,'-',SSums[upper_limit_index],'-',self.getPoint(upper_limit_index)
+        
         lower_limit=approxLimit(expectedLimit_S,self.getPoint(lower_limit_index-1),SSums[lower_limit_index-1],self.getPoint(lower_limit_index),SSums[lower_limit_index])
         upper_limit=approxLimit(expectedLimit_S,self.getPoint(upper_limit_index),SSums[upper_limit_index],self.getPoint(upper_limit_index+1),SSums[upper_limit_index+1])
 
         self.Limits=(lower_limit,upper_limit)
+
+
+        #Plot SSums and 'calculated limits'
+        plot1=TCanvas('parameterIntegral','EventYields for Parameter %s'%self.OpName,600,600)
+        plot1.SetLogy()
+        limit_legend = TLegend(0.6,0.12,0.9,0.3)
+
+        x, y = array( 'd' ), array( 'd' )
+        for i in range(0,len(SSums)):
+            x.append(self.getPoint(i))
+            y.append(SSums[i])
+        graph=TGraph(len(SSums),x,y)
+        graph.SetLineColor( 2 )
+        graph.SetLineWidth( 2 )
+        graph.SetMarkerColor( 1 )
+        graph.SetMarkerStyle( 3 )
+        graph.SetTitle('EventYields for Parameter F_{%s}'%self.OpName)
+        graph.GetXaxis().SetTitle('F_{%s}/#Lambda^{4} [TeV^{-4}]'%self.OpName)
+        graph.GetYaxis().SetTitle('S')
+        graph.Draw( 'AP' )
+        limit_legend.AddEntry(graph,"S (for B=%.2f)"%BSum,'p')
+
+
+        #plot Line at expectedLimit_S for the given B
+        slimit=TGraph()
+        slimit.SetPoint(0,self.getPoint(0),expectedLimit_S)
+        slimit.SetPoint(1,self.getPoint(sets[self.OpName][0]-1),expectedLimit_S)
+        slimit.SetLineWidth(2)
+        slimit.SetLineStyle(2)
+        slimit.Draw("LSAME")
+        
+        if(self.limitCalc_succeeded):
+            #plot the first points where S<...
+            llimit=TGraph()
+            llimit.SetPoint(0,self.getPoint(lower_limit_index),0)
+            llimit.SetPoint(1,self.getPoint(lower_limit_index),100)
+            llimit.SetLineWidth(2)
+            llimit.SetLineStyle(2)
+            llimit.Draw("LSAME")
+
+            ulimit=TGraph()
+            ulimit.SetPoint(0,self.getPoint(upper_limit_index),0)
+            ulimit.SetPoint(1,self.getPoint(upper_limit_index),100)
+            ulimit.SetLineWidth(2)
+            ulimit.SetLineStyle(2)
+            ulimit.Draw("LSAME")
+        
+            limit_legend.AddEntry(ulimit,'first points where S<...','l')
+
+            #plot the interpolated Limits
+            llimit_interpolated=TGraph()
+            llimit_interpolated.SetPoint(0,self.Limits[0],0)
+            llimit_interpolated.SetPoint(1,self.Limits[0],100)
+            llimit_interpolated.SetLineWidth(2)
+            llimit_interpolated.SetLineStyle(2)
+            llimit_interpolated.SetLineColor(4)
+            llimit_interpolated.Draw("LSAME")
+
+            ulimit_interpolated=TGraph()
+            ulimit_interpolated.SetPoint(0,self.Limits[1],0)
+            ulimit_interpolated.SetPoint(1,self.Limits[1],100)
+            ulimit_interpolated.SetLineWidth(2)
+            ulimit_interpolated.SetLineStyle(2)
+            ulimit_interpolated.SetLineColor(4)
+            ulimit_interpolated.Draw("LSAME")
+
+            limit_legend.AddEntry(ulimit_interpolated,'interpolated limits','l')
+
+
+        #Plot the best Limits from CMS/ATLAS
+        llimit_best=TGraph()
+        ulimit_best=TGraph()
+        with open('best_limits_ssWW.csv','rb') as limitcsv:
+            limitreader=csv.DictReader(limitcsv)
+            for row in limitreader:
+                if(row['parameter']==self.OpName):
+                    llimit_best.SetPoint(0,float(row['mob']),0)
+                    llimit_best.SetPoint(1,float(row['mob']),100)
+                    ulimit_best.SetPoint(0,float(row['pob']),0)
+                    ulimit_best.SetPoint(1,float(row['pob']),100)
+        llimit_best.SetLineWidth(2)
+        llimit_best.SetLineStyle(2)
+        llimit_best.SetLineColor(2)
+        llimit_best.Draw("LSAME")
+        ulimit_best.SetLineWidth(2)
+        ulimit_best.SetLineStyle(2)
+        ulimit_best.SetLineColor(2)
+        ulimit_best.Draw("LSAME")
+        
+        limit_legend.AddEntry(ulimit_best,'ssWW Limits (SMP-17-004)','l')
+        
+        limit_legend.Draw()
+
+        plot1.Update()
+        plot1.GetFrame().SetBorderSize( 12 )
+        plot1.Modified()
+        plot1.Update()        
+        plot1.Print('%s/SPlot_%s_%s_%s.eps'%(path,self.channel,self.OpName,self.LastCut))
         
 
     def getPoint(self,i):
