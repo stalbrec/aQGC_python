@@ -1,0 +1,4 @@
+parameter,anoinput,Npoints,start,end,stepsize
+S0,1,91,-900.0,900.0,20.0
+T8,19,83,-20.5,20.5,0.5
+T9,20,83,-20.5,20.5,0.5

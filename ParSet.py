@@ -7,7 +7,8 @@ gROOT.Reset()
 sets=collections.OrderedDict()
 
 class Set:
-    def __init__(self, dim8op,channelname,Cut):        
+    def __init__(self, dim8op,channelname,Cut):
+        gROOT.SetBatch(True)
         with open("ReweightingRanges/"+channelname+'Range.csv','rb') as csvfile:
             setreader=csv.DictReader(csvfile)
             for row in setreader:
@@ -17,8 +18,10 @@ class Set:
                             float(row['stepsize'])
                             ]})
         self.channel=channelname
-        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic_test.root"%self.channel)
+        gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
+        self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%self.channel)
         self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
+        gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
         self.SHistNames=[]
         self.OpName=dim8op
         self.LastCut=Cut
@@ -28,14 +31,14 @@ class Set:
         SHistDir=self.SFile.GetDirectory('MjjHists_%s_%s'%(self.LastCut,self.channel))
         SHistkeys=SHistDir.GetListOfKeys()
         for key in SHistkeys:
-            if dim8op not in str(key): 
+            if ( (dim8op not in str(key)) or ('AK8' not in str(key))): 
                 continue
             self.SHists.append(key.ReadObj())
 
-        self.BHist=self.BFile.Get("%s/M_jj_AK8"%Cut)
+        self.BHist=self.BFile.Get('%s/M_jj_AK8'%self.LastCut)
 
     def exportPlot(self,logY=True,path="./output/plots"):
-        plottitle="invariant Mass of AK8 Jets (%s-Operator)"%self.OpName
+        plottitle="invariant Mass of AK8 Jets (%s-Operator) in %s"%(self.OpName,self.channel)
         canv = TCanvas(plottitle,plottitle,600,600)
         
         #turning off the standard Statistic-Box
@@ -61,20 +64,23 @@ class Set:
         legend.AddEntry(self.BHist,"QCD","f")
         self.BHist.Draw(""+drawOptions)
         
-        histcounter=2
+        histcounter=1
         
         #number of Parameters to plot:        
-        n=5
-        starti=(sets[self.OpName][0]-1)/2-n
+        n=6
+        med=(sets[self.OpName][0]-1)/2 -1
+        # starti=(sets[self.OpName][0]-1)/2-n
 
-        for i in range(0,2*n+1):
-            index=starti+i
+        # for i in range(0,2*n+1):
+            # index=starti+i
+        for i in range(n):
+            index= i * med/n
             hist=self.SHists[index]
             hist.SetLineColor(histcounter)
             hist.Draw("SAME"+drawOptions)
             legend.AddEntry(hist,"%sjj (%s=%.1fTeV^{-4})"%(self.channel,self.OpName,self.getPoint(index)))
             histcounter+=1
-
+        
         canv.SetTitle(plottitle)
         legend.Draw()        
         canv.Update()
@@ -110,8 +116,20 @@ class Set:
         lower_limit_index= -1
         upper_limit_index= -1
 
+        expectedLimit_S=0
+        if(self.LastCut=='detaAk4sel'):
+            expectedLimit_S=7.8750 #for B=11.084414348
+        elif(self.LastCut=='invMAk4sel_1p5_allcuts'):
+            expectedLimit_S=7.9688 #for B=11.3923148662
+        elif(self.LastCut=='invMAk4sel_2p0_allcuts'):
+            expectedLimit_S=8.6250 #for B=13.8555178046
+        else:
+            expectedLimit_S=1000 
+
+
+        #expectedLimit_S=7.8438 #for B=11.08
         #expectedLimit_S=7.5312 #for B=10
-        expectedLimit_S=7.8438 #for B=11.08
+        #expectedLimit_S=7.5312 #for B=10
         #expectedLimit_S=20.8750 #for B=100
         #expectedLimit_S=63.2500 #for B=1000
 
@@ -150,7 +168,7 @@ class Set:
 
 
         #Plot SSums and 'calculated limits'
-        plot1=TCanvas('parameterIntegral','EventYields for Parameter %s'%self.OpName,600,600)
+        plot1=TCanvas('parameterIntegral','EventYields for Parameter %s (%s)'%(self.OpName,self.channel),600,600)
         plot1.SetLogy()
         limit_legend = TLegend(0.6,0.12,0.9,0.3)
 
@@ -194,7 +212,7 @@ class Set:
             ulimit.SetLineStyle(2)
             ulimit.Draw("LSAME")
         
-            limit_legend.AddEntry(ulimit,'first points where S<...','l')
+            limit_legend.AddEntry(ulimit,'first points where S<%.2f'%expectedLimit_S,'l')
 
             #plot the interpolated Limits
             llimit_interpolated=TGraph()
@@ -253,6 +271,8 @@ class Set:
 
 def approxLimit(S,X1,Y1,X2,Y2):
     m=(Y2-Y1)/(X2-X1)
+    if(m==0):
+        return 0
     b=(Y1*X2-Y2*X1)/(X2-X1)
     return (S-b)/m
 

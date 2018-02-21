@@ -10,8 +10,10 @@ def getPointName(set,point):
     return name
 
 if(__name__=="__main__"):
-    BosonChannel="WPWP"
-    operators=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
+    # BosonChannel="WPWP"
+    # operators=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
+    BosonChannel="ZChannels"
+    operators=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T3","T4","T5","T6","T7","T8","T9"]
 
     # sets={
     #     "S0":[1,91,-900.0,20.0],
