@@ -10,7 +10,7 @@ if(__name__=='__main__'):
         x, y = array( 'd' ), array( 'd' )
         for i in range(1,len(boundaries)):
             x.append(i)
-	    y.append(boundaries[i]-boundaries[i-1])
+            y.append(boundaries[i]-boundaries[i-1])
 
         graph=TGraph(len(boundaries),x,y)
         graph.SetLineColor( 2 )

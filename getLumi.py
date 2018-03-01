@@ -85,14 +85,14 @@ def writeConfig(channel,failed_jobs,lumi):
                 fout.write('<In FileName="%s/Ntuple_%s_%i.root" Lumi="0.0"/>\n'%(path,channel,i))
         fout.write('    <InputTree Name="AnalysisTree" />\n</InputData>')
 if(__name__=='__main__'):
-    channels=['WPWP','WPWM','WMWM']
-    # channels=['WPWP']
+    # channels=['WPWP','WPWM','WMWM']
+    channels=['ZZ']
     for channel in channels:
         print '-----------------%s-----------------'%channel
         failed_jobs=checkChannelFiles(channel)
         indices=range(0,100)
         for i in indices:
-            if( (not (os.path.exists('/nfs/dust/cms/user/albrechs/production/ntuples/NT_%s/Ntuple_%s_%i.root'%(channel,channel,i)))) and (i not in failed_jobs) ):
+            if( ((not (os.path.exists('/nfs/dust/cms/user/albrechs/production/ntuples/NT_%s/Ntuple_%s_%i.root'%(channel,channel,i)))) or not( os.stat('/nfs/dust/cms/user/albrechs/production/ntuples/NT_%s/Ntuple_%s_%i.root'%(channel,channel,i)).st_size>1000000  )) and (i not in failed_jobs) ):
                 failed_jobs.append(i)
         failed_jobs.sort()
         for i in failed_jobs:

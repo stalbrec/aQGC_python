@@ -54,13 +54,20 @@ def checkChannelFiles(channel):
         #if file is smaller than 47kB job definitely failed
         if(size<47000):
             # failed_jobs.append(int(file_index))
+            update_progress(i+1,len(files))
             continue
         rootFile=TFile(files[i])
         gROOT.ProcessLine( "gErrorIgnoreLevel = 1001;")
         wgt_hist=TH1F('wgt_hist','systweights',1,0,100)
         rootFile.Get('Events').Draw('wgt>>wgt_hist')
         N_Reweight_actual=int(wgt_hist.GetEntries())/500
-        N_Reweight_actual-=882
+        
+        if('Z' in channel):
+            N_Reweight_actual-=1080
+        else:
+            N_Reweight_actual-=882
+
+        # print 'actual Reweight Points:',N_Reweight_actual
         if(N_Reweight_actual==N_Reweight_expected):
             failed_jobs.remove(int(file_index))
         update_progress(i+1,len(files))
@@ -82,9 +89,9 @@ def checkChannelFiles(channel):
     
 if(__name__=='__main__'):
     print 'checking Files of following channels:'
-    # channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
+    channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
     # channels=["WPZ","WMZ","ZZ"]
-    channels=["WPZ"]
-    
+    # channels=["WPZ","WMZ","ZZ"]
+    # channels=['WPZ']
     for channel in channels:
         checkChannelFiles(channel)

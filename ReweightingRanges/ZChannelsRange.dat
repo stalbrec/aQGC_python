@@ -1353,579 +1353,453 @@ launch --rwgt_name=FM0_105p00
 
 
 #******************** FM1 ********************
+launch --rwgt_name=FM1_m105p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -105.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m102p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -102.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m99p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -99.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m96p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -96.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m93p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -93.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m90p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -90.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m87p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -87.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m84p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -84.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m81p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -81.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m78p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -78.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m75p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -75.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m72p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -72.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m69p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -69.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m66p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -66.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m63p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -63.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m60p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -60.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m57p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -57.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m54p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -54.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m51p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -51.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m48p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -48.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m45p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -45.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m42p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -42.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m39p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -39.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m36p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -36.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m33p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -33.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m30p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -30.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m27p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -27.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m24p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -24.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m21p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -21.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m18p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -18.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m15p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -15.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m12p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -12.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m9p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -9.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m6p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -6.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_m3p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 -3.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_0p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 0.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_3p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 3.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_6p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 6.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_9p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 9.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_12p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 12.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_15p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 15.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_18p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 18.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_21p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 21.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_24p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 24.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_27p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 27.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_30p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 30.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_33p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 33.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_36p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 36.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_39p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 39.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_42p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 42.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_45p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 45.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_48p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 48.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_51p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 51.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_54p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 54.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_57p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 57.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_60p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 60.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_63p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 63.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_66p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 66.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_69p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 69.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_72p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 72.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_75p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 75.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_78p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 78.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_81p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 81.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_84p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 84.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_87p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 87.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_90p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 90.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_93p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 93.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_96p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 96.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_99p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 99.000000e-12
+
+
+#******************** FM1 ********************
+launch --rwgt_name=FM1_102p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 4 102.000000e-12
+
+
+#******************** FM1 ********************
 launch --rwgt_name=FM1_105p00
         set anoinputs 11 0.000000e+00
         set anoinputs 4 105.000000e-12
 
 
-#******************** FM1 ********************
-launch --rwgt_name=FM1_108p00
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m200p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 4 108.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_111p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 111.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_114p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 114.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_117p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 117.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_120p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 120.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_123p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 123.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_126p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 126.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_129p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 129.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_132p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 132.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_135p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 135.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_138p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 138.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_141p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 141.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_144p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 144.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_147p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 147.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_150p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 150.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_153p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 153.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_156p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 156.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_159p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 159.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_162p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 162.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_165p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 165.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_168p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 168.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_171p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 171.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_174p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 174.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_177p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 177.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_180p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 180.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_183p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 183.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_186p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 186.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_189p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 189.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_192p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 192.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_195p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 195.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_198p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 198.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_201p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 201.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_204p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 204.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_207p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 207.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_210p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 210.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_213p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 213.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_216p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 216.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_219p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 219.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_222p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 222.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_225p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 225.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_228p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 228.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_231p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 231.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_234p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 234.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_237p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 237.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_240p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 240.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_243p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 243.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_246p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 246.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_249p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 249.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_252p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 252.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_255p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 255.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_258p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 258.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_261p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 261.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_264p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 264.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_267p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 267.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_270p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 270.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_273p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 273.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_276p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 276.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_279p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 279.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_282p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 282.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_285p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 285.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_288p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 288.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_291p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 291.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_294p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 294.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_297p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 297.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_300p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 300.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_303p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 303.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_306p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 306.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_309p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 309.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_312p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 312.000000e-12
-
-
-#******************** FM1 ********************
-launch --rwgt_name=FM1_315p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 4 315.000000e-12
+        set anoinputs 5 -200.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m480p00
+launch --rwgt_name=FM2_m195p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -480.000000e-12
+        set anoinputs 5 -195.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m468p00
+launch --rwgt_name=FM2_m190p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -468.000000e-12
+        set anoinputs 5 -190.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m456p00
+launch --rwgt_name=FM2_m185p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -456.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m444p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -444.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m432p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -432.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m420p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -420.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m408p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -408.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m396p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -396.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m384p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -384.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m372p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -372.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m360p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -360.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m348p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -348.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m336p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -336.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m324p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -324.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m312p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -312.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m300p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -300.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m288p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -288.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m276p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -276.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m264p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -264.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m252p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -252.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m240p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -240.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m228p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -228.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m216p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -216.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m204p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -204.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_m192p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 -192.000000e-12
+        set anoinputs 5 -185.000000e-12
 
 
 #******************** FM2 ********************
@@ -1935,27 +1809,69 @@ launch --rwgt_name=FM2_m180p00
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m168p00
+launch --rwgt_name=FM2_m175p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -168.000000e-12
+        set anoinputs 5 -175.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m156p00
+launch --rwgt_name=FM2_m170p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -156.000000e-12
+        set anoinputs 5 -170.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m144p00
+launch --rwgt_name=FM2_m165p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -144.000000e-12
+        set anoinputs 5 -165.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m132p00
+launch --rwgt_name=FM2_m160p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -132.000000e-12
+        set anoinputs 5 -160.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m155p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -155.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m150p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -150.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m145p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -145.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m140p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -140.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m135p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -135.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m130p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -130.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m125p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -125.000000e-12
 
 
 #******************** FM2 ********************
@@ -1965,27 +1881,69 @@ launch --rwgt_name=FM2_m120p00
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m108p00
+launch --rwgt_name=FM2_m115p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -108.000000e-12
+        set anoinputs 5 -115.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m96p00
+launch --rwgt_name=FM2_m110p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -96.000000e-12
+        set anoinputs 5 -110.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m84p00
+launch --rwgt_name=FM2_m105p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -84.000000e-12
+        set anoinputs 5 -105.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m72p00
+launch --rwgt_name=FM2_m100p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -72.000000e-12
+        set anoinputs 5 -100.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m95p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -95.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m90p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -90.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m85p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -85.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m80p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -80.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m75p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -75.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m70p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -70.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m65p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -65.000000e-12
 
 
 #******************** FM2 ********************
@@ -1995,27 +1953,69 @@ launch --rwgt_name=FM2_m60p00
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m48p00
+launch --rwgt_name=FM2_m55p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -48.000000e-12
+        set anoinputs 5 -55.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m36p00
+launch --rwgt_name=FM2_m50p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -36.000000e-12
+        set anoinputs 5 -50.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m24p00
+launch --rwgt_name=FM2_m45p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -24.000000e-12
+        set anoinputs 5 -45.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_m12p00
+launch --rwgt_name=FM2_m40p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 -12.000000e-12
+        set anoinputs 5 -40.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m35p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -35.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m30p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -30.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m25p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -25.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m20p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -20.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m15p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -15.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m10p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -10.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_m5p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 -5.000000e-12
 
 
 #******************** FM2 ********************
@@ -2025,27 +2025,69 @@ launch --rwgt_name=FM2_0p00
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_12p00
+launch --rwgt_name=FM2_5p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 12.000000e-12
+        set anoinputs 5 5.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_24p00
+launch --rwgt_name=FM2_10p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 24.000000e-12
+        set anoinputs 5 10.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_36p00
+launch --rwgt_name=FM2_15p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 36.000000e-12
+        set anoinputs 5 15.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_48p00
+launch --rwgt_name=FM2_20p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 48.000000e-12
+        set anoinputs 5 20.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_25p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 25.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_30p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 30.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_35p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 35.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_40p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 40.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_45p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 45.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_50p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 50.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_55p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 55.000000e-12
 
 
 #******************** FM2 ********************
@@ -2055,27 +2097,69 @@ launch --rwgt_name=FM2_60p00
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_72p00
+launch --rwgt_name=FM2_65p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 72.000000e-12
+        set anoinputs 5 65.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_84p00
+launch --rwgt_name=FM2_70p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 84.000000e-12
+        set anoinputs 5 70.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_96p00
+launch --rwgt_name=FM2_75p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 96.000000e-12
+        set anoinputs 5 75.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_108p00
+launch --rwgt_name=FM2_80p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 108.000000e-12
+        set anoinputs 5 80.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_85p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 85.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_90p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 90.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_95p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 95.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_100p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 100.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_105p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 105.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_110p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 110.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_115p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 115.000000e-12
 
 
 #******************** FM2 ********************
@@ -2085,27 +2169,69 @@ launch --rwgt_name=FM2_120p00
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_132p00
+launch --rwgt_name=FM2_125p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 132.000000e-12
+        set anoinputs 5 125.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_144p00
+launch --rwgt_name=FM2_130p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 144.000000e-12
+        set anoinputs 5 130.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_156p00
+launch --rwgt_name=FM2_135p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 156.000000e-12
+        set anoinputs 5 135.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_168p00
+launch --rwgt_name=FM2_140p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 168.000000e-12
+        set anoinputs 5 140.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_145p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 145.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_150p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 150.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_155p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 155.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_160p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 160.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_165p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 165.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_170p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 170.000000e-12
+
+
+#******************** FM2 ********************
+launch --rwgt_name=FM2_175p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 5 175.000000e-12
 
 
 #******************** FM2 ********************
@@ -2115,297 +2241,27 @@ launch --rwgt_name=FM2_180p00
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_192p00
+launch --rwgt_name=FM2_185p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 192.000000e-12
+        set anoinputs 5 185.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_204p00
+launch --rwgt_name=FM2_190p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 204.000000e-12
+        set anoinputs 5 190.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_216p00
+launch --rwgt_name=FM2_195p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 216.000000e-12
+        set anoinputs 5 195.000000e-12
 
 
 #******************** FM2 ********************
-launch --rwgt_name=FM2_228p00
+launch --rwgt_name=FM2_200p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 5 228.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_240p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 240.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_252p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 252.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_264p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 264.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_276p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 276.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_288p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 288.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_300p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 300.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_312p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 312.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_324p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 324.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_336p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 336.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_348p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 348.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_360p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 360.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_372p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 372.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_384p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 384.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_396p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 396.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_408p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 408.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_420p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 420.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_432p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 432.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_444p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 444.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_456p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 456.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_468p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 468.000000e-12
-
-
-#******************** FM2 ********************
-launch --rwgt_name=FM2_480p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 5 480.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m800p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -800.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m780p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -780.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m760p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -760.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m740p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -740.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m720p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -720.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m700p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -700.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m680p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -680.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m660p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -660.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m640p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -640.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m620p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -620.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m600p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -600.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m580p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -580.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m560p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -560.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m540p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -540.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m520p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -520.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m500p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -500.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m480p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -480.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m460p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -460.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m440p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -440.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m420p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -420.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m400p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -400.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m380p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -380.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m360p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -360.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_m340p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 -340.000000e-12
+        set anoinputs 5 200.000000e-12
 
 
 #******************** FM3 ********************
@@ -2415,9 +2271,27 @@ launch --rwgt_name=FM3_m320p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m300p00
+launch --rwgt_name=FM3_m312p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -300.000000e-12
+        set anoinputs 6 -312.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m304p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -304.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m296p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -296.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m288p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -288.000000e-12
 
 
 #******************** FM3 ********************
@@ -2427,9 +2301,27 @@ launch --rwgt_name=FM3_m280p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m260p00
+launch --rwgt_name=FM3_m272p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -260.000000e-12
+        set anoinputs 6 -272.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m264p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -264.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m256p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -256.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m248p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -248.000000e-12
 
 
 #******************** FM3 ********************
@@ -2439,9 +2331,27 @@ launch --rwgt_name=FM3_m240p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m220p00
+launch --rwgt_name=FM3_m232p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -220.000000e-12
+        set anoinputs 6 -232.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m224p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -224.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m216p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -216.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m208p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -208.000000e-12
 
 
 #******************** FM3 ********************
@@ -2451,9 +2361,27 @@ launch --rwgt_name=FM3_m200p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m180p00
+launch --rwgt_name=FM3_m192p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -180.000000e-12
+        set anoinputs 6 -192.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m184p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -184.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m176p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -176.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m168p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -168.000000e-12
 
 
 #******************** FM3 ********************
@@ -2463,9 +2391,27 @@ launch --rwgt_name=FM3_m160p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m140p00
+launch --rwgt_name=FM3_m152p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -140.000000e-12
+        set anoinputs 6 -152.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m144p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -144.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m136p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -136.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m128p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -128.000000e-12
 
 
 #******************** FM3 ********************
@@ -2475,9 +2421,27 @@ launch --rwgt_name=FM3_m120p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m100p00
+launch --rwgt_name=FM3_m112p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -100.000000e-12
+        set anoinputs 6 -112.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m104p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -104.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m96p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -96.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m88p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -88.000000e-12
 
 
 #******************** FM3 ********************
@@ -2487,9 +2451,27 @@ launch --rwgt_name=FM3_m80p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m60p00
+launch --rwgt_name=FM3_m72p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -60.000000e-12
+        set anoinputs 6 -72.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m64p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -64.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m56p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -56.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m48p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -48.000000e-12
 
 
 #******************** FM3 ********************
@@ -2499,9 +2481,27 @@ launch --rwgt_name=FM3_m40p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_m20p00
+launch --rwgt_name=FM3_m32p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 -20.000000e-12
+        set anoinputs 6 -32.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m24p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -24.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m16p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -16.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_m8p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 -8.000000e-12
 
 
 #******************** FM3 ********************
@@ -2511,9 +2511,27 @@ launch --rwgt_name=FM3_0p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_20p00
+launch --rwgt_name=FM3_8p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 20.000000e-12
+        set anoinputs 6 8.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_16p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 16.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_24p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 24.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_32p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 32.000000e-12
 
 
 #******************** FM3 ********************
@@ -2523,9 +2541,27 @@ launch --rwgt_name=FM3_40p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_60p00
+launch --rwgt_name=FM3_48p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 60.000000e-12
+        set anoinputs 6 48.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_56p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 56.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_64p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 64.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_72p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 72.000000e-12
 
 
 #******************** FM3 ********************
@@ -2535,9 +2571,27 @@ launch --rwgt_name=FM3_80p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_100p00
+launch --rwgt_name=FM3_88p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 100.000000e-12
+        set anoinputs 6 88.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_96p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 96.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_104p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 104.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_112p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 112.000000e-12
 
 
 #******************** FM3 ********************
@@ -2547,9 +2601,27 @@ launch --rwgt_name=FM3_120p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_140p00
+launch --rwgt_name=FM3_128p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 140.000000e-12
+        set anoinputs 6 128.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_136p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 136.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_144p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 144.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_152p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 152.000000e-12
 
 
 #******************** FM3 ********************
@@ -2559,9 +2631,27 @@ launch --rwgt_name=FM3_160p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_180p00
+launch --rwgt_name=FM3_168p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 180.000000e-12
+        set anoinputs 6 168.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_176p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 176.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_184p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 184.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_192p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 192.000000e-12
 
 
 #******************** FM3 ********************
@@ -2571,9 +2661,27 @@ launch --rwgt_name=FM3_200p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_220p00
+launch --rwgt_name=FM3_208p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 220.000000e-12
+        set anoinputs 6 208.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_216p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 216.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_224p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 224.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_232p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 232.000000e-12
 
 
 #******************** FM3 ********************
@@ -2583,9 +2691,27 @@ launch --rwgt_name=FM3_240p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_260p00
+launch --rwgt_name=FM3_248p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 260.000000e-12
+        set anoinputs 6 248.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_256p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 256.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_264p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 264.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_272p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 272.000000e-12
 
 
 #******************** FM3 ********************
@@ -2595,159 +2721,33 @@ launch --rwgt_name=FM3_280p00
 
 
 #******************** FM3 ********************
-launch --rwgt_name=FM3_300p00
+launch --rwgt_name=FM3_288p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 6 300.000000e-12
+        set anoinputs 6 288.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_296p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 296.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_304p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 304.000000e-12
+
+
+#******************** FM3 ********************
+launch --rwgt_name=FM3_312p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 6 312.000000e-12
 
 
 #******************** FM3 ********************
 launch --rwgt_name=FM3_320p00
         set anoinputs 11 0.000000e+00
         set anoinputs 6 320.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_340p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 340.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_360p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 360.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_380p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 380.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_400p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 400.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_420p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 420.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_440p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 440.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_460p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 460.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_480p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 480.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_500p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 500.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_520p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 520.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_540p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 540.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_560p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 560.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_580p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 580.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_600p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 600.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_620p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 620.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_640p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 640.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_660p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 660.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_680p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 680.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_700p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 700.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_720p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 720.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_740p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 740.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_760p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 760.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_780p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 780.000000e-12
-
-
-#******************** FM3 ********************
-launch --rwgt_name=FM3_800p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 6 800.000000e-12
 
 
 #******************** FM4 ********************
@@ -6121,1048 +6121,28 @@ launch --rwgt_name=FT2_6p30
         set anoinputs 13 6.300000e-12
 
 
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m80p00
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m28p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 14 -80.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m78p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -78.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m76p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -76.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m74p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -74.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m72p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -72.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m70p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -70.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m68p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -68.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m66p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -66.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m64p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -64.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m62p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -62.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m60p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -60.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m58p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -58.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m56p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -56.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m54p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -54.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m52p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -52.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m50p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -50.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m48p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -48.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m46p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -46.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m44p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -44.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m42p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -42.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m40p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -40.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m38p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -38.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m36p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -36.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m34p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -34.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m32p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -32.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m30p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -30.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m28p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -28.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m26p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -26.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m24p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -24.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m22p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -22.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m20p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -20.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m18p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -18.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -16.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -14.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m12p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -12.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m10p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -10.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m8p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -8.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m6p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -6.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m4p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -4.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_m2p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 -2.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_0p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 0.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_2p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 2.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_4p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 4.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_6p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 6.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_8p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 8.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_10p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 10.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_12p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 12.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 14.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 16.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_18p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 18.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_20p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 20.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_22p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 22.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_24p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 24.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_26p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 26.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_28p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 28.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_30p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 30.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_32p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 32.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_34p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 34.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_36p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 36.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_38p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 38.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_40p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 40.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_42p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 42.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_44p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 44.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_46p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 46.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_48p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 48.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_50p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 50.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_52p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 52.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_54p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 54.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_56p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 56.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_58p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 58.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_60p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 60.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_62p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 62.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_64p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 64.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_66p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 66.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_68p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 68.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_70p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 70.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_72p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 72.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_74p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 74.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_76p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 76.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_78p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 78.000000e-12
-
-
-#******************** FT3 ********************
-launch --rwgt_name=FT3_80p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 14 80.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m80p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -80.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m78p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -78.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m76p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -76.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m74p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -74.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m72p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -72.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m70p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -70.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m68p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -68.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m66p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -66.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m64p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -64.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m62p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -62.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m60p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -60.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m58p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -58.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m56p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -56.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m54p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -54.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m52p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -52.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m50p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -50.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m48p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -48.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m46p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -46.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m44p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -44.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m42p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -42.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m40p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -40.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m38p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -38.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m36p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -36.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m34p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -34.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m32p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -32.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m30p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -30.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m28p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -28.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m26p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -26.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m24p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -24.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m22p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -22.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m20p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -20.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m18p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -18.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -16.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -14.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m12p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -12.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m10p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -10.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m8p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -8.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m6p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -6.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m4p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -4.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_m2p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 -2.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_0p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 0.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_2p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 2.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_4p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 4.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_6p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 6.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_8p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 8.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_10p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 10.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_12p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 12.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 14.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 16.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_18p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 18.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_20p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 20.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_22p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 22.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_24p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 24.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_26p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 26.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_28p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 28.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_30p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 30.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_32p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 32.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_34p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 34.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_36p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 36.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_38p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 38.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_40p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 40.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_42p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 42.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_44p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 44.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_46p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 46.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_48p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 48.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_50p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 50.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_52p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 52.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_54p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 54.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_56p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 56.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_58p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 58.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_60p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 60.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_62p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 62.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_64p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 64.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_66p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 66.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_68p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 68.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_70p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 70.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_72p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 72.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_74p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 74.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_76p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 76.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_78p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 78.000000e-12
-
-
-#******************** FT4 ********************
-launch --rwgt_name=FT4_80p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 15 80.000000e-12
+        set anoinputs 16 -28.000000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m36p00
+launch --rwgt_name=FT5_m27p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -36.000000e-12
+        set anoinputs 16 -27.300000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m35p10
+launch --rwgt_name=FT5_m26p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -35.100000e-12
+        set anoinputs 16 -26.600000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m34p20
+launch --rwgt_name=FT5_m25p90
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -34.200000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m33p30
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -33.300000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m32p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -32.400000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m31p50
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -31.500000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m30p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -30.600000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m29p70
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -29.700000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m28p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -28.800000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m27p90
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -27.900000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m27p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -27.000000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_m26p10
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 -26.100000e-12
+        set anoinputs 16 -25.900000e-12
 
 
 #******************** FT5 ********************
@@ -7172,39 +6152,51 @@ launch --rwgt_name=FT5_m25p20
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m24p30
+launch --rwgt_name=FT5_m24p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -24.300000e-12
+        set anoinputs 16 -24.500000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m23p40
+launch --rwgt_name=FT5_m23p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -23.400000e-12
+        set anoinputs 16 -23.800000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m22p50
+launch --rwgt_name=FT5_m23p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -22.500000e-12
+        set anoinputs 16 -23.100000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m21p60
+launch --rwgt_name=FT5_m22p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -21.600000e-12
+        set anoinputs 16 -22.400000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m20p70
+launch --rwgt_name=FT5_m21p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -20.700000e-12
+        set anoinputs 16 -21.700000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m19p80
+launch --rwgt_name=FT5_m21p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -19.800000e-12
+        set anoinputs 16 -21.000000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m20p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -20.300000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m19p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -19.600000e-12
 
 
 #******************** FT5 ********************
@@ -7214,39 +6206,51 @@ launch --rwgt_name=FT5_m18p90
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m18p00
+launch --rwgt_name=FT5_m18p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -18.000000e-12
+        set anoinputs 16 -18.200000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m17p10
+launch --rwgt_name=FT5_m17p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -17.100000e-12
+        set anoinputs 16 -17.500000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m16p20
+launch --rwgt_name=FT5_m16p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -16.200000e-12
+        set anoinputs 16 -16.800000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m15p30
+launch --rwgt_name=FT5_m16p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -15.300000e-12
+        set anoinputs 16 -16.100000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m14p40
+launch --rwgt_name=FT5_m15p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -14.400000e-12
+        set anoinputs 16 -15.400000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m13p50
+launch --rwgt_name=FT5_m14p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -13.500000e-12
+        set anoinputs 16 -14.700000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m14p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -14.000000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m13p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -13.300000e-12
 
 
 #******************** FT5 ********************
@@ -7256,39 +6260,51 @@ launch --rwgt_name=FT5_m12p60
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m11p70
+launch --rwgt_name=FT5_m11p90
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -11.700000e-12
+        set anoinputs 16 -11.900000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m10p80
+launch --rwgt_name=FT5_m11p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -10.800000e-12
+        set anoinputs 16 -11.200000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m9p90
+launch --rwgt_name=FT5_m10p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -9.900000e-12
+        set anoinputs 16 -10.500000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m9p00
+launch --rwgt_name=FT5_m9p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -9.000000e-12
+        set anoinputs 16 -9.800000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m8p10
+launch --rwgt_name=FT5_m9p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -8.100000e-12
+        set anoinputs 16 -9.100000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m7p20
+launch --rwgt_name=FT5_m8p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -7.200000e-12
+        set anoinputs 16 -8.400000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m7p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -7.700000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m7p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -7.000000e-12
 
 
 #******************** FT5 ********************
@@ -7298,39 +6314,51 @@ launch --rwgt_name=FT5_m6p30
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m5p40
+launch --rwgt_name=FT5_m5p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -5.400000e-12
+        set anoinputs 16 -5.600000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m4p50
+launch --rwgt_name=FT5_m4p90
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -4.500000e-12
+        set anoinputs 16 -4.900000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m3p60
+launch --rwgt_name=FT5_m4p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -3.600000e-12
+        set anoinputs 16 -4.200000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m2p70
+launch --rwgt_name=FT5_m3p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -2.700000e-12
+        set anoinputs 16 -3.500000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m1p80
+launch --rwgt_name=FT5_m2p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -1.800000e-12
+        set anoinputs 16 -2.800000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_m0p90
+launch --rwgt_name=FT5_m2p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 -0.900000e-12
+        set anoinputs 16 -2.100000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m1p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -1.400000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_m0p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 -0.700000e-12
 
 
 #******************** FT5 ********************
@@ -7340,39 +6368,51 @@ launch --rwgt_name=FT5_0p00
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_0p90
+launch --rwgt_name=FT5_0p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 0.900000e-12
+        set anoinputs 16 0.700000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_1p80
+launch --rwgt_name=FT5_1p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 1.800000e-12
+        set anoinputs 16 1.400000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_2p70
+launch --rwgt_name=FT5_2p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 2.700000e-12
+        set anoinputs 16 2.100000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_3p60
+launch --rwgt_name=FT5_2p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 3.600000e-12
+        set anoinputs 16 2.800000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_4p50
+launch --rwgt_name=FT5_3p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 4.500000e-12
+        set anoinputs 16 3.500000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_5p40
+launch --rwgt_name=FT5_4p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 5.400000e-12
+        set anoinputs 16 4.200000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_4p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 4.900000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_5p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 5.600000e-12
 
 
 #******************** FT5 ********************
@@ -7382,81 +6422,105 @@ launch --rwgt_name=FT5_6p30
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_7p20
+launch --rwgt_name=FT5_7p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 7.200000e-12
+        set anoinputs 16 7.000000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_8p10
+launch --rwgt_name=FT5_7p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 8.100000e-12
+        set anoinputs 16 7.700000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_9p00
+launch --rwgt_name=FT5_8p39
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 9.000000e-12
+        set anoinputs 16 8.400000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_9p90
+launch --rwgt_name=FT5_9p09
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 9.900000e-12
+        set anoinputs 16 9.100000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_10p80
+launch --rwgt_name=FT5_9p79
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 10.800000e-12
+        set anoinputs 16 9.800000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_11p70
+launch --rwgt_name=FT5_10p49
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 11.700000e-12
+        set anoinputs 16 10.500000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_12p60
+launch --rwgt_name=FT5_11p19
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 11.200000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_11p89
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 11.900000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_12p59
         set anoinputs 11 0.000000e+00
         set anoinputs 16 12.600000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_13p50
+launch --rwgt_name=FT5_13p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 13.500000e-12
+        set anoinputs 16 13.300000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_14p40
+launch --rwgt_name=FT5_14p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 14.400000e-12
+        set anoinputs 16 14.000000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_15p30
+launch --rwgt_name=FT5_14p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 15.300000e-12
+        set anoinputs 16 14.700000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_16p20
+launch --rwgt_name=FT5_15p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 16.200000e-12
+        set anoinputs 16 15.400000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_17p10
+launch --rwgt_name=FT5_16p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 17.100000e-12
+        set anoinputs 16 16.100000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_18p00
+launch --rwgt_name=FT5_16p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 18.000000e-12
+        set anoinputs 16 16.800000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_17p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 17.500000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_18p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 18.200000e-12
 
 
 #******************** FT5 ********************
@@ -7466,39 +6530,51 @@ launch --rwgt_name=FT5_18p90
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_19p80
+launch --rwgt_name=FT5_19p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 19.800000e-12
+        set anoinputs 16 19.600000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_20p70
+launch --rwgt_name=FT5_20p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 20.700000e-12
+        set anoinputs 16 20.300000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_21p60
+launch --rwgt_name=FT5_21p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 21.600000e-12
+        set anoinputs 16 21.000000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_22p50
+launch --rwgt_name=FT5_21p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 22.500000e-12
+        set anoinputs 16 21.700000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_23p40
+launch --rwgt_name=FT5_22p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 23.400000e-12
+        set anoinputs 16 22.400000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_24p30
+launch --rwgt_name=FT5_23p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 24.300000e-12
+        set anoinputs 16 23.100000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_23p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 23.800000e-12
+
+
+#******************** FT5 ********************
+launch --rwgt_name=FT5_24p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 16 24.500000e-12
 
 
 #******************** FT5 ********************
@@ -7508,135 +6584,51 @@ launch --rwgt_name=FT5_25p20
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_26p10
+launch --rwgt_name=FT5_25p90
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 26.100000e-12
+        set anoinputs 16 25.900000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_27p00
+launch --rwgt_name=FT5_26p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 27.000000e-12
+        set anoinputs 16 26.600000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_27p90
+launch --rwgt_name=FT5_27p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 27.900000e-12
+        set anoinputs 16 27.300000e-12
 
 
 #******************** FT5 ********************
-launch --rwgt_name=FT5_28p80
+launch --rwgt_name=FT5_28p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 16 28.800000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_29p70
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 29.700000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_30p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 30.600000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_31p50
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 31.500000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_32p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 32.400000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_33p30
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 33.300000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_34p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 34.200000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_35p10
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 35.100000e-12
-
-
-#******************** FT5 ********************
-launch --rwgt_name=FT5_36p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 16 36.000000e-12
+        set anoinputs 16 28.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m24p00
+launch --rwgt_name=FT6_m20p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -24.000000e-12
+        set anoinputs 17 -20.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m23p40
+launch --rwgt_name=FT6_m19p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -23.400000e-12
+        set anoinputs 17 -19.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m22p80
+launch --rwgt_name=FT6_m19p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -22.800000e-12
+        set anoinputs 17 -19.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m22p20
+launch --rwgt_name=FT6_m18p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -22.200000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_m21p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 -21.600000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_m21p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 -21.000000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_m20p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 -20.400000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_m19p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 -19.800000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_m19p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 -19.200000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_m18p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 -18.600000e-12
+        set anoinputs 17 -18.500000e-12
 
 
 #******************** FT6 ********************
@@ -7646,27 +6638,33 @@ launch --rwgt_name=FT6_m18p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m17p40
+launch --rwgt_name=FT6_m17p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -17.400000e-12
+        set anoinputs 17 -17.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m16p80
+launch --rwgt_name=FT6_m17p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -16.800000e-12
+        set anoinputs 17 -17.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m16p20
+launch --rwgt_name=FT6_m16p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -16.200000e-12
+        set anoinputs 17 -16.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m15p60
+launch --rwgt_name=FT6_m16p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -15.600000e-12
+        set anoinputs 17 -16.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_m15p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 -15.500000e-12
 
 
 #******************** FT6 ********************
@@ -7676,27 +6674,33 @@ launch --rwgt_name=FT6_m15p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m14p40
+launch --rwgt_name=FT6_m14p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -14.400000e-12
+        set anoinputs 17 -14.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m13p80
+launch --rwgt_name=FT6_m14p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -13.800000e-12
+        set anoinputs 17 -14.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m13p20
+launch --rwgt_name=FT6_m13p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -13.200000e-12
+        set anoinputs 17 -13.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m12p60
+launch --rwgt_name=FT6_m13p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -12.600000e-12
+        set anoinputs 17 -13.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_m12p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 -12.500000e-12
 
 
 #******************** FT6 ********************
@@ -7706,27 +6710,33 @@ launch --rwgt_name=FT6_m12p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m11p40
+launch --rwgt_name=FT6_m11p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -11.400000e-12
+        set anoinputs 17 -11.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m10p80
+launch --rwgt_name=FT6_m11p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -10.800000e-12
+        set anoinputs 17 -11.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m10p20
+launch --rwgt_name=FT6_m10p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -10.200000e-12
+        set anoinputs 17 -10.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m9p60
+launch --rwgt_name=FT6_m10p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -9.600000e-12
+        set anoinputs 17 -10.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_m9p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 -9.500000e-12
 
 
 #******************** FT6 ********************
@@ -7736,27 +6746,33 @@ launch --rwgt_name=FT6_m9p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m8p40
+launch --rwgt_name=FT6_m8p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -8.400000e-12
+        set anoinputs 17 -8.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m7p80
+launch --rwgt_name=FT6_m8p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -7.800000e-12
+        set anoinputs 17 -8.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m7p20
+launch --rwgt_name=FT6_m7p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -7.200000e-12
+        set anoinputs 17 -7.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m6p60
+launch --rwgt_name=FT6_m7p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -6.600000e-12
+        set anoinputs 17 -7.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_m6p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 -6.500000e-12
 
 
 #******************** FT6 ********************
@@ -7766,27 +6782,33 @@ launch --rwgt_name=FT6_m6p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m5p40
+launch --rwgt_name=FT6_m5p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -5.400000e-12
+        set anoinputs 17 -5.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m4p80
+launch --rwgt_name=FT6_m5p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -4.800000e-12
+        set anoinputs 17 -5.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m4p20
+launch --rwgt_name=FT6_m4p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -4.200000e-12
+        set anoinputs 17 -4.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m3p60
+launch --rwgt_name=FT6_m4p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -3.600000e-12
+        set anoinputs 17 -4.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_m3p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 -3.500000e-12
 
 
 #******************** FT6 ********************
@@ -7796,27 +6818,33 @@ launch --rwgt_name=FT6_m3p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m2p40
+launch --rwgt_name=FT6_m2p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -2.400000e-12
+        set anoinputs 17 -2.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m1p80
+launch --rwgt_name=FT6_m2p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -1.800000e-12
+        set anoinputs 17 -2.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m1p20
+launch --rwgt_name=FT6_m1p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -1.200000e-12
+        set anoinputs 17 -1.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_m0p60
+launch --rwgt_name=FT6_m1p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 -0.600000e-12
+        set anoinputs 17 -1.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_m0p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 -0.500000e-12
 
 
 #******************** FT6 ********************
@@ -7826,27 +6854,33 @@ launch --rwgt_name=FT6_0p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_0p60
+launch --rwgt_name=FT6_0p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 0.600000e-12
+        set anoinputs 17 0.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_1p20
+launch --rwgt_name=FT6_1p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 1.200000e-12
+        set anoinputs 17 1.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_1p80
+launch --rwgt_name=FT6_1p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 1.800000e-12
+        set anoinputs 17 1.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_2p40
+launch --rwgt_name=FT6_2p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 2.400000e-12
+        set anoinputs 17 2.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_2p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 2.500000e-12
 
 
 #******************** FT6 ********************
@@ -7856,27 +6890,33 @@ launch --rwgt_name=FT6_3p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_3p60
+launch --rwgt_name=FT6_3p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 3.600000e-12
+        set anoinputs 17 3.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_4p20
+launch --rwgt_name=FT6_4p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 4.200000e-12
+        set anoinputs 17 4.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_4p80
+launch --rwgt_name=FT6_4p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 4.800000e-12
+        set anoinputs 17 4.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_5p40
+launch --rwgt_name=FT6_5p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 5.400000e-12
+        set anoinputs 17 5.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_5p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 5.500000e-12
 
 
 #******************** FT6 ********************
@@ -7886,27 +6926,33 @@ launch --rwgt_name=FT6_6p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_6p60
+launch --rwgt_name=FT6_6p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 6.600000e-12
+        set anoinputs 17 6.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_7p20
+launch --rwgt_name=FT6_7p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 7.200000e-12
+        set anoinputs 17 7.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_7p80
+launch --rwgt_name=FT6_7p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 7.800000e-12
+        set anoinputs 17 7.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_8p40
+launch --rwgt_name=FT6_8p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 8.400000e-12
+        set anoinputs 17 8.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_8p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 8.500000e-12
 
 
 #******************** FT6 ********************
@@ -7916,27 +6962,33 @@ launch --rwgt_name=FT6_9p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_9p60
+launch --rwgt_name=FT6_9p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 9.600000e-12
+        set anoinputs 17 9.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_10p20
+launch --rwgt_name=FT6_10p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 10.200000e-12
+        set anoinputs 17 10.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_10p80
+launch --rwgt_name=FT6_10p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 10.800000e-12
+        set anoinputs 17 10.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_11p40
+launch --rwgt_name=FT6_11p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 11.400000e-12
+        set anoinputs 17 11.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_11p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 11.500000e-12
 
 
 #******************** FT6 ********************
@@ -7946,27 +6998,33 @@ launch --rwgt_name=FT6_12p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_12p60
+launch --rwgt_name=FT6_12p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 12.600000e-12
+        set anoinputs 17 12.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_13p20
+launch --rwgt_name=FT6_13p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 13.200000e-12
+        set anoinputs 17 13.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_13p80
+launch --rwgt_name=FT6_13p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 13.800000e-12
+        set anoinputs 17 13.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_14p40
+launch --rwgt_name=FT6_14p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 14.400000e-12
+        set anoinputs 17 14.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_14p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 14.500000e-12
 
 
 #******************** FT6 ********************
@@ -7976,27 +7034,33 @@ launch --rwgt_name=FT6_15p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_15p60
+launch --rwgt_name=FT6_15p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 15.600000e-12
+        set anoinputs 17 15.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_16p20
+launch --rwgt_name=FT6_16p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 16.200000e-12
+        set anoinputs 17 16.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_16p80
+launch --rwgt_name=FT6_16p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 16.800000e-12
+        set anoinputs 17 16.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_17p40
+launch --rwgt_name=FT6_17p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 17.400000e-12
+        set anoinputs 17 17.000000e-12
+
+
+#******************** FT6 ********************
+launch --rwgt_name=FT6_17p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 17 17.500000e-12
 
 
 #******************** FT6 ********************
@@ -8006,93 +7070,27 @@ launch --rwgt_name=FT6_18p00
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_18p60
+launch --rwgt_name=FT6_18p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 18.600000e-12
+        set anoinputs 17 18.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_19p20
+launch --rwgt_name=FT6_19p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 19.200000e-12
+        set anoinputs 17 19.000000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_19p80
+launch --rwgt_name=FT6_19p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 19.800000e-12
+        set anoinputs 17 19.500000e-12
 
 
 #******************** FT6 ********************
-launch --rwgt_name=FT6_20p40
+launch --rwgt_name=FT6_20p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 17 20.400000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_21p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 21.000000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_21p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 21.600000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_22p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 22.200000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_22p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 22.800000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_23p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 23.400000e-12
-
-
-#******************** FT6 ********************
-launch --rwgt_name=FT6_24p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 17 24.000000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_m64p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 -64.000000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_m62p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 -62.400000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_m60p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 -60.800000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_m59p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 -59.200000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_m57p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 -57.600000e-12
+        set anoinputs 17 20.000000e-12
 
 
 #******************** FT7 ********************
@@ -8102,39 +7100,45 @@ launch --rwgt_name=FT7_m56p00
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m54p40
+launch --rwgt_name=FT7_m54p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -54.400000e-12
+        set anoinputs 18 -54.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m52p80
+launch --rwgt_name=FT7_m53p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -52.800000e-12
+        set anoinputs 18 -53.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m51p20
+launch --rwgt_name=FT7_m51p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -51.200000e-12
+        set anoinputs 18 -51.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m49p60
+launch --rwgt_name=FT7_m50p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -49.600000e-12
+        set anoinputs 18 -50.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m48p00
+launch --rwgt_name=FT7_m49p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -48.000000e-12
+        set anoinputs 18 -49.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m46p40
+launch --rwgt_name=FT7_m47p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -46.400000e-12
+        set anoinputs 18 -47.600000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_m46p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 -46.200000e-12
 
 
 #******************** FT7 ********************
@@ -8144,39 +7148,45 @@ launch --rwgt_name=FT7_m44p80
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m43p20
+launch --rwgt_name=FT7_m43p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -43.200000e-12
+        set anoinputs 18 -43.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m41p60
+launch --rwgt_name=FT7_m42p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -41.600000e-12
+        set anoinputs 18 -42.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m40p00
+launch --rwgt_name=FT7_m40p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -40.000000e-12
+        set anoinputs 18 -40.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m38p40
+launch --rwgt_name=FT7_m39p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -38.400000e-12
+        set anoinputs 18 -39.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m36p80
+launch --rwgt_name=FT7_m37p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -36.800000e-12
+        set anoinputs 18 -37.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m35p20
+launch --rwgt_name=FT7_m36p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -35.200000e-12
+        set anoinputs 18 -36.400000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_m35p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 -35.000000e-12
 
 
 #******************** FT7 ********************
@@ -8186,39 +7196,45 @@ launch --rwgt_name=FT7_m33p60
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m32p00
+launch --rwgt_name=FT7_m32p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -32.000000e-12
+        set anoinputs 18 -32.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m30p40
+launch --rwgt_name=FT7_m30p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -30.400000e-12
+        set anoinputs 18 -30.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m28p80
+launch --rwgt_name=FT7_m29p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -28.800000e-12
+        set anoinputs 18 -29.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m27p20
+launch --rwgt_name=FT7_m28p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -27.200000e-12
+        set anoinputs 18 -28.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m25p60
+launch --rwgt_name=FT7_m26p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -25.600000e-12
+        set anoinputs 18 -26.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m24p00
+launch --rwgt_name=FT7_m25p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -24.000000e-12
+        set anoinputs 18 -25.200000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_m23p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 -23.800000e-12
 
 
 #******************** FT7 ********************
@@ -8228,39 +7244,45 @@ launch --rwgt_name=FT7_m22p40
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m20p80
+launch --rwgt_name=FT7_m21p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -20.800000e-12
+        set anoinputs 18 -21.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m19p20
+launch --rwgt_name=FT7_m19p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -19.200000e-12
+        set anoinputs 18 -19.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m17p60
+launch --rwgt_name=FT7_m18p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -17.600000e-12
+        set anoinputs 18 -18.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m16p00
+launch --rwgt_name=FT7_m16p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -16.000000e-12
+        set anoinputs 18 -16.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m14p40
+launch --rwgt_name=FT7_m15p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -14.400000e-12
+        set anoinputs 18 -15.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m12p80
+launch --rwgt_name=FT7_m14p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -12.800000e-12
+        set anoinputs 18 -14.000000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_m12p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 -12.600000e-12
 
 
 #******************** FT7 ********************
@@ -8270,39 +7292,45 @@ launch --rwgt_name=FT7_m11p20
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m9p60
+launch --rwgt_name=FT7_m9p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -9.600000e-12
+        set anoinputs 18 -9.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m8p00
+launch --rwgt_name=FT7_m8p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -8.000000e-12
+        set anoinputs 18 -8.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m6p40
+launch --rwgt_name=FT7_m7p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -6.400000e-12
+        set anoinputs 18 -7.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m4p80
+launch --rwgt_name=FT7_m5p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -4.800000e-12
+        set anoinputs 18 -5.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m3p20
+launch --rwgt_name=FT7_m4p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -3.200000e-12
+        set anoinputs 18 -4.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_m1p60
+launch --rwgt_name=FT7_m2p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 -1.600000e-12
+        set anoinputs 18 -2.800000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_m1p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 -1.400000e-12
 
 
 #******************** FT7 ********************
@@ -8312,39 +7340,45 @@ launch --rwgt_name=FT7_0p00
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_1p60
+launch --rwgt_name=FT7_1p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 1.600000e-12
+        set anoinputs 18 1.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_3p20
+launch --rwgt_name=FT7_2p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 3.200000e-12
+        set anoinputs 18 2.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_4p80
+launch --rwgt_name=FT7_4p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 4.800000e-12
+        set anoinputs 18 4.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_6p40
+launch --rwgt_name=FT7_5p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 6.400000e-12
+        set anoinputs 18 5.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_8p00
+launch --rwgt_name=FT7_7p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 8.000000e-12
+        set anoinputs 18 7.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_9p60
+launch --rwgt_name=FT7_8p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 9.600000e-12
+        set anoinputs 18 8.400000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_9p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 9.800000e-12
 
 
 #******************** FT7 ********************
@@ -8354,81 +7388,93 @@ launch --rwgt_name=FT7_11p20
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_12p80
+launch --rwgt_name=FT7_12p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 12.800000e-12
+        set anoinputs 18 12.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_14p40
+launch --rwgt_name=FT7_14p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 14.400000e-12
+        set anoinputs 18 14.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_16p00
+launch --rwgt_name=FT7_15p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 16.000000e-12
+        set anoinputs 18 15.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_17p60
+launch --rwgt_name=FT7_16p79
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 17.600000e-12
+        set anoinputs 18 16.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_19p20
+launch --rwgt_name=FT7_18p19
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 19.200000e-12
+        set anoinputs 18 18.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_20p80
+launch --rwgt_name=FT7_19p59
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 20.800000e-12
+        set anoinputs 18 19.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_22p40
+launch --rwgt_name=FT7_20p99
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 21.000000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_22p39
         set anoinputs 11 0.000000e+00
         set anoinputs 18 22.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_24p00
+launch --rwgt_name=FT7_23p79
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 24.000000e-12
+        set anoinputs 18 23.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_25p60
+launch --rwgt_name=FT7_25p19
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 25.600000e-12
+        set anoinputs 18 25.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_27p20
+launch --rwgt_name=FT7_26p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 27.200000e-12
+        set anoinputs 18 26.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_28p80
+launch --rwgt_name=FT7_28p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 28.800000e-12
+        set anoinputs 18 28.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_30p40
+launch --rwgt_name=FT7_29p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 30.400000e-12
+        set anoinputs 18 29.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_32p00
+launch --rwgt_name=FT7_30p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 32.000000e-12
+        set anoinputs 18 30.800000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_32p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 32.200000e-12
 
 
 #******************** FT7 ********************
@@ -8438,39 +7484,45 @@ launch --rwgt_name=FT7_33p60
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_35p20
+launch --rwgt_name=FT7_35p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 35.200000e-12
+        set anoinputs 18 35.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_36p80
+launch --rwgt_name=FT7_36p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 36.800000e-12
+        set anoinputs 18 36.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_38p40
+launch --rwgt_name=FT7_37p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 38.400000e-12
+        set anoinputs 18 37.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_40p00
+launch --rwgt_name=FT7_39p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 40.000000e-12
+        set anoinputs 18 39.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_41p60
+launch --rwgt_name=FT7_40p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 41.600000e-12
+        set anoinputs 18 40.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_43p20
+launch --rwgt_name=FT7_42p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 43.200000e-12
+        set anoinputs 18 42.000000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_43p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 43.400000e-12
 
 
 #******************** FT7 ********************
@@ -8480,225 +7532,51 @@ launch --rwgt_name=FT7_44p80
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_46p40
+launch --rwgt_name=FT7_46p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 46.400000e-12
+        set anoinputs 18 46.200000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_48p00
+launch --rwgt_name=FT7_47p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 48.000000e-12
+        set anoinputs 18 47.600000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_49p60
+launch --rwgt_name=FT7_49p00
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 49.600000e-12
+        set anoinputs 18 49.000000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_51p20
+launch --rwgt_name=FT7_50p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 51.200000e-12
+        set anoinputs 18 50.400000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_52p80
+launch --rwgt_name=FT7_51p80
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 52.800000e-12
+        set anoinputs 18 51.800000e-12
 
 
 #******************** FT7 ********************
-launch --rwgt_name=FT7_54p40
+launch --rwgt_name=FT7_53p20
         set anoinputs 11 0.000000e+00
-        set anoinputs 18 54.400000e-12
+        set anoinputs 18 53.200000e-12
+
+
+#******************** FT7 ********************
+launch --rwgt_name=FT7_54p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 18 54.600000e-12
 
 
 #******************** FT7 ********************
 launch --rwgt_name=FT7_56p00
         set anoinputs 11 0.000000e+00
         set anoinputs 18 56.000000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_57p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 57.600000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_59p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 59.200000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_60p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 60.800000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_62p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 62.400000e-12
-
-
-#******************** FT7 ********************
-launch --rwgt_name=FT7_64p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 18 64.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -16.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m15p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -15.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m15p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -15.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m14p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -14.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m14p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -14.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -14.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m13p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -13.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m13p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -13.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m12p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -12.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m12p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -12.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m12p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -12.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m11p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -11.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m11p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -11.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m10p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -10.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m10p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -10.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m10p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -10.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m9p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -9.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m9p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -9.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m8p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -8.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m8p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -8.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m8p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -8.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m7p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -7.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m7p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -7.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m6p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -6.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_m6p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 -6.400000e-12
 
 
 #******************** FT8 ********************
@@ -8708,15 +7586,45 @@ launch --rwgt_name=FT8_m6p00
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m5p60
+launch --rwgt_name=FT8_m5p85
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -5.600000e-12
+        set anoinputs 19 -5.850000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m5p20
+launch --rwgt_name=FT8_m5p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -5.200000e-12
+        set anoinputs 19 -5.700000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m5p55
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -5.550000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m5p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -5.400000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m5p25
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -5.250000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m5p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -5.100000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m4p95
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -4.950000e-12
 
 
 #******************** FT8 ********************
@@ -8726,15 +7634,45 @@ launch --rwgt_name=FT8_m4p80
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m4p40
+launch --rwgt_name=FT8_m4p65
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -4.400000e-12
+        set anoinputs 19 -4.650000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m4p00
+launch --rwgt_name=FT8_m4p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -4.000000e-12
+        set anoinputs 19 -4.500000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m4p35
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -4.350000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m4p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -4.200000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m4p05
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -4.050000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m3p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -3.900000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m3p75
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -3.750000e-12
 
 
 #******************** FT8 ********************
@@ -8744,15 +7682,45 @@ launch --rwgt_name=FT8_m3p60
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m3p20
+launch --rwgt_name=FT8_m3p45
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -3.200000e-12
+        set anoinputs 19 -3.450000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m2p80
+launch --rwgt_name=FT8_m3p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -2.800000e-12
+        set anoinputs 19 -3.300000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m3p15
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -3.150000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m3p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -3.000000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m2p85
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -2.850000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m2p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -2.700000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m2p55
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -2.550000e-12
 
 
 #******************** FT8 ********************
@@ -8762,15 +7730,45 @@ launch --rwgt_name=FT8_m2p40
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m2p00
+launch --rwgt_name=FT8_m2p25
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -2.000000e-12
+        set anoinputs 19 -2.250000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m1p60
+launch --rwgt_name=FT8_m2p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -1.600000e-12
+        set anoinputs 19 -2.100000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m1p95
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -1.950000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m1p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -1.800000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m1p65
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -1.650000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m1p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -1.500000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m1p35
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -1.350000e-12
 
 
 #******************** FT8 ********************
@@ -8780,15 +7778,45 @@ launch --rwgt_name=FT8_m1p20
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m0p80
+launch --rwgt_name=FT8_m1p05
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -0.800000e-12
+        set anoinputs 19 -1.050000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_m0p40
+launch --rwgt_name=FT8_m0p90
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 -0.400000e-12
+        set anoinputs 19 -0.900000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m0p75
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -0.750000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m0p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -0.600000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m0p45
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -0.450000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m0p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -0.300000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_m0p15
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 -0.150000e-12
 
 
 #******************** FT8 ********************
@@ -8798,15 +7826,45 @@ launch --rwgt_name=FT8_0p00
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_0p40
+launch --rwgt_name=FT8_0p15
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 0.400000e-12
+        set anoinputs 19 0.150000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_0p80
+launch --rwgt_name=FT8_0p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 0.800000e-12
+        set anoinputs 19 0.300000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_0p45
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 0.450000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_0p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 0.600000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_0p75
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 0.750000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_0p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 0.900000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_1p05
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 1.050000e-12
 
 
 #******************** FT8 ********************
@@ -8816,15 +7874,45 @@ launch --rwgt_name=FT8_1p20
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_1p60
+launch --rwgt_name=FT8_1p35
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 1.600000e-12
+        set anoinputs 19 1.350000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_2p00
+launch --rwgt_name=FT8_1p50
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 2.000000e-12
+        set anoinputs 19 1.500000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_1p65
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 1.650000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_1p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 1.800000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_1p95
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 1.950000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_2p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 2.100000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_2p25
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 2.250000e-12
 
 
 #******************** FT8 ********************
@@ -8834,15 +7922,45 @@ launch --rwgt_name=FT8_2p40
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_2p80
+launch --rwgt_name=FT8_2p55
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 2.800000e-12
+        set anoinputs 19 2.550000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_3p20
+launch --rwgt_name=FT8_2p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 3.200000e-12
+        set anoinputs 19 2.700000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_2p85
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 2.850000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_3p00
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 3.000000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_3p15
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 3.150000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_3p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 3.300000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_3p45
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 3.450000e-12
 
 
 #******************** FT8 ********************
@@ -8852,15 +7970,45 @@ launch --rwgt_name=FT8_3p60
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_4p00
+launch --rwgt_name=FT8_3p75
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 4.000000e-12
+        set anoinputs 19 3.750000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_4p40
+launch --rwgt_name=FT8_3p90
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 4.400000e-12
+        set anoinputs 19 3.900000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_4p05
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 4.050000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_4p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 4.200000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_4p35
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 4.350000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_4p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 4.500000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_4p65
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 4.650000e-12
 
 
 #******************** FT8 ********************
@@ -8870,339 +8018,51 @@ launch --rwgt_name=FT8_4p80
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_5p20
+launch --rwgt_name=FT8_4p95
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 5.200000e-12
+        set anoinputs 19 4.950000e-12
 
 
 #******************** FT8 ********************
-launch --rwgt_name=FT8_5p60
+launch --rwgt_name=FT8_5p10
         set anoinputs 11 0.000000e+00
-        set anoinputs 19 5.600000e-12
+        set anoinputs 19 5.100000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_5p25
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 5.250000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_5p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 5.400000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_5p55
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 5.550000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_5p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 5.700000e-12
+
+
+#******************** FT8 ********************
+launch --rwgt_name=FT8_5p85
+        set anoinputs 11 0.000000e+00
+        set anoinputs 19 5.850000e-12
 
 
 #******************** FT8 ********************
 launch --rwgt_name=FT8_6p00
         set anoinputs 11 0.000000e+00
         set anoinputs 19 6.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_6p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 6.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_6p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 6.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_7p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 7.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_7p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 7.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_8p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 8.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_8p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 8.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_8p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 8.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_9p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 9.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_9p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 9.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_10p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 10.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_10p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 10.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_10p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 10.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_11p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 11.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_11p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 11.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_12p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 12.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_12p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 12.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_12p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 12.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_13p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 13.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_13p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 13.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 14.000000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_14p40
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 14.400000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_14p80
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 14.800000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_15p20
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 15.200000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_15p60
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 15.600000e-12
-
-
-#******************** FT8 ********************
-launch --rwgt_name=FT8_16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 19 16.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m40p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -40.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m39p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -39.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m38p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -38.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m37p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -37.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m36p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -36.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m35p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -35.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m34p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -34.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m33p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -33.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m32p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -32.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m31p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -31.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m30p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -30.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m29p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -29.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m28p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -28.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m27p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -27.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m26p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -26.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m25p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -25.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m24p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -24.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m23p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -23.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m22p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -22.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m21p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -21.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m20p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -20.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m19p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -19.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m18p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -18.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m17p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -17.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -16.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m15p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -15.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -14.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_m13p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 -13.000000e-12
 
 
 #******************** FT9 ********************
@@ -9212,15 +8072,57 @@ launch --rwgt_name=FT9_m12p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m11p00
+launch --rwgt_name=FT9_m11p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -11.000000e-12
+        set anoinputs 20 -11.700000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m10p00
+launch --rwgt_name=FT9_m11p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -10.000000e-12
+        set anoinputs 20 -11.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m11p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -11.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m10p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -10.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m10p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -10.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m10p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -10.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m9p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -9.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m9p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -9.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m9p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -9.300000e-12
 
 
 #******************** FT9 ********************
@@ -9230,15 +8132,57 @@ launch --rwgt_name=FT9_m9p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m8p00
+launch --rwgt_name=FT9_m8p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -8.000000e-12
+        set anoinputs 20 -8.700000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m7p00
+launch --rwgt_name=FT9_m8p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -7.000000e-12
+        set anoinputs 20 -8.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m8p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -8.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m7p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -7.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m7p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -7.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m7p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -7.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m6p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -6.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m6p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -6.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m6p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -6.300000e-12
 
 
 #******************** FT9 ********************
@@ -9248,15 +8192,57 @@ launch --rwgt_name=FT9_m6p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m5p00
+launch --rwgt_name=FT9_m5p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -5.000000e-12
+        set anoinputs 20 -5.700000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m4p00
+launch --rwgt_name=FT9_m5p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -4.000000e-12
+        set anoinputs 20 -5.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m5p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -5.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m4p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -4.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m4p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -4.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m4p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -4.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m3p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -3.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m3p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -3.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m3p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -3.300000e-12
 
 
 #******************** FT9 ********************
@@ -9266,15 +8252,57 @@ launch --rwgt_name=FT9_m3p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m2p00
+launch --rwgt_name=FT9_m2p70
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -2.000000e-12
+        set anoinputs 20 -2.700000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_m1p00
+launch --rwgt_name=FT9_m2p40
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 -1.000000e-12
+        set anoinputs 20 -2.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m2p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -2.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m1p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -1.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m1p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -1.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m1p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -1.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m0p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -0.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m0p60
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -0.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_m0p30
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 -0.300000e-12
 
 
 #******************** FT9 ********************
@@ -9284,15 +8312,57 @@ launch --rwgt_name=FT9_0p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_1p00
+launch --rwgt_name=FT9_0p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 1.000000e-12
+        set anoinputs 20 0.300000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_2p00
+launch --rwgt_name=FT9_0p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 2.000000e-12
+        set anoinputs 20 0.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_0p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 0.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_1p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 1.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_1p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 1.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_1p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 1.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_2p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 2.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_2p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 2.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_2p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 2.700000e-12
 
 
 #******************** FT9 ********************
@@ -9302,15 +8372,57 @@ launch --rwgt_name=FT9_3p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_4p00
+launch --rwgt_name=FT9_3p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 4.000000e-12
+        set anoinputs 20 3.300000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_5p00
+launch --rwgt_name=FT9_3p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 5.000000e-12
+        set anoinputs 20 3.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_3p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 3.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_4p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 4.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_4p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 4.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_4p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 4.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_5p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 5.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_5p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 5.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_5p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 5.700000e-12
 
 
 #******************** FT9 ********************
@@ -9320,15 +8432,57 @@ launch --rwgt_name=FT9_6p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_7p00
+launch --rwgt_name=FT9_6p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 7.000000e-12
+        set anoinputs 20 6.300000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_8p00
+launch --rwgt_name=FT9_6p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 8.000000e-12
+        set anoinputs 20 6.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_6p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 6.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_7p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 7.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_7p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 7.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_7p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 7.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_8p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 8.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_8p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 8.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_8p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 8.700000e-12
 
 
 #******************** FT9 ********************
@@ -9338,188 +8492,62 @@ launch --rwgt_name=FT9_9p00
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_10p00
+launch --rwgt_name=FT9_9p30
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 10.000000e-12
+        set anoinputs 20 9.300000e-12
 
 
 #******************** FT9 ********************
-launch --rwgt_name=FT9_11p00
+launch --rwgt_name=FT9_9p60
         set anoinputs 11 0.000000e+00
-        set anoinputs 20 11.000000e-12
+        set anoinputs 20 9.600000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_9p90
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 9.900000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_10p20
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 10.200000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_10p50
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 10.500000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_10p80
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 10.800000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_11p10
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 11.100000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_11p40
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 11.400000e-12
+
+
+#******************** FT9 ********************
+launch --rwgt_name=FT9_11p70
+        set anoinputs 11 0.000000e+00
+        set anoinputs 20 11.700000e-12
 
 
 #******************** FT9 ********************
 launch --rwgt_name=FT9_12p00
         set anoinputs 11 0.000000e+00
         set anoinputs 20 12.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_13p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 13.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_14p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 14.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_15p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 15.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_16p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 16.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_17p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 17.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_18p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 18.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_19p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 19.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_20p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 20.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_21p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 21.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_22p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 22.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_23p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 23.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_24p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 24.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_25p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 25.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_26p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 26.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_27p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 27.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_28p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 28.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_29p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 29.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_30p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 30.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_31p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 31.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_32p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 32.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_33p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 33.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_34p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 34.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_35p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 35.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_36p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 36.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_37p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 37.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_38p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 38.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_39p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 39.000000e-12
-
-
-#******************** FT9 ********************
-launch --rwgt_name=FT9_40p00
-        set anoinputs 11 0.000000e+00
-        set anoinputs 20 40.000000e-12
 
 
