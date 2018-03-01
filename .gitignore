@@ -1,2 +1,5 @@
-*pyc
+*.pyc
+*.d
+*.so
+
 /output/archiv
