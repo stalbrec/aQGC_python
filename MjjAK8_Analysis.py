@@ -3,15 +3,10 @@ import ParSet,subprocess,os,shutil,csv,glob
 from time import gmtime,strftime
 
 def LimitChannel(channel):
-    # latex_in=open('latex.txt','rt')
     dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
     # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
 
     for cut in ['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']:
-    # for cut in ['detaAk4sel','invMAk4sel_1p5_allcuts','invMAk4sel_2p0_allcuts']:
-    # for cut in ['detaAk8selVV']:
-    # for cut in ['invMAk4sel_1p5_allcuts']:
-        # latex_out=open('output/%s_new_%s.tex'%(channel,cut),'wt')
         plot_dir='output/plots/%s'%cut
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)        
@@ -23,36 +18,33 @@ def LimitChannel(channel):
         for op in dim8op:
             print '=============%s-%s============='%(op,cut)
             current_Set_AK8 = ParSet.Set(op,channel,cut)
-
             current_Set_AK8.calcLimits(True)
-            
-            current_Set_AK8.exportPlot(True,plot_dir,True)
-
             print 'Limits:'
             print op,'-',current_Set_AK8.Limits
-
-            current_Set_AK4 = ParSet.Set(op,channel,cut,4)
-
-            current_Set_AK4.exportPlot(True,'output/plots/%s'%cut,True)
-            
-        
-            # limits.append(current_Set.Limits)
-            # limits_success.append(str(current_Set.limitCalc_succeeded))
             print '==========================='
-            print
-        
-
-            # for line in latex_in:
-            #     if op in line:
-            #         latex_out.write(line.replace('X','(%.2f, %.2f)'%current_Set.Limits))
+            print        
             csvwriter.writerow({'parameter':op,
                                 'limmin':current_Set_AK8.Limits[0],
                                 'limmax':current_Set_AK8.Limits[1],
                                 'limminmax':'(%.2f, %.2f)'%current_Set_AK8.Limits,
                                 'limitCalc_succeeded':str(current_Set_AK8.limitCalc_succeeded)})
-        # latex_out.close()
         csv_out.close()
-    # latex_in.close()
+
+def exportMjjPlots(channel):
+    dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
+    # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+
+    for cut in ['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']:
+        plot_dir='output/plots/MjjPlots/%s/%s'%(channel,cut)
+        if not os.path.exists(plot_dir):
+            os.makedirs(plot_dir)        
+        for op in dim8op:
+            current_Set_AK8 = ParSet.Set(op,channel,cut)            
+            current_Set_AK8.exportPlot(True,plot_dir,True)
+
+            current_Set_AK4 = ParSet.Set(op,channel,cut,4)
+            current_Set_AK4.exportPlot(True,plot_dir,True)
+
 
 def FitChannel(channel):
     # dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
@@ -61,8 +53,6 @@ def FitChannel(channel):
     chi2={}
     bestn={}
     for cut in ['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']:
-    # for cut in ['invMAk4sel_1p5_allcuts']:
-    # for cut in ['detaAk8selVV']:
         for op in dim8op:
 
 
@@ -89,35 +79,44 @@ def FitChannel(channel):
     #     print '------------------------------- %s -------------------------------:'%cut
     #     print 'best n:',bestn[cut][0],'w/ chi2/ndf:',bestn[cut][1]
     #     print chi2[cut]
+
+
+
+
 if(__name__=="__main__"):
     # channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
     # channels=["WPWP","WPWM","WMWM"]
     channels=["WPWM"]
-    # channels=["WPZ"]
 
+
+    backup=False
     archiv_path='/afs/desy.de/user/a/albrechs/aQGCVVjj/python/output/archiv/%s/'%strftime("%m_%d_%H_%M_%S",gmtime())
-    os.mkdir(archiv_path)
-        
+    if(backup):
+        os.mkdir(archiv_path)
     backup_files=[]
 
     for channel in channels:
         # LimitChannel(channel)
-        FitChannel(channel)
+        exportMjjPlots(channel)
+        # FitChannel(channel)
         # filenames=["%s_%s.eps"%(channel,op) for op in dim8op]
         # os.chdir("plots")
         # subprocess.call(["gs","-sPAPERSIZE=a4","-sDEVICE=pdfwrite","-dNOPAUSE","-dBATCH","-dSAFER","-sOutputFile=plots.pdf"]+filenames)
         # os.chdir("..")
-
-        shutil.copyfile('ReweightingRanges/%sRange.csv'%channel,'%s/%sRange.csv'%(archiv_path,channel))
+        if(backup):
+            shutil.copyfile('ReweightingRanges/%sRange.csv'%channel,'%s/%sRange.csv'%(archiv_path,channel))
     
-    os.chdir('output')
-    backup_files=glob.glob("*.csv")
-    backup_files+=glob.glob("*.tex")
-    for bfile in backup_files:
-        shutil.copyfile(bfile,archiv_path+bfile)
-    subprocess.call(['tar','cfz','plots.tar.gz','plots/'])
-    shutil.move('plots.tar.gz',archiv_path)
-    os.chdir('..')
+
+
+    if(backup):
+        os.chdir('output')
+        backup_files=glob.glob("*.csv")
+        backup_files+=glob.glob("*.tex")
+        for bfile in backup_files:
+            shutil.copyfile(bfile,archiv_path+bfile)
+        subprocess.call(['tar','cfz','plots.tar.gz','plots/'])
+        shutil.move('plots.tar.gz',archiv_path)
+        os.chdir('..')
     
         # fout=open("output/%s_new.tex"%channel,"wt")
         # with open("latex.txt","rt") as fin:

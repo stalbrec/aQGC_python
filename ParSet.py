@@ -139,7 +139,7 @@ class Set:
                 plottitle='%sFit %s - %s - %s'%(fname,self.channel,self.OpName,self.getPointName(i))
             
                 shape=shapes[fname]
-                shape.fitTo(sigdh,RooFit.Range("FitRange"))
+                shape.fitTo(sigdh,RooFit.Range("FitRange"),RooFit.SumW2Error(True))
 
                 frame=mjj.frame(RooFit.Title(plottitle))
                 frame.GetYaxis().SetTitleOffset(2)
@@ -259,7 +259,7 @@ class Set:
 
             #Same for refPlot
             shaperef=shapes[fname]
-            shaperef.fitTo(refdh,RooFit.Range("FitRange"))
+            shaperef.fitTo(refdh,RooFit.Range("FitRange"),RooFit.SumW2Error(True))
 
             frameref=mjjref.frame(RooFit.Title(plottitleref))
             frameref.GetYaxis().SetTitleOffset(2)
@@ -418,7 +418,7 @@ class Set:
         BGHist.GetXaxis().SetTitle('M_{jj-AK8} [GeV/c^{2}]')
         BGHist.GetYaxis().SetTitle('Events')
         BGHist.GetXaxis().SetRangeUser(0,7500)
-        BGHist.GetYaxis().SetRangeUser(10**(-3),10**5)
+        # BGHist.GetYaxis().SetRangeUser(10**(-3),10**5)
         BGHist.GetYaxis().SetTitleOffset(1.3)
 
         legend.AddEntry(BGHist,"QCD","f")
