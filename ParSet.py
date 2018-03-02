@@ -3,9 +3,8 @@ import csv,collections,numpy
 from ROOT import gROOT, gStyle, gPad,TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE
 from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooFit, RooArgList,RooCBShape,RooVoigtian,RooBreitWigner,RooFFTConvPdf,RooLandau,RooBifurGauss,RooPolynomial,RooChebychev
 
-gROOT.ProcessLine('.L RooFit/RooLogistics.cxx+')
-gROOT.ProcessLine('.L RooFit/RooExpAndGauss.C+')
-from ROOT import RooLogistics,RooExpAndGauss
+from RooFitHist import RooFitHist
+
 
 #import myutils,shutil,os
 gROOT.Reset()
@@ -41,7 +40,7 @@ class Set:
 
         Ranges={"WPWP":"WPWPRange",
             "WPWM":"WPMWMRange",
-            "WMWM":"WPWMRange",
+            "WMWM":"WPMWMRange",
             "WPZ":"ZRange",
             "WMZ":"ZRange",
             "ZZ":"ZRange"}
@@ -51,15 +50,18 @@ class Set:
         if('_allcuts' in tmpCut):
             tmpCut=tmpCut[:len(tmpCut)-len('_allcuts')]
         
-        self.RefHist=self.SFile.Get('%s/M_jj_AK%i'%(self.LastCut,self.jetRadius))
+        # self.RefHist=self.SFile.Get('%s/M_jj_AK%i'%(self.LastCut,self.jetRadius))
 
         
         SHistDir=self.SFile.GetDirectory('MjjHists_%s_%s'%(tmpCut,Ranges[self.channel]))
-        print 'MjjHists_%s_%s'%(tmpCut,Ranges[self.channel])
+        # print 'MjjHists_%s_%s'%(tmpCut,Ranges[self.channel])
+
         SHistkeys=SHistDir.GetListOfKeys()
         for key in SHistkeys:
             # if(('("M_jj_AK%i")'%self.jetRadius) in str(key)):
             #        self.BHist=key.ReadObj()
+            if( ('"M_jj_AK%i"'%self.jetRadius) in str(key)):
+                self.RefHist=key.ReadObj()
             if ( (dim8op not in str(key)) or (('AK%i'%self.jetRadius) not in str(key))): 
                 continue
             self.SHists.append(key.ReadObj())
@@ -74,231 +76,22 @@ class Set:
         for i in range(1,len(boundaries)):
 	    self.xbins.append(boundaries[i])
 
+    def RooFitSig(self,path=''):
+        #new binning from 1050GeV to 14000GeV in 10GeV steps:
+        #old binning is in 1GeV steps so NBins:14000 but len(bins):14001 upper boundary of last bin has to be included in rebinning array
 
+        refhist=self.RefHist
+
+        RooFitHist(self.RefHist,'%s_%s_refhist'%(self.channel,self.LastCut),path)
+            
     def RooFitSignal(self,path=''):
-        gStyle.SetOptFit(1100)
-
-        gStyle.SetOptTitle(0)
-        RooFit.SumW2Error(kTRUE)
-
         # for i in range(len(self.SHists)):
         for i in [1]:
-            hist=self.SHists[i].Rebin(len(self.xbins)-1,"%s_%s_%s"%(self.channel,self.LastCut,self.getPointName(i)),self.xbins)
-            hist.GetXaxis().SetTitle('M_{jj-AK8} [GeV/c^{2}]')
-            hist.GetYaxis().SetTitle('Events')
-
-            mjj=RooRealVar('mjj','M_{jj-AK8}',0,14000,'GeV')
-            mjjral=RooArgList(mjj)
-            sigdh=RooDataHist('sigdh','sigdh',mjjral,RooFit.Import(hist))
-
-            shapes={}
-            #CrystalBall
-            mean = RooRealVar('#mu','mean',0,5000)
-            sigma= RooRealVar('#sigma','sigma',0,5000)
-            alpha=RooRealVar('#alpha','Gaussian tail',-10000,0)
-            n=RooRealVar('n','Normalization',0,10000)            
-            # mean.setConstant(kFALSE)
-            # sigma.setConstant(kFALSE)
-            # alpha.setConstant(kFALSE)
-            # n.setConstant(kFALSE)
-            cbshape=RooCBShape('cbshape','crystalball PDF',mjj,mean,sigma,alpha,n)
-            shapes.update({'CrystalBall':cbshape})
-
-            #Gaussian
-            gaussmean = RooRealVar('#mu_{gauss}','mass mean value',0,5000)
-            gausssigma= RooRealVar('#sigma_{gauss}','mass resolution',0,5000)            
-            gauss=RooGaussian('gauss','gauss',mjj,gaussmean,gausssigma)
-            shapes.update({'Gauss':gauss})
-
-            #Voigt
-            voigtmean = RooRealVar('#mu','mass mean value',0,5000)
-            voigtwidth = RooRealVar('#gamma','width of voigt',0,5000)
-            voigtsigma= RooRealVar('#sigma','mass resolution',0,5000)
-            voigt=RooVoigtian('voigt','voigt',mjj,voigtmean,voigtwidth,voigtsigma)
-            shapes.update({'Voigt':voigt})
+            RooFitHist(self.SHists[i],"%s_%s_%s"%(self.channel,self.LastCut,self.getPointName(i)),path)
             
-            # #BreitWigner
-            bwmean = RooRealVar('#mu','mass mean value',3800,0,5000)
-            bwwidth = RooRealVar('#sigma','width of bw',1000,0,5000)            
-            bw=RooBreitWigner('bw','bw',mjj,bwmean,bwwidth)
-            shapes.update({'BreitWigner':bw})
-
-            #Landau
-            landaumean=RooRealVar('#mu_{landau}','mean landau',0,5000)
-            landausigma= RooRealVar('#sigma_{landau}','mass resolution',0,5000)
-            landau=RooLandau('landau','landau',mjj,landaumean,landausigma)
-            shapes.update({'Landau':landau})
-
-            #LandauGauss Convolution                        
-            landaugauss=RooFFTConvPdf('landaugauss','landau x gauss',mjj,landau,gauss)            
-            shapes.update({'LandauGauss':landaugauss})
-
-            mjj.setRange("FitRange",1050.,9000.)
             
-            for fname in ['Landau','CrystalBall','LandauGauss']:#,'BreitWigner']:
-                plottitle='%sFit %s - %s - %s'%(fname,self.channel,self.OpName,self.getPointName(i))
-            
-                shape=shapes[fname]
-                shape.fitTo(sigdh,RooFit.Range("FitRange"),RooFit.SumW2Error(True))
 
-                frame=mjj.frame(RooFit.Title(plottitle))
-                frame.GetYaxis().SetTitleOffset(2)
-                #frame.SetName(plottitle)
-                sigdh.plotOn(frame,RooFit.MarkerStyle(4))
-                shape.plotOn(frame,RooFit.LineColor(2))
-                            
-                ndof=sigdh.numEntries()-5
-                #chiSquare legend
-                chi2 = frame.chiSquare()
-                probChi2 = TMath.Prob(chi2*ndof, ndof)
-                chi2 = round(chi2,2)
-                probChi2 = round(probChi2,2)
-                leg = TLegend(0.5,0.5,0.9,0.65)
-                leg.SetBorderSize(0)
-                leg.SetFillStyle(0)
-                shape.paramOn(frame, RooFit.Layout(0.5,0.9,0.9))
-                leg.AddEntry(0,'#chi^{2} ='+str(chi2),'')
-                leg.AddEntry(0,'Prob #chi^{2} = '+str(probChi2),'')
-                leg.SetTextSize(0.04)
-                frame.addObject(leg)
-
-                canv=TCanvas(plottitle,plottitle,700,700)
-                # canv.SetLogy()
-                canv.SetLeftMargin(0.20) 
-                canv.cd()
-
-                frame.Draw()
-                   
-                canv.Print(path+'/%s_%s_%s_%s.eps'%(self.channel,self.LastCut,self.getPointName(i),fname))
-
-    def RooFitRef(self,path=''):
-        gStyle.SetOptFit(1100)
-
-        gStyle.SetOptTitle(0)
-        RooFit.SumW2Error(kTRUE)
-        
-        mjjref=RooRealVar('mjjref','M_{jj-AK8}',0,14000,'GeV')
-        mjjralref=RooArgList(mjjref)
-        refdh=RooDataHist('refdh','refdh',mjjralref,RooFit.Import(self.RefHist))
-        
-        shapes={}
-        #CrystalBall
-        mean = RooRealVar('#mu','mean',0,5000)
-        sigma= RooRealVar('#sigma','sigma',0,5000)
-        alpha=RooRealVar('#alpha','Gaussian tail',-10000,0)
-        n=RooRealVar('n','Normalization',0,10000)            
-        cbshape=RooCBShape('cbshape','crystalball PDF',mjjref,mean,sigma,alpha,n)
-        shapes.update({'CrystalBall':cbshape})
-
-        #Gaussian
-        gaussmean = RooRealVar('#mu_{gauss}','mass mean value',0,5000)
-        gausssigma= RooRealVar('#sigma_{gauss}','mass resolution',0,5000)            
-        gauss=RooGaussian('gauss','gauss',mjjref,gaussmean,gausssigma)
-        shapes.update({'Gauss':gauss})
-            
-        #Voigt
-        voigtmean = RooRealVar('#mu','mass mean value',0,5000)
-        voigtwidth = RooRealVar('#gamma','width of voigt',0,5000)
-        voigtsigma= RooRealVar('#sigma','mass resolution',0,5000)
-        voigt=RooVoigtian('voigt','voigt',mjjref,voigtmean,voigtwidth,voigtsigma)
-        shapes.update({'Voigt':voigt})
-            
-        #BreitWigner
-        bwmean = RooRealVar('#mu','mass mean value',3800,0,5000)
-        bwwidth = RooRealVar('#sigma','width of bw',1000,0,5000)            
-        bw=RooBreitWigner('bw','bw',mjjref,bwmean,bwwidth)
-        shapes.update({'BreitWigner':bw})
-
-        #Landau
-        landaumean=RooRealVar('#mu_{landau}','mean landau',0,5000)
-        landausigma= RooRealVar('#sigma_{landau}','mass resolution',0,5000)
-        landau=RooLandau('landau','landau',mjjref,landaumean,landausigma)
-        shapes.update({'Landau':landau})
-
-        #LandauGauss Convolution                        
-        landaugauss=RooFFTConvPdf('landaugauss','landau x gauss',mjjref,landau,gauss)            
-        shapes.update({'LandauGauss':landaugauss})
-
-        #Logistics
-        logisticsmean=RooRealVar('#mu_{logistics}','mean logistics',0,5000)
-        logisticssigma= RooRealVar('#sigma_{logistics}','mass resolution',0,5000)
-        logistics=RooLogistics('logistics','logistics',mjjref,logisticsmean,logisticssigma)
-        shapes.update({'Logistics':logistics})
-
-        #ExpAndGauss
-        expgaussmean=RooRealVar('#mu_{expgauss}','mean expgauss',0,5000)
-        expgausssigma= RooRealVar('#sigma_{expgauss}','mass resolution',0,5000)
-        expgausstrans= RooRealVar('trans','trans',0,100)
-        expgauss=RooExpAndGauss('expgauss','expgauss',mjjref,expgaussmean,expgausssigma,expgausstrans)
-        shapes.update({'ExpAndGauss':expgauss})
-
-        #BifurGauss
-        BifurGaussmean=RooRealVar('#mu_{BifurGauss}','mean BifurGauss',0,5000)
-        BifurGausslsigma= RooRealVar('#sigma_{left}','mass resolution',0,5000)
-        BifurGaussrsigma= RooRealVar('#sigma_{right}','mass resolution',0,5000)
-        BifurGauss=RooBifurGauss('BifurGauss','BifurGauss',mjjref,BifurGaussmean,BifurGausslsigma,BifurGaussrsigma)
-        shapes.update({'BifurGauss':BifurGauss})
-
-        #Chebychev
-        Chebychev1=RooRealVar('c0','Chebychev0',-1000,1000)
-        Chebychev2= RooRealVar('c1','Chebychev1',-1000,1000)        
-        Chebychev3= RooRealVar('c2','Chebychev2',2,-1000,1000)        
-        Chebychev=RooChebychev('Chebychev','Chebychev',mjjref,RooArgList(Chebychev1,Chebychev2,Chebychev3))
-        shapes.update({'Chebychev':Chebychev})
-
-        #Polynomial
-        Polynomial1=RooRealVar('Polynomial1','Polynomial1',100,0,1000)
-        Polynomial2= RooRealVar('Polynomial2','Polynomial2',100,0,1000)
-        Polynomial=RooPolynomial('Polynomial','Polynomial',mjjref,RooArgList(Polynomial1,Polynomial2))
-        shapes.update({'Polynomial':Polynomial})
-
-        mjjref.setRange("FitRange",1050.,9000.)
-            
-        for fname in ['Landau','Logistics','LandauGauss','ExpAndGauss','BifurGauss','Chebychev','Polynomial']:#,'BreitWigner']:
-            plottitleref='%sFit %s - %s - refpoint'%(fname,self.channel,self.OpName)
-
-            #Same for refPlot
-            shaperef=shapes[fname]
-            shaperef.fitTo(refdh,RooFit.Range("FitRange"),RooFit.SumW2Error(True))
-
-            frameref=mjjref.frame(RooFit.Title(plottitleref))
-            frameref.GetYaxis().SetTitleOffset(2)
-            refdh.plotOn(frameref,RooFit.MarkerStyle(4))
-            shaperef.plotOn(frameref,RooFit.LineColor(2))
-                            
-            ndofref=refdh.numEntries()-5
-            #chiSquare legend
-            chi2ref = frameref.chiSquare()
-            probChi2ref = TMath.Prob(chi2ref*ndofref, ndofref)
-            chi2ref = round(chi2ref,2)
-            probChi2ref = round(probChi2ref,2)
-            legref = TLegend(0.5,0.5,0.9,0.65)
-            legref.SetBorderSize(0)
-            legref.SetFillStyle(0)
-            shaperef.paramOn(frameref, RooFit.Layout(0.5,0.9,0.9))
-            legref.AddEntry(0,'#chi^{2} ='+str(chi2ref),'')
-            legref.AddEntry(0,'Prob #chi^{2} = '+str(probChi2ref),'')
-            legref.SetTextSize(0.04)
-            frameref.addObject(legref)
-
-            canvref=TCanvas(plottitleref,plottitleref,700,700)
-            # canv.SetLogy()
-            canvref.SetLeftMargin(0.20) 
-            canvref.cd()
-
-            frameref.Draw()
-                
-            # myaxis=rescale_frame(canvref,frameref,0.2,'Events/(137.225 GeV)')
-            
-            canvref.Print(path+'/%s_%s_%s_refpoint_%s.eps'%(self.channel,self.OpName,self.LastCut,fname))
-
-
-            
-            # hold=raw_input('Press Enter to continue...')
-            
     def FitSignal(self,path=''):
-
-
         gStyle.SetOptFit(1100)
 
         gStyle.SetOptTitle(0)
@@ -384,10 +177,6 @@ class Set:
             self.best_n.update({self.LastCut:(best_order,best_chi)})
         # test=raw_input('Press Enter to continue...'
             
-
-
-
-
         
     def exportPlot(self,logY=True,path="./output/plots",rebin=True):
 
@@ -425,7 +214,6 @@ class Set:
         # BGHist.Draw(""+drawOptions)
 
         stack=THStack('stack',plottitle)
-
         stack.Add(BGHist)
 
         histcounter=1
@@ -447,6 +235,9 @@ class Set:
             histcounter+=1
         canv.SetTitle(plottitle)
         stack.Draw('nostack'+drawOptions)
+        stack.GetXaxis().SetRangeUser(0,9000)
+        stack.Draw('nostack'+drawOptions)
+        
         legend.Draw()        
         canv.Update()
         canv.Print("%s/%s_AK%i_%s.eps"%(path,self.channel,self.jetRadius,self.OpName))
@@ -487,15 +278,15 @@ class Set:
         lower_limit_index= -1
         upper_limit_index= -1
 
-        expectedLimit_S=0
-        if(self.LastCut=='detaAk4sel'):
-            expectedLimit_S=7.5938 #for B=10.1607131213
-        elif(self.LastCut=='invMAk4sel_1p5_allcuts'):
-            expectedLimit_S=7.7188 #for B=10.6225637197
-        elif(self.LastCut=='invMAk4sel_2p0_allcuts'):
-            expectedLimit_S=7.5312 #for B=10.0067629367
-        else:
-            expectedLimit_S=1000 
+        expectedLimit_S=7.5312
+        # if(self.LastCut=='detaAk4sel'):
+        #     expectedLimit_S=7.5938 #for B=10.1607131213
+        # elif(self.LastCut=='invMAk4sel_1p5_allcuts'):
+        #     expectedLimit_S=7.7188 #for B=10.6225637197
+        # elif(self.LastCut=='invMAk4sel_2p0_allcuts'):
+        #     expectedLimit_S=7.5312 #for B=10.0067629367
+        # else:
+        #     expectedLimit_S=1000 
 
 
         for i in range(0,len(SSums)):           
@@ -629,16 +420,12 @@ class Set:
             name+="m%ip%i"%(-parameter/100,-parameter%100)
         return name
         
-
 def approxLimit(S,X1,Y1,X2,Y2):
     m=(Y2-Y1)/(X2-X1)
     if(m==0):
         return 0
     b=(Y1*X2-Y2*X1)/(X2-X1)
     return (S-b)/m
-
-
-
 
 def getParName(OpName,startx, increment, i):
     name="M_jj_AK8_%s_"%OpName
@@ -652,36 +439,3 @@ def getParName(OpName,startx, increment, i):
 def fillHistNames(HistNames,OpName):
     for i in range(sets[OpName][0]):
         HistNames.append(getParName(OpName,sets[OpName][1],sets[OpName][2],i))
-
-
-def rescale_frame(canvas, frame, scale, title):
-    """
-    HACK
-    Takes a frame and rescales it to arbitrary coordinates. 
-    This is helpful when dealing with RooPlot to get the axes
-    correct.  Returns axis in case anything else needs to be done.
-    """
-    import ROOT
-    yaxis = frame.GetYaxis()
-    yaxis.SetTickLength(0)
-    yaxis.SetNdivisions(0)
-    yaxis.SetLabelSize(0)
-    yaxis.SetTitle("")
-    yaxis.SetLabelColor(10)
-    yaxis.SetAxisColor(10)
-    frame.Draw()
-    canvas.Update()
-    amax = frame.GetMaximum()
-    amin = frame.GetMinimum()
-    new_max = amax*scale
-    new_min = amin*scale
-    x = canvas.PadtoX
-    y = canvas.PadtoY
-    
-    axis = ROOT.TGaxis(x(canvas.GetUxmin()), y(canvas.GetUymin()),
-                       x(canvas.GetUxmin()), y(canvas.GetUymax()),
-                       new_min,new_max,510,"")
-    axis.SetTitle(title)
-    axis.Draw()
-    canvas.Update()
-    return axis

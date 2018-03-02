@@ -2,23 +2,21 @@
 import ParSet,subprocess,os,shutil,csv,glob
 from time import gmtime,strftime
 
-def LimitChannel(channel):
-    dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
-    # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+def LimitChannel(channel,dim8op,cuts):
 
-    for cut in ['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']:
-        plot_dir='output/plots/%s'%cut
+    for cut in cuts:
+        plot_dir='output/limit/plots/%s'%channel
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)        
             			
-        csv_out=open('output/%s_limits_%s.csv'%(channel,cut),'wt')
+        csv_out=open('output/limit/%s_limits_%s.csv'%(channel,cut),'wt')
         csvwriter=csv.DictWriter(csv_out,fieldnames=['parameter','limmin','limmax','limminmax','limitCalc_succeeded'])
         csvwriter.writeheader()
         
         for op in dim8op:
             print '=============%s-%s============='%(op,cut)
             current_Set_AK8 = ParSet.Set(op,channel,cut)
-            current_Set_AK8.calcLimits(True)
+            current_Set_AK8.calcLimits(True,plot_dir)
             print 'Limits:'
             print op,'-',current_Set_AK8.Limits
             print '==========================='
@@ -30,11 +28,8 @@ def LimitChannel(channel):
                                 'limitCalc_succeeded':str(current_Set_AK8.limitCalc_succeeded)})
         csv_out.close()
 
-def exportMjjPlots(channel):
-    dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
-    # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
-
-    for cut in ['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']:
+def exportMjjPlots(channel,dim8op,cuts):
+    for cut in cuts:
         plot_dir='output/plots/MjjPlots/%s/%s'%(channel,cut)
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)        
@@ -46,20 +41,14 @@ def exportMjjPlots(channel):
             current_Set_AK4.exportPlot(True,plot_dir,True)
 
 
-def FitChannel(channel):
-    # dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
-    dim8op=["T0"]
-    # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+def FitChannel(channel,dim8op,cuts):
     chi2={}
     bestn={}
-    for cut in ['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']:
-        for op in dim8op:
-
-
-            
-            # plot_dir='output/plots/Fits/%s/%s/'%(cut,op)
-            # if not os.path.exists(plot_dir):
-            #     os.makedirs(plot_dir)
+    for cut in cuts:
+        for op in dim8op:           
+            plot_dir='output/plots/Fits/%s/%s/'%(cut,op)
+            if not os.path.exists(plot_dir):
+                os.makedirs(plot_dir)
 
             refplot_dir='output/plots/Fits/refpoint/'
             if not os.path.exists(refplot_dir):
@@ -70,12 +59,14 @@ def FitChannel(channel):
 
             # current_Set.FitSignal(plot_dir)
             # current_Set.RooFitSignal(plot_dir)
-            current_Set.RooFitRef(refplot_dir)
 
+            if(op == 'T0'):
+                current_Set.RooFitSig(refplot_dir)
+            
     #         chi2.update({cut:current_Set.chi2_dict})
     #         bestn.update(current_Set.best_n)
             
-    # for cut in ['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']:
+    # for cut in cuts:
     #     print '------------------------------- %s -------------------------------:'%cut
     #     print 'best n:',bestn[cut][0],'w/ chi2/ndf:',bestn[cut][1]
     #     print chi2[cut]
@@ -84,21 +75,30 @@ def FitChannel(channel):
 
 
 if(__name__=="__main__"):
+    # dim8op=["T0"]
+    dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
+    # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+
     # channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
-    # channels=["WPWP","WPWM","WMWM"]
-    channels=["WPWM"]
+    channels=["WPWP","WPWM","WMWM"]
+    # channels=["WPZ","WMZ","ZZ"]
+    # channels=["WMWM"]
+    # channels=['ZZ']
+    # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']
+    cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0']
+    # cuts=['invMAk4sel_1p0']
+    # cuts=['detaAk8selVV']
 
-
-    backup=False
+    backup=True
     archiv_path='/afs/desy.de/user/a/albrechs/aQGCVVjj/python/output/archiv/%s/'%strftime("%m_%d_%H_%M_%S",gmtime())
     if(backup):
         os.mkdir(archiv_path)
     backup_files=[]
 
     for channel in channels:
-        # LimitChannel(channel)
-        exportMjjPlots(channel)
-        # FitChannel(channel)
+        # LimitChannel(channel,dim8op,cuts)
+        # exportMjjPlots(channel,dim8op,cuts)
+        # FitChannel(channel,dim8op,cuts)
         # filenames=["%s_%s.eps"%(channel,op) for op in dim8op]
         # os.chdir("plots")
         # subprocess.call(["gs","-sPAPERSIZE=a4","-sDEVICE=pdfwrite","-dNOPAUSE","-dBATCH","-dSAFER","-sOutputFile=plots.pdf"]+filenames)
