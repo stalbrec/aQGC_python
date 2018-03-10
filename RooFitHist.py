@@ -15,7 +15,7 @@ def RooFitHist(inputhist,title='title',path='.'):
     NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
     for i in range(NBins+1):
         fitbinning.append(1050+i*binwidth)
-    print fitbinning
+    # print fitbinning
 
     hist=inputhist.Rebin(NBins,"fit parameter",fitbinning)
 

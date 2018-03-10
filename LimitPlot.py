@@ -1,12 +1,45 @@
-from ROOT import gROOT, gStyle, TCanvas, TColor, TF1, TFile, TLegend, THStack,TGraph,TText
+from ROOT import gROOT, gStyle, TCanvas, TColor, TF1, TFile, TLegend, THStack,TGraph,TText,TLatex,kTRUE
+from array import array
+
+
+gROOT.SetBatch(True)
+
+gStyle.SetOptStat(0)
+gStyle.SetOptFit(0)
+gStyle.SetOptTitle(0)
+
+gStyle.SetTitleOffset(1.4,"Y")
+gStyle.SetPadLeftMargin(0.18)
+gStyle.SetPadBottomMargin(0.15)
+gStyle.SetPadTopMargin(0.08)
+gStyle.SetPadRightMargin(0.08)
+gStyle.SetMarkerSize(0.5)
+gStyle.SetHistLineWidth(1)
+gStyle.SetTitleSize(0.06, "XYZ")
+gStyle.SetLabelSize(0.05, "XYZ")
+gStyle.SetNdivisions(506, "XYZ")
+gStyle.SetLegendBorderSize(0)
+
 
 if(__name__=="__main__"):
-    SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_WPWPjj_hadronic.root")
-    BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
-    
+    SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_ZZjj_hadronic_parameterscan.root")
+    BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/parameterscan/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
 
-    SHist = SFile.Get("MjjHists_detaAk4sel_allcuts/M_jj_AK8_S0_m40p0")
-    BHist = BFile.Get("detaAk4sel_allcuts/M_jj_AK8")
+    #rebin stuff
+
+    boundaries=[1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383,1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808,7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+    dijetbinning = array( 'd' )
+    for i in range(1,len(boundaries)):
+        dijetbinning.append(boundaries[i]) 
+    
+    #ZZ 
+    #S(S0=-80)=7.30636672491
+    #(B=10.0067629665)
+    #S has to be 7.5312
+    #S0 -> -81.17
+    
+    SHist = SFile.Get("MjjHists_invMAk4sel_1p0_ZRange/M_jj_AK8_S0_m40p0").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
+    BHist = BFile.Get("invMAk4sel_1p0/M_jj_AK8_highbin").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
     print SHist
     print BHist
 
@@ -16,7 +49,6 @@ if(__name__=="__main__"):
     canv = TCanvas(plottitle, plottitle, 600, 600)
     canv.SetLogy()
 
-    gStyle.SetOptStat(0)
 
     legend = TLegend(0.5,0.76,0.9,0.9)
 
@@ -29,7 +61,7 @@ if(__name__=="__main__"):
     BHist.GetXaxis().SetRangeUser(0,7500)
 
     BHist.GetYaxis().SetTitle('Events')
-    BHist.GetYaxis().SetTitleOffset(1.3)
+    BHist.GetYaxis().SetTitleOffset(1.5)
     BHist.GetYaxis().SetRangeUser(10**(-3),10**5)
  
     BHist.Draw(""+drawOpt)
@@ -45,22 +77,29 @@ if(__name__=="__main__"):
     #legend.AddEntry(stack,"QCD","l")
         
     SHist.SetLineColor(1)
+    SHist.SetLineWidth(2)
     SHist.Draw("SAME"+drawOpt)
-    legend.AddEntry(SHist,"W^{+}W^{+}jj (S0=-40TeV^{-4})  ","l")
+    legend.AddEntry(SHist,"W^{+}W^{+}jj (F_{S0}=-40TeV^{-4})  ","l")
+
+    mjj_interest=3778.5
     
     g=TGraph("test")
-    g.SetPoint(0,4750,0.001)
+    g.SetPoint(0,mjj_interest,0.001)
     #g.SetPoint(1,4750,6.42069659951)
-    g.SetPoint(1,4750,1000)
+    g.SetPoint(1,mjj_interest,1000)
     g.Draw("LSAME")
+    
+    latex=TLatex()
+    latex.SetTextSize(0.04)
 
-    BText=TText(5000,100,"-> B=10")
-    BText.Draw()
-    SText=TText(5000,10,"-> S=6.42")
-    SText.Draw()
+    latex.DrawLatex(mjj_interest+500,100,"#rightarrow B=10")
+    latex.DrawLatex(mjj_interest+500,10,"#rightarrow S=7.31")
+
+    latex.SetNDC(kTRUE)
+    latex.SetTextSize(0.03)
+    latex.DrawLatex(0.24,0.87,"private work")    
 
     canv.SetTitle(plottitle)
     legend.Draw()
     canv.Update()
-    #canv.Print("~/www/test.png") 
-    canv.Print("plots/LimitPlot.eps")
+    canv.Print("output/plots/LimitPlot.eps")

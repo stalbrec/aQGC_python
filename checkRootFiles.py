@@ -30,11 +30,11 @@ def checkChannelFiles(channel):
 
     #extracting expected Number of Reweighting Points
     N_Reweight_expected=0
-    with open('ReweightingRanges/%sRange.csv'%channel,'r') as rangefile:
+    # with open('ReweightingRanges/%sRange.csv'%channel,'r') as rangefile:
+    with open('ReweightingRanges/ZZRange.csv','r') as rangefile:
         csvreader=csv.DictReader(rangefile)
         for row in csvreader:
             N_Reweight_expected+=int(row['Npoints'])
-
     os.chdir(path+channel)
     files=glob.glob("*.root")
     failed_jobs=range(0,100)
@@ -62,11 +62,11 @@ def checkChannelFiles(channel):
         rootFile.Get('Events').Draw('wgt>>wgt_hist')
         N_Reweight_actual=int(wgt_hist.GetEntries())/500
         
-        if('Z' in channel):
-            N_Reweight_actual-=1080
-        else:
-            N_Reweight_actual-=882
-
+        # if('WPWP' in channel):
+        #     N_Reweight_actual-=882
+        # else:
+        #     N_Reweight_actual-=1080
+        N_Reweight_actual-=1080
         # print 'actual Reweight Points:',N_Reweight_actual
         if(N_Reweight_actual==N_Reweight_expected):
             failed_jobs.remove(int(file_index))
@@ -89,7 +89,8 @@ def checkChannelFiles(channel):
     
 if(__name__=='__main__'):
     print 'checking Files of following channels:'
-    channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
+    # channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
+    channels=['WPWP']
     # channels=["WPZ","WMZ","ZZ"]
     # channels=["WPZ","WMZ","ZZ"]
     # channels=['WPZ']

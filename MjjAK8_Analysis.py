@@ -16,7 +16,7 @@ def LimitChannel(channel,dim8op,cuts):
         for op in dim8op:
             print '=============%s-%s============='%(op,cut)
             current_Set_AK8 = ParSet.Set(op,channel,cut)
-            current_Set_AK8.calcLimits(True,plot_dir)
+            current_Set_AK8.testSensitivity(True,plot_dir)
             print 'Limits:'
             print op,'-',current_Set_AK8.Limits
             print '==========================='
@@ -75,35 +75,35 @@ def FitChannel(channel,dim8op,cuts):
 
 
 if(__name__=="__main__"):
-    # dim8op=["T0"]
-    dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
+    dim8op=["S0"]
+    channels=['ZZ']
+
     # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+    # channels=["WZ","ZZ"]
 
-    # channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
-    channels=["WPWP","WPWM","WMWM"]
-    # channels=["WPZ","WMZ","ZZ"]
-    # channels=["WMWM"]
-    # channels=['ZZ']
+    # dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
+    # channels=['ssWW','VV']
+
     # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']
-    cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0']
-    # cuts=['invMAk4sel_1p0']
-    # cuts=['detaAk8selVV']
+    # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0']
+    cuts=['invMAk4sel_1p0']
 
-    backup=True
+    backup=False
     archiv_path='/afs/desy.de/user/a/albrechs/aQGCVVjj/python/output/archiv/%s/'%strftime("%m_%d_%H_%M_%S",gmtime())
     if(backup):
         os.mkdir(archiv_path)
     backup_files=[]
 
     for channel in channels:
-        # LimitChannel(channel,dim8op,cuts)
-        # exportMjjPlots(channel,dim8op,cuts)
+        LimitChannel(channel,dim8op,cuts)
+        exportMjjPlots(channel,dim8op,cuts)
         # FitChannel(channel,dim8op,cuts)
         # filenames=["%s_%s.eps"%(channel,op) for op in dim8op]
         # os.chdir("plots")
         # subprocess.call(["gs","-sPAPERSIZE=a4","-sDEVICE=pdfwrite","-dNOPAUSE","-dBATCH","-dSAFER","-sOutputFile=plots.pdf"]+filenames)
         # os.chdir("..")
-        if(backup):
+
+        if(backup):             
             shutil.copyfile('ReweightingRanges/%sRange.csv'%channel,'%s/%sRange.csv'%(archiv_path,channel))
     
 
@@ -134,5 +134,3 @@ if(__name__=="__main__"):
         #                          'limminmax':'(%.2f, %.2f)'%limits[i],
         #                          'limitCalc_succeeded':limts_success[i]})
         # csvfile.close()
-        
-

@@ -85,8 +85,8 @@ def writeConfig(channel,failed_jobs,lumi):
                 fout.write('<In FileName="%s/Ntuple_%s_%i.root" Lumi="0.0"/>\n'%(path,channel,i))
         fout.write('    <InputTree Name="AnalysisTree" />\n</InputData>')
 if(__name__=='__main__'):
-    # channels=['WPWP','WPWM','WMWM']
-    channels=['ZZ']
+    channels=['WPWM','WMWM']
+    # channels=['ZZ']
     for channel in channels:
         print '-----------------%s-----------------'%channel
         failed_jobs=checkChannelFiles(channel)
