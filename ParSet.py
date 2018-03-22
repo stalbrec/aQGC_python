@@ -57,7 +57,7 @@ class Set:
         self.SFiles=[]
 
         for i in range(len(tosum)):
-            self.SFiles.append(TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic_parameterscan.root"%tosum[i]))
+            self.SFiles.append(TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/parameterscan/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%tosum[i]))
 
         ##Open File to get BackgroundHist:
         self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/parameterscan/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
@@ -85,7 +85,8 @@ class Set:
             else:
                 rootdir_suffix=rootdir_suffixe[self.channel]
             
-            SHistDir=self.SFiles[i].GetDirectory('MjjHists_%s_%s'%(tmpCut,rootdir_suffix))
+            SHistDir=self.SFiles[i].GetDirectory('MjjHists_%s'%(tmpCut))
+            # SHistDir=self.SFiles[i].GetDirectory('MjjHists_%s_%s'%(tmpCut,rootdir_suffix))
             SHistkeys=SHistDir.GetListOfKeys()
             j=0
             for key in SHistkeys:

@@ -75,14 +75,15 @@ def FitChannel(channel,dim8op,cuts):
 
 
 if(__name__=="__main__"):
-    dim8op=["S0"]
+    dim8op=["T1"]
     channels=['ZZ']
 
     # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
     # channels=["WZ","ZZ"]
 
-    # dim8op=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
-    # channels=['ssWW','VV']
+    # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+    # # channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
+    # channels=['ssWW','VV','WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
 
     # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']
     # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0']
@@ -96,7 +97,7 @@ if(__name__=="__main__"):
 
     for channel in channels:
         LimitChannel(channel,dim8op,cuts)
-        exportMjjPlots(channel,dim8op,cuts)
+        # exportMjjPlots(channel,dim8op,cuts)
         # FitChannel(channel,dim8op,cuts)
         # filenames=["%s_%s.eps"%(channel,op) for op in dim8op]
         # os.chdir("plots")

@@ -22,7 +22,7 @@ gStyle.SetLegendBorderSize(0)
 
 
 if(__name__=="__main__"):
-    SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_ZZjj_hadronic_parameterscan.root")
+    SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/parameterscan/uhh2.AnalysisModuleRunner.MC.MC_aQGC_ZZjj_hadronic.root")
     BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/parameterscan/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
 
     #rebin stuff
@@ -37,20 +37,34 @@ if(__name__=="__main__"):
     #(B=10.0067629665)
     #S has to be 7.5312
     #S0 -> -81.17
-    
-    SHist = SFile.Get("MjjHists_invMAk4sel_1p0_ZRange/M_jj_AK8_S0_m40p0").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
+
+    #BinCenter 1376.5
+    #S(S=-0.54)=7.91794830631
+    #T1->-0.53
+
+
+    mjj_interest=1376.5
+
+    # SHist = SFile.Get("MjjHists_invMAk4sel_1p0_ZRange/M_jj_AK8_S0_m40p0").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
+    # BHist = BFile.Get("invMAk4sel_1p0/M_jj_AK8_highbin").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
+    # print SHist
+    # print BHist
+
+    SHist = SFile.Get("MjjHists_invMAk4sel_1p0/M_jj_AK8_T1_m0p54").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
     BHist = BFile.Get("invMAk4sel_1p0/M_jj_AK8_highbin").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
     print SHist
     print BHist
 
 
-    plottitle = "invariant Mass of AK8 Jets (FS0)"
+    plottitle = "invariant Mass of AK8 Jets (FT1)"
 
     canv = TCanvas(plottitle, plottitle, 600, 600)
     canv.SetLogy()
 
 
     legend = TLegend(0.5,0.76,0.9,0.9)
+    legend.SetFillStyle(0)
+    legend.SetTextSize(0.03)
 
     drawOpt="HE"
 
@@ -79,25 +93,27 @@ if(__name__=="__main__"):
     SHist.SetLineColor(1)
     SHist.SetLineWidth(2)
     SHist.Draw("SAME"+drawOpt)
-    legend.AddEntry(SHist,"W^{+}W^{+}jj (F_{S0}=-40TeV^{-4})  ","l")
+    legend.AddEntry(SHist,"ZZjj (F_{T1}=-0.54TeV^{-4})  ","l")
 
-    mjj_interest=3778.5
-    
-    g=TGraph("test")
-    g.SetPoint(0,mjj_interest,0.001)
-    #g.SetPoint(1,4750,6.42069659951)
-    g.SetPoint(1,mjj_interest,1000)
-    g.Draw("LSAME")
-    
+
     latex=TLatex()
     latex.SetTextSize(0.04)
-
-    latex.DrawLatex(mjj_interest+500,100,"#rightarrow B=10")
-    latex.DrawLatex(mjj_interest+500,10,"#rightarrow S=7.31")
 
     latex.SetNDC(kTRUE)
     latex.SetTextSize(0.03)
     latex.DrawLatex(0.24,0.87,"private work")    
+
+    # latex.SetNDC(kFALSE)
+    # latex.DrawLatex(mjj_interest+300,100,"#rightarrow B=10")
+    # # latex.DrawLatex(mjj_interest+300,10,"#rightarrow S=7.31")
+
+    
+    # g=TGraph("test")
+    # g.SetPoint(0,mjj_interest,0.001)
+    # #g.SetPoint(1,4750,6.42069659951)
+    # g.SetPoint(1,mjj_interest,1000)
+    # g.Draw("LSAME")
+    
 
     canv.SetTitle(plottitle)
     legend.Draw()
