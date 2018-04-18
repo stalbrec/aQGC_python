@@ -1,7 +1,8 @@
 *.pyc
 *.d
 *.so
+*.pcm
+*.csv
 
 /output/*
 /Plots/*
-*.pcm
