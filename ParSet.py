@@ -18,7 +18,7 @@ gROOT.Reset()
 sets=collections.OrderedDict()
 
 class Set:
-    def __init__(self, dim8op,channelname,Cut,jR=8):
+    def __init__(self, dim8op,channelname,Cut,region,jR=8):
         gROOT.SetBatch(True)
         self.channel=channelname
         tosum=[]
@@ -57,10 +57,10 @@ class Set:
         self.SFiles=[]
 
         for i in range(len(tosum)):
-            self.SFiles.append(TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/parameterscan/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%tosum[i]))
+            self.SFiles.append(TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%(region,tosum[i])))
 
         ##Open File to get BackgroundHist:
-        self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/parameterscan/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
+        self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/%s/uhh2.AnalysisModuleRunner.MC.MC_QCD.root"%region)
 
         # self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%self.channel)
         # self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")

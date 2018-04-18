@@ -2,4 +2,6 @@
 *.d
 *.so
 
-/output/archiv
+/output/*
+/Plots/*
+*.pcm

@@ -15,7 +15,7 @@ def LimitChannel(channel,dim8op,cuts):
         
         for op in dim8op:
             print '=============%s-%s============='%(op,cut)
-            current_Set_AK8 = ParSet.Set(op,channel,cut)
+            current_Set_AK8 = ParSet.Set(op,channel,cut,'SignalRegion')
             current_Set_AK8.testSensitivity(True,plot_dir)
             print 'Limits:'
             print op,'-',current_Set_AK8.Limits
@@ -34,10 +34,10 @@ def exportMjjPlots(channel,dim8op,cuts):
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)        
         for op in dim8op:
-            current_Set_AK8 = ParSet.Set(op,channel,cut)            
+            current_Set_AK8 = ParSet.Set(op,channel,cut,'SignalRegion')            
             current_Set_AK8.exportPlot(True,plot_dir,True)
 
-            current_Set_AK4 = ParSet.Set(op,channel,cut,4)
+            current_Set_AK4 = ParSet.Set(op,channel,cut,'SignalRegion',4)
             current_Set_AK4.exportPlot(True,plot_dir,True)
 
 
@@ -55,7 +55,7 @@ def FitChannel(channel,dim8op,cuts):
                 os.makedirs(refplot_dir)
 
             print '+++++++++++Fit - %s - %s+++++++++++'%(op,cut)
-            current_Set=ParSet.Set(op,channel,cut)
+            current_Set=ParSet.Set(op,channel,cut,'SignalRegion')
 
             # current_Set.FitSignal(plot_dir)
             # current_Set.RooFitSignal(plot_dir)
@@ -75,15 +75,16 @@ def FitChannel(channel,dim8op,cuts):
 
 
 if(__name__=="__main__"):
-    dim8op=["T1"]
-    channels=['ZZ']
+    # dim8op=["T0"]
+    # channels=['VV']
 
     # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
     # channels=["WZ","ZZ"]
 
-    # dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+    dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
     # # channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
     # channels=['ssWW','VV','WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
+    channels=['VV','ssWW','ZZ']
 
     # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']
     # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0']
