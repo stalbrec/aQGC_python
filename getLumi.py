@@ -87,14 +87,17 @@ def writeConfig_old(channel,failed_jobs,lumi):
 def writeConfig(luminosities,Region):
     with open('UHH2Configs/aQGCVVjjhadronic_REGION.xml','r') as template:
         filedata = template.read()
-    for (channel,lumi) in luminosities:
-        filedata.replace('%sLUMI'%channel,'%.2f'%lumi)
-    filedata.replace('REGION',Region)
-    with open('UHH2Configs/aQGCVVjjhadronic_%s.xml'%Region,'w')) as configFile:
-        configFile.write(filedata)
+        for (channel,lumi) in luminosities:
+            print 'replacing %sLUMI with %.2f'%(channel,lumi)
+            filedata=filedata.replace('%sLUMI'%channel,'%.2f'%lumi)
+        print 'replacing REGION with %s'%Region
+        filedata=filedata.replace('REGION',Region)
+        with open('UHH2Configs/aQGCVVjjhadronic_%s.xml'%Region,'w') as configFile:
+            configFile.write(filedata)
 
 if(__name__=='__main__'):
-    channels=['WPWP']
+    channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
+    regions=['SignalRegion','LOWSidebandRegion','HIGHSidebandRegion']
     # channels=['ZZ']
     luminosities=[]
     for channel in channels:
@@ -130,3 +133,6 @@ if(__name__=='__main__'):
         print 'N_Events:',NEvents
         print 'resulting Luminosity:',lumi,'pb^-1'
         print '--------------------------------------\n\n'
+
+    for region in regions:
+        writeConfig(luminosities,region)
