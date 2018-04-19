@@ -18,14 +18,14 @@ def update_progress(iteration,complete):
         progress = 1
         status = "Done...\r\n"
     block = int(round(barLength*progress))
-    text = "\rFiles processed: %i/%i [%s] %s"%(int(iteration),int(complete),"#"*block+"-"*(barLength-block),status) 
+    text = "\rFiles processed: %i/%i [%s] %s"%(int(iteration),int(complete),"#"*block+"-"*(barLength-block),status)
     sys.stdout.write(text)
     sys.stdout.flush()
 
 def getCrossSection(file):
     handle_start='Original cross-section: '
     handle_end=' pb (cross-section'
-    
+
     with open(file,'r') as logfile:
         for line in logfile:
             if(handle_start in line):
@@ -73,7 +73,7 @@ def getNEvents(channel,indices):
     os.chdir(scriptdir)
     return NEvents
 
-def writeConfig(channel,failed_jobs,lumi):
+def writeConfig_old(channel,failed_jobs,lumi):
     path="/nfs/dust/cms/user/albrechs/production/ntuples/NT_%s"%channel
     with open('UHH2Configs/aQGC%sjjhadronic.conf'%channel,'wt') as fout:
         fout.write('<InputData Lumi="%0.f" NEventsMax="-1" Type="MC" Version="MC_aQGC_%sjj_hadronic" Cacheable="False">\n'%(lumi,channel))
@@ -84,9 +84,19 @@ def writeConfig(channel,failed_jobs,lumi):
             else:
                 fout.write('<In FileName="%s/Ntuple_%s_%i.root" Lumi="0.0"/>\n'%(path,channel,i))
         fout.write('    <InputTree Name="AnalysisTree" />\n</InputData>')
+def writeConfig(luminosities,Region):
+    with open('UHH2Configs/aQGCVVjjhadronic_REGION.xml','r') as template:
+        filedata = template.read()
+    for (channel,lumi) in luminosities:
+        filedata.replace('%sLUMI'%channel,'%.2f'%lumi)
+    filedata.replace('REGION',Region)
+    with open('UHH2Configs/aQGCVVjjhadronic_%s.xml'%Region,'w')) as configFile:
+        configFile.write(filedata)
+
 if(__name__=='__main__'):
     channels=['WPWP']
     # channels=['ZZ']
+    luminosities=[]
     for channel in channels:
         print '-----------------%s-----------------'%channel
         failed_jobs=checkChannelFiles(channel)
@@ -109,7 +119,8 @@ if(__name__=='__main__'):
             mean=sum_nom/sum_den
             mean_err=1/(numpy.sqrt(sum_den))
             lumi=NEvents/mean
-            writeConfig(channel,failed_jobs,lumi)
+            luminosities.append((channel,lumi))
+            #writeConfig(channel,failed_jobs,lumi)
         else:
             mean=0
             mean_err=0
