@@ -1,6 +1,6 @@
 from array import array
-import sys,csv,collections,numpy,math
-from ROOT import gROOT, gStyle, gPad,TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE,TLatex,TPad,TLine
+import sys, csv, collections, numpy, math
+from ROOT import gROOT, gSystem, gStyle, gPad, TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE,TLatex, TPad, TLine
 import ROOT as rt
 
 def magnitude(x):
@@ -10,6 +10,8 @@ gROOT.SetBatch(True)
 gStyle.SetOptStat(0)
 gStyle.SetOptFit(0)
 gStyle.SetOptTitle(0)
+
+gStyle.SetTextFont(43)
 
 gStyle.SetTitleOffset(0.86,"X")
 gStyle.SetTitleOffset(1.6,"Y")
@@ -28,9 +30,8 @@ gStyle.SetNdivisions(506, "XYZ")
 gStyle.SetLegendBorderSize(0)
 
 
-def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0):
+def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0):
 
-    #signal channel to superimpose
     channelTex={'WPWP':'W^{+}W^{+}','WPWM':'W^{+}W^{-}','WMWM':'W^{-}W^{-}','WPZ':'W^{+}Z','WMZ':'W^{-}Z','ZZ':'ZZ'}
     plotstyle=[(1,1),(1,2),(2,1),(2,2),(4,1),(4,2)]
 
@@ -48,41 +49,37 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
           'OpSignsel':'#eta_{1-AK4} #eta_{2-AK4} < 0',
           'detaAk4sel':'|#Delta#eta_{jj-AK4}| > 3.0',
           'invMAk4sel_1p0':'M_{jj-AK4} > 1.0 TeV'}
-    # logY=True
+
     VV=('VV' in channels)
     seperate=(not VV)
     if VV:
         channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
 
-    #cut
-    # dir='AK8_cleaner'
+    plottitle=plotdir+'_'+plot
     
-    # xTitle='M_{j-AK8} [GeV/c^{2}]'
-
-    plottitle=''
-
     lumi=36.814
     
     region='SignalRegion'
     
-    path='/nfs/dust/cms/user/albrechs/UHH2_Output/%s/'%region
-    
-    scaleVV=scaleSignal!=0
+    # path='/nfs/dust/cms/user/albrechs/UHH2_Output/%s/'%region
+    path='/home/albrec/Master/signal/'
+    scaleVV=(scaleSignal!=0)
     VVScale=scaleSignal
     
-    # scaleVV=False
-    # VVScale=10**2
-
     YRangeUser=False
     Ymin=10**1
     Ymax=10**4
 
-    XRangeUser=False
+    XRangeUser=True
     Xmin=0
-    Xmax=13000
+    Xmax=3.14
 
-
-    
+    xLabelSize=18.
+    yLabelSize=18.
+    xTitleSize=20.
+    yTitleSize=22.
+    xTitleOffset=4.
+    yTitleOffset=1.3
     
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
     SFiles=[]
@@ -100,39 +97,50 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
 
     gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
 
-    SHists=[]
-    for i in range(len(channels)):            
-        SHists.append(SFiles[i].Get(dir+'/'+plot))
-    QCDHist=QCDFile.Get(dir+'/'+plot)
-    WJetsHist=WJetsFile.Get(dir+'/'+plot)
-    ZJetsHist=ZJetsFile.Get(dir+'/'+plot)
 
     if(includeData):
-        DataHist=DataFile.Get(dir+'/'+plot)
-        
-    canv = TCanvas(plottitle,plottitle,600,600)
+        #calculate QCDscale with Integrals from the following Histogram:
+        referenceHistPath = 'tau21sel/N_pv'
+        QCDscale = (float(DataFile.Get(referenceHistPath).Integral())-float(WJetsFile.Get(referenceHistPath).Integral())-float(ZJetsFile.Get(referenceHistPath).Integral()))/float(QCDFile.Get(referenceHistPath).Integral())
+    else:
+        QCDscale = 1.0
+    print 'using QCDscale:',QCDscale
+    
+    SHists=[]
+    for i in range(len(channels)):            
+        SHists.append(SFiles[i].Get(plotdir+'/'+plot))
+    QCDHist=QCDFile.Get(plotdir+'/'+plot)
+    QCDHist.Scale(QCDscale)
+    WJetsHist=WJetsFile.Get(plotdir+'/'+plot)
+    ZJetsHist=ZJetsFile.Get(plotdir+'/'+plot)
 
-    yplot=0.6
-    yratio=0.4
+    if(includeData):
+        DataHist=DataFile.Get(plotdir+'/'+plot)
+    
+        
+        
+    canv = TCanvas(plottitle,plottitle,670,600)
+
+    yplot=0.7
+    yratio=0.3
     ymax=1.0
     xmax=1.0
     xmin=0.0
     plotpad=TPad("plotpad","Plot",xmin,ymax-yplot,xmax,ymax)
     ratiopad=TPad("ratiopad","Ratio",xmin,ymax-yplot-yratio,xmax,ymax-yplot)
 
+
     plotpad.SetTopMargin(0.08)
     plotpad.SetBottomMargin(0.0)
-    plotpad.SetLeftMargin(0.2)
-    plotpad.SetRightMargin(0.2)
+    plotpad.SetLeftMargin(0.1)
+    plotpad.SetRightMargin(0.25)
     plotpad.SetTicks()
     
     ratiopad.SetTopMargin(0.0)
-    ratiopad.SetBottomMargin(0.25)
-    ratiopad.SetLeftMargin(0.2)
-    ratiopad.SetRightMargin(0.2)
+    ratiopad.SetBottomMargin(0.3)
+    ratiopad.SetLeftMargin(0.1)
+    ratiopad.SetRightMargin(0.25)
     ratiopad.SetTicks()
-    # ratiopad.SetGridx()
-
     
     plotpad.Draw()
     ratiopad.Draw()
@@ -141,18 +149,14 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
     if(logY):
         plotpad.SetLogy()
         canv.SetLogy()
-
-    
-    #turning off the standard Statistic-Box
-
-    legend = TLegend(0.8,0.6,1,0.9)
+        
+    legend = TLegend(0.75,0.6,1,0.9)
     legend.SetFillStyle(0)
     legend.SetTextSize(0.02)
     legend.SetMargin(0.4)
 
     
     drawOptions="HE"
-    # drawOptions=""
 
     stack=THStack(plottitle,plottitle)
 
@@ -166,10 +170,7 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
     QCDHist.SetFillColor(QCDColor)
     WJetsHist.SetFillColor(WJetsColor)
     ZJetsHist.SetFillColor(ZJetsColor)
-    # QCDHist.SetLineColor(854)
-    # WJetsHist.SetLineColor(629)
-    # ZJetsHist.SetLineColor(799)
-
+    
     QCDHist.SetLineColor(QCDColor)
     WJetsHist.SetLineColor(WJetsColor)
     ZJetsHist.SetLineColor(ZJetsColor)
@@ -177,59 +178,50 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
     BHist.Add(ZJetsHist,"HIST")
     BHist.Add(WJetsHist,"HIST")
     BHist.Add(QCDHist,"HIST")
-
-    legend.AddEntry(ZJetsHist,"Z+JetsToQQ","f")
-    legend.AddEntry(WJetsHist,"W+JetsToQQ","f")
-    legend.AddEntry(QCDHist,"QCD","f")
     
-    if(YRangeUser):
-        BHist.GetYaxis().SetRangeUser(Ymin,Ymax)
-    if(XRangeUser):
-        BHist.GetXaxis().SetRangeUser(Xmin,Xmax)
-
     BHist.SetTitle(plottitle)
     BHistErr=QCDHist.Clone()
     BHistErr.Add(WJetsHist)
     BHistErr.Add(ZJetsHist)
     
-    BHistErr.SetFillStyle(3204)
-    
+    BHistErr.SetFillStyle(3204)    
     BHistErr.SetFillColor(rt.kGray+2)
     BHistErr.SetLineColor(1)
-    legend.AddEntry(BHistErr,"stat. Uncertainty","f")
     
     if(includeData):
         DataHist.SetMarkerStyle(8)
-        DataHist.SetLineColor(1)    
-        
+        DataHist.SetLineColor(1)            
         DataHist.SetTitle(plottitle)
-        legend.AddEntry(DataHist,"Data","lep")
 
-
-
-
-    
-    for i in range(len(channels)):
-        if VV:
+    if VV:
+        for i in range(len(channels)):
             if(i==0):
                 VVsum=SHists[i].Clone()
             else:
                 VVsum.Add(SHists[i])
-        else:
-            SHists[i].SetLineColor(plotstyle[i][0])
-            SHists[i].SetLineStyle(plotstyle[i][1])
-            legend.AddEntry(SHists[i],"%sjj"%channelTex[channels[i]])
-            
-
-    if VV:
         legentry='VVjj'
         if(scaleVV):
             VVsum.Scale(VVScale)
             legentry+=' *%0.f'%VVScale
         VVsum.SetLineColor(1)
         VVsum.SetLineStyle(plotstyle[0][1])
+        VVsum.SetLineWidth(2)
         legend.AddEntry(VVsum,legentry)
+    else:
+        for i in range(len(channels)):
+            SHists[i].SetLineColor(plotstyle[i][0])
+            SHists[i].SetLineStyle(plotstyle[i][1])
+            SHists[i].SetLineWidth(2)
+            legend.AddEntry(SHists[i],"%sjj"%channelTex[channels[i]])
+    
+    legend.AddEntry(ZJetsHist,"Z+JetsToQQ","f")
+    legend.AddEntry(WJetsHist,"W+JetsToQQ","f")
+    legend.AddEntry(QCDHist,"QCD","f")
+    legend.AddEntry(BHistErr,"stat. Uncertainty","f")
 
+    if(includeData):
+        legend.AddEntry(DataHist,"Data","lep")
+        
     canv.SetTitle(plottitle)
 
 
@@ -243,66 +235,95 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
             if(tmpmax>SIGMax):
                 SIGMax=tmpmax
     if(logY):
-        MAX=float(10**(magnitude(max(BGMax,SIGMax))+1))
+        MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
         MIN=float(10**(magnitude(max(BGMax,SIGMax))-4))
+        MIN+=float(10**(magnitude(MIN)))
     else:
         MAX=1.1*max(BGMax,SIGMax)
         MIN=0.
-
-    # if(BGMax>SIGMax):
-    # BHist.Draw("Hist")
-    # BHistErr.GetXaxis().SetTitle(xTitle)
+        
     BHistErr.GetYaxis().SetTitle('Events')
     BHistErr.GetYaxis().SetRangeUser(MIN,MAX)
-    BHistErr.GetYaxis().SetTitleSize(0.08)
-    BHistErr.GetYaxis().SetLabelSize(0.06)
+    BHistErr.GetYaxis().SetTitleFont(43)
+    BHistErr.GetYaxis().SetTitleSize(yTitleSize)
+    BHistErr.GetYaxis().SetTitleOffset(yTitleOffset)
+    BHistErr.GetYaxis().SetLabelFont(43)
+    BHistErr.GetYaxis().SetLabelSize(yLabelSize)
+
     BHistErr.GetXaxis().SetTitleSize(0.0)
     BHistErr.GetXaxis().SetLabelSize(0.0)
 
-    
+    if(YRangeUser):
+        BHistErr.GetYaxis().SetRangeUser(Ymin,Ymax)
+    if(XRangeUser):
+        BHistErr.GetXaxis().SetRangeUser(Xmin,Xmax)
+
     plotpad.cd()
-    BHistErr.GetXaxis().SetLabelSize(0.0)
-
+    
     BHistErr.Draw("E2")
-
     BHist.Draw("HistSAME")
+    BHistErr.Draw("E2SAME")
+
     if(VV):
         VVsum.Draw("SAME"+drawOptions)
     else:
         for i in range(len(channels)):
-            SHists[i].Draw("SAME")
+            SHists[i].Draw("SAME"+drawOptions)
 
     if(includeData):
         DataHist.Draw("APE1SAME")
 
-
+    plotpad.RedrawAxis()
+    
     ratiopad.cd()
     
     ratioHist=DataHist.Clone()
     ratioHist.SetLineColor(rt.kBlack)
-    ratioHist.Sumw2()
+    # ratioHist.Sumw2()
     ratioHist.SetStats(0)
     ratioHist.Divide(BHistErr)
     ratioHist.SetMarkerStyle(21)
-    ratioHist.GetYaxis().SetRangeUser(0.35,2.-0.35)
-    ratioHist.GetYaxis().SetTitle("Data/MC")
-    ratioHist.GetYaxis().SetTitleSize(0.11)
-    ratioHist.GetYaxis().SetLabelSize(0.11)
+    ratioHist.SetMarkerSize(0.7)
+
+    #Yaxis
+    ratioHist.GetYaxis().SetRangeUser(0.3,1.7)
+    ratioHist.GetYaxis().SetTitle("Data/BG")
+    ratioHist.GetYaxis().CenterTitle()
+    ratioHist.GetYaxis().SetTitleFont(43)
+    ratioHist.GetYaxis().SetTitleSize(yTitleSize)
+    ratioHist.GetYaxis().SetTitleOffset(yTitleOffset)
+    ratioHist.GetYaxis().SetLabelFont(43)
+    ratioHist.GetYaxis().SetLabelSize(yLabelSize)
     ratioHist.GetYaxis().SetNdivisions(506)
+    #Xaxis
     ratioHist.GetXaxis().SetTitle(xTitle)
-    ratioHist.GetXaxis().SetTitleSize(0.11)
-    ratioHist.GetXaxis().SetLabelSize(0.11)
-    # ratioHist.GetXaxis().SetNdivisions(506)
-    
+    ratioHist.GetXaxis().SetTitleFont(43)
+    ratioHist.GetXaxis().SetTitleSize(xTitleSize)
+    ratioHist.GetXaxis().SetTitleOffset(xTitleOffset)
+    ratioHist.GetXaxis().SetLabelFont(43)
+    ratioHist.GetXaxis().SetLabelSize(xLabelSize)
+    ratioHist.GetXaxis().SetTickLength(0.08)
+    ratioHist.GetXaxis().SetNdivisions(506)
+
+    if(YRangeUser):
+        ratioHist.GetYaxis().SetRangeUser(Ymin,Ymax)
+    if(XRangeUser):
+        ratioHist.GetXaxis().SetRangeUser(Xmin,Xmax)
+        ratioXMin=Xmin
+        ratioXMax=Xmax
+    else:
+        ratioXMin=ratioHist.GetXaxis().GetXmin()
+        ratioXMax=ratioHist.GetXaxis().GetXmax()
     ratioHist.Draw("ep")
 
-
-    zeropercent=TLine(ratioHist.GetXaxis().GetXmin(),1,ratioHist.GetXaxis().GetXmax(),1)
+    
+    
+    zeropercent=TLine(ratioXMin,1,ratioXMax,1)
     zeropercent.Draw()
-    plus10percent=TLine(ratioHist.GetXaxis().GetXmin(),1.1,ratioHist.GetXaxis().GetXmax(),1.1)
+    plus10percent=TLine(ratioXMin,1.1,ratioXMax,1.1)
     plus10percent.SetLineStyle(rt.kDashed)
     plus10percent.Draw()
-    minus10percent=TLine(ratioHist.GetXaxis().GetXmin(),0.9,ratioHist.GetXaxis().GetXmax(),0.9)
+    minus10percent=TLine(ratioXMin,0.9,ratioXMax,0.9)
     minus10percent.SetLineStyle(rt.kDashed)
     minus10percent.Draw()
     
@@ -310,17 +331,16 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
     gPad.RedrawAxis()
     legend.Draw()        
     
-    latex=TLatex()
-    
+    latex=TLatex()    
     latex.SetNDC(kTRUE)
-    latex.SetTextSize(0.03)
-    latex.DrawLatex(0.6,0.93,"%.2f fb^{-1} (13 TeV)"%lumi)
-    latex.DrawLatex(0.18,0.87,"private work")
+    latex.SetTextSize(20)
+    latex.DrawLatex(0.52,0.953,"%.2f fb^{-1} (13 TeV)"%lumi)
+    latex.DrawLatex(0.1,0.953,"private work")
     
     lastcut='nocuts'
     for cut in cutnames:
-        # print cut, dir
-        if cut in dir:
+        # print cut, plotdir
+        if cut in plotdir:
             lastcut=cut
     
     # if(not (lastcut=='nocuts')):
@@ -329,12 +349,16 @@ def plotter(dir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0
     #         latex.DrawLatex(0.5,0.8-l*0.04,cuts[cutnames[l]])
 
     canv.Update()
-    # canv.Print('Plots/%s_%s.png'%(dir,plot))
-    canv.Print('Plots/%s_%s.eps'%(dir,plot))
-    # canv.Print('%s_%s.eps'%(dir,plot))
+    # canv.Print('Plots/%s_%s.png'%(plotdir,plot))
+    canv.Print('Plots/%s_%s.eps'%(plotdir,plot))
+    # canv.Print('%s_%s.eps'%(plotdir,plot))
+    #prevents memory leak in Canvas Creation/Deletion
+    #see: https://root.cern.ch/root/roottalk/roottalk04/2484.html
+    gSystem.ProcessEvents()
+    del canv
 
 if(__name__=='__main__'):
-    dir='AK8_invMAk4sel_1p0'
+    plotdir='AK8_invMAk4sel_1p0'
 
     plot='mass'
-    plotter(dir, plot)
+    plotter(plotdir, plot)
