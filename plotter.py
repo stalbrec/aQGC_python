@@ -70,9 +70,9 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     Ymin=10**1
     Ymax=10**4
 
-    XRangeUser=True
+    XRangeUser=False
     Xmin=0
-    Xmax=3.14
+    Xmax=13000
 
     xLabelSize=18.
     yLabelSize=18.

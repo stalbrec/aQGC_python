@@ -43,8 +43,8 @@ if(__name__=='__main__'):
            ('tau21sel','M_jj_AK4','M_{jj-AK4}',True,[channel],True,0),
            ('tau21sel','pT_AK4','p_{T}^{two leading AK4}',True,[channel],True,0),
            ('tau21sel','eta_AK4','#eta^{two leading AK4}',True,[channel],True,0),
-           ('tau21sel','M_softdrop_12','M_{SD}^{two leading AK8}',True,[channel],True,0)
-           ('tau21sel','tau21_12','#tau_{2}/#tau_{1} two leading AK8',True,[channel],True,0)
+           ('tau21sel','M_softdrop_12','M_{SD}^{two leading AK8}',True,[channel],True,0),
+           ('tau21sel','tau21_12','#tau_{2}/#tau_{1} two leading AK8',True,[channel],True,0),
            ('tau21sel','tau21_1','#tau_{2}/#tau_{1} leading AK8',True,[channel],True,0)
            # # VBF
            # ('invMAk4sel_1p0','N_pv','N_{PV}',True,[channel],True,0),
@@ -62,5 +62,5 @@ if(__name__=='__main__'):
            # ('invMAk4sel_1p0','M_softdrop_12','M_{SD}^{two leading AK8}',True,[channel],True,0)
     ]
 
-    for (dir,plot,xtitle,logY,channel,includeData,scaleSignal) in plots:
-        plotter(dir,plot,xtitle,logY,channel,includeData,scaleSignal)
+    for args in plots:
+        plotter(*args)
