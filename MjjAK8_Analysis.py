@@ -12,10 +12,17 @@ def LimitChannel(channel,dim8op,cuts):
         csv_out=open('output/limit/%s_limits_%s.csv'%(channel,cut),'wt')
         csvwriter=csv.DictWriter(csv_out,fieldnames=['parameter','limmin','limmax','limminmax','limitCalc_succeeded'])
         csvwriter.writeheader()
-        
+
+        csv_summary=open('output/limit/limits.csv','r')
+        r=csv.reader(csv_summary)
+        header=r.next()
+        header.append(channel)
+        rows=[]
+        rows.append(header)
+
         for op in dim8op:
             print '=============%s-%s============='%(op,cut)
-            current_Set_AK8 = ParSet.Set(op,channel,cut,'SignalRegion')
+            current_Set_AK8 = ParSet.Set(op,channel,cut,'SignalRegion/tau21sel_45/')
             current_Set_AK8.testSensitivity(True,plot_dir)
             print 'Limits:'
             print op,'-',current_Set_AK8.Limits
@@ -26,8 +33,17 @@ def LimitChannel(channel,dim8op,cuts):
                                 'limmax':current_Set_AK8.Limits[1],
                                 'limminmax':'(%.2f, %.2f)'%current_Set_AK8.Limits,
                                 'limitCalc_succeeded':str(current_Set_AK8.limitCalc_succeeded)})
+            row=r.next()
+            row.append('(%.2f, %.2f)'%current_Set_AK8.Limits)
+            rows.append(row)
         csv_out.close()
+        csv_summary.close()
 
+        csv_summary_new=open('output/limit/limits.csv','wt')
+        w=csv.writer(csv_summary_new,delimiter=',')
+        w.writerows(rows)
+        csv_summary_new.close()
+        
 def exportMjjPlots(channel,dim8op,cuts):
     for cut in cuts:
         plot_dir='output/plots/MjjPlots/%s/%s'%(channel,cut)
@@ -96,6 +112,14 @@ if(__name__=="__main__"):
         os.mkdir(archiv_path)
     backup_files=[]
 
+    # if os.path.exists('output/limit/limits.csv'):
+    #     os.remove('output/limit/limits.csv')
+    csv_init=open('output/limit/limits.csv','wt')
+    csvwriter=csv.writer(csv_init,delimiter=',')
+    csvwriter.writerow(['parameter'])
+    for op in dim8op:
+        csvwriter.writerow([op])
+    csv_init.close()
     for channel in channels:
         LimitChannel(channel,dim8op,cuts)
         # exportMjjPlots(channel,dim8op,cuts)
