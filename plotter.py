@@ -1,5 +1,5 @@
 from array import array
-import sys, csv, collections, numpy, math
+import os, sys, csv, collections, numpy, math, gc
 from ROOT import gROOT, gSystem, gStyle, gPad, TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE,TLatex, TPad, TLine
 import ROOT as rt
 
@@ -30,10 +30,32 @@ gStyle.SetNdivisions(506, "XYZ")
 gStyle.SetLegendBorderSize(0)
 
 
-def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0):
+def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0,initPath=''):
 
     channelTex={'WPWP':'W^{+}W^{+}','WPWM':'W^{+}W^{-}','WMWM':'W^{-}W^{-}','WPZ':'W^{+}Z','WMZ':'W^{-}Z','ZZ':'ZZ'}
     plotstyle=[(1,1),(1,2),(2,1),(2,2),(4,1),(4,2)]
+
+    PreSelection=['nocuts',
+                  'common',
+                  'corrections',
+                  'cleaner',
+                  'softdropmassCorr',
+                  'AK4pfidfilter',
+                  'AK8pfidfilter',
+                  'AK8N2sel',
+                  'invMAk8sel',
+                  'detaAk8sel'
+    ]
+    Selection=['preselection',
+               'softdropAK8sel',
+               'tau21sel',
+               'deltaR48',
+               'VVRegion',
+               'AK4N2sel',
+               'OpSignsel',
+               'detaAk4sel',
+               'invMAk4sel_1p0'
+    ]
 
     cutnames=['cleaner','AK8N2sel','invMAk8sel','detaAk8sel','softdropAK8sel','tau21sel','AK4cleaner','AK4N2sel','OpSignsel','detaAk4sel','invMAk4sel_1p0']
 
@@ -56,23 +78,46 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
 
     plottitle=plotdir+'_'+plot
-    
+
     lumi=36.814
-    
-    region='SignalRegion'
-    
-    # path='/nfs/dust/cms/user/albrechs/UHH2_Output/%s/'%region
-    path='/home/albrec/Master/signal/'
+
+
+    if(plotdir in PreSelection):
+        region='PreSelection'
+        initPath=''
+        referenceHistPath = 'detaAk8sel/N_pv'
+        if(PreSelection.index(plotdir)<4 and ('softdrop' in plot)):
+            return 'SofdropMass not filled yet!'
+    else:
+        region='SignalRegion'
+        referenceHistPath = 'tau21sel/N_pv'
+
+    if(initPath==''):
+        path='/nfs/dust/cms/user/albrechs/UHH2_Output/%s/'%region
+    else:
+        path=initPath
+    outputPath=path.replace('/nfs/dust/cms/user/albrechs/UHH2_Output/','Plots/')
+    if(plotdir in PreSelection):
+        CutNumber=PreSelection.index(plotdir)
+    else:
+        CutNumber=Selection.index(plotdir)
+    outputPath=outputPath+'/%02i_%s'%(CutNumber,plotdir)+'/'
+    print 'InputPath:',path
+    print 'OutputPath:',outputPath
+    #check if OutputPath exists - and if not create it!
+    if not os.path.exists(outputPath):
+        os.makedirs(outputPath)
+    # path='/home/albrec/Master/signal/'
     scaleVV=(scaleSignal!=0)
     VVScale=scaleSignal
-    
-    YRangeUser=False
-    Ymin=10**1
-    Ymax=10**4
+
+    YRangeUser=True
+    Ymin=0.11
+    Ymax=9*10**3
 
     XRangeUser=False
     Xmin=0
-    Xmax=13000
+    Xmax=6000.
 
     xLabelSize=18.
     yLabelSize=18.
@@ -80,17 +125,23 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     yTitleSize=22.
     xTitleOffset=4.
     yTitleOffset=1.3
-    
+
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
     SFiles=[]
+
     
     for i in range(len(channels)):
         SFiles.append(TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%channels[i]))
 
     ##Open Files to get BackgroundHist:
+    print 'qcd file:'
     QCDFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
+    print 'wjets file:'
     WJetsFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_WJetsToQQ_HT600ToInf.root")
-    ZJetsFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_ZJetsToQQ_HT600ToInf.root")    
+    print 'zjetsfile'
+    ZJetsFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_ZJetsToQQ_HT600ToInf.root")
+    print 'ttfile'
+    TTFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_TT.root")
 
     #Open File to get DataHist:
     DataFile = TFile(path+"/uhh2.AnalysisModuleRunner.Data.DATA.root")
@@ -100,25 +151,27 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     if(includeData):
         #calculate QCDscale with Integrals from the following Histogram:
-        referenceHistPath = 'tau21sel/N_pv'
+        # referenceHistPath = 'tau21sel/N_AK4'
+        # referenceHistPath = 'detaAk8sel/N_pv'
+        # referenceHistPath = 'tau21sel/met_pt_over_sumptAK8_2'
         QCDscale = (float(DataFile.Get(referenceHistPath).Integral())-float(WJetsFile.Get(referenceHistPath).Integral())-float(ZJetsFile.Get(referenceHistPath).Integral()))/float(QCDFile.Get(referenceHistPath).Integral())
     else:
         QCDscale = 1.0
     print 'using QCDscale:',QCDscale
-    
+
     SHists=[]
-    for i in range(len(channels)):            
+    for i in range(len(channels)):
         SHists.append(SFiles[i].Get(plotdir+'/'+plot))
     QCDHist=QCDFile.Get(plotdir+'/'+plot)
     QCDHist.Scale(QCDscale)
     WJetsHist=WJetsFile.Get(plotdir+'/'+plot)
     ZJetsHist=ZJetsFile.Get(plotdir+'/'+plot)
+    TTHist=TTFile.Get(plotdir+'/'+plot)
 
     if(includeData):
         DataHist=DataFile.Get(plotdir+'/'+plot)
-    
-        
-        
+
+
     canv = TCanvas(plottitle,plottitle,670,600)
 
     yplot=0.7
@@ -131,31 +184,31 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
 
     plotpad.SetTopMargin(0.08)
-    plotpad.SetBottomMargin(0.0)
+    plotpad.SetBottomMargin(0.016)
     plotpad.SetLeftMargin(0.1)
     plotpad.SetRightMargin(0.25)
     plotpad.SetTicks()
-    
-    ratiopad.SetTopMargin(0.0)
-    ratiopad.SetBottomMargin(0.3)
+
+    ratiopad.SetTopMargin(0.016)
+    ratiopad.SetBottomMargin(0.35)
     ratiopad.SetLeftMargin(0.1)
     ratiopad.SetRightMargin(0.25)
     ratiopad.SetTicks()
-    
+
     plotpad.Draw()
     ratiopad.Draw()
-    
-    
+
+
     if(logY):
         plotpad.SetLogy()
         canv.SetLogy()
-        
+
     legend = TLegend(0.75,0.6,1,0.9)
     legend.SetFillStyle(0)
     legend.SetTextSize(0.02)
     legend.SetMargin(0.4)
 
-    
+
     drawOptions="HE"
 
     stack=THStack(plottitle,plottitle)
@@ -166,31 +219,36 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     QCDColor=rt.kAzure+7
     WJetsColor=rt.kRed-4
     ZJetsColor=rt.kOrange-2
+    TTColor=rt.kGreen+2
 
     QCDHist.SetFillColor(QCDColor)
+    TTHist.SetFillColor(TTColor)
     WJetsHist.SetFillColor(WJetsColor)
     ZJetsHist.SetFillColor(ZJetsColor)
-    
+
     QCDHist.SetLineColor(QCDColor)
+    TTHist.SetLineColor(TTColor)
     WJetsHist.SetLineColor(WJetsColor)
     ZJetsHist.SetLineColor(ZJetsColor)
 
     BHist.Add(ZJetsHist,"HIST")
     BHist.Add(WJetsHist,"HIST")
+    BHist.Add(TTHist,"HIST")
     BHist.Add(QCDHist,"HIST")
-    
+
     BHist.SetTitle(plottitle)
     BHistErr=QCDHist.Clone()
+    BHistErr.Add(TTHist)
     BHistErr.Add(WJetsHist)
     BHistErr.Add(ZJetsHist)
-    
-    BHistErr.SetFillStyle(3204)    
+
+    BHistErr.SetFillStyle(3204)
     BHistErr.SetFillColor(rt.kGray+2)
     BHistErr.SetLineColor(1)
-    
+
     if(includeData):
         DataHist.SetMarkerStyle(8)
-        DataHist.SetLineColor(1)            
+        DataHist.SetLineColor(1)
         DataHist.SetTitle(plottitle)
 
     if VV:
@@ -212,16 +270,21 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
             SHists[i].SetLineColor(plotstyle[i][0])
             SHists[i].SetLineStyle(plotstyle[i][1])
             SHists[i].SetLineWidth(2)
-            legend.AddEntry(SHists[i],"%sjj"%channelTex[channels[i]])
-    
+            legentry="%sjj"%channelTex[channels[i]]
+            if(scaleVV):
+                SHists[i].Scale(VVScale)
+                legentry+=' *%.2E'%VVScale
+            legend.AddEntry(SHists[i],legentry)
+
     legend.AddEntry(ZJetsHist,"Z+JetsToQQ","f")
     legend.AddEntry(WJetsHist,"W+JetsToQQ","f")
+    legend.AddEntry(TTHist,"TTbar","f")
     legend.AddEntry(QCDHist,"QCD","f")
     legend.AddEntry(BHistErr,"stat. Uncertainty","f")
 
     if(includeData):
         legend.AddEntry(DataHist,"Data","lep")
-        
+
     canv.SetTitle(plottitle)
 
 
@@ -241,7 +304,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     else:
         MAX=1.1*max(BGMax,SIGMax)
         MIN=0.
-        
+
     BHistErr.GetYaxis().SetTitle('Events')
     BHistErr.GetYaxis().SetRangeUser(MIN,MAX)
     BHistErr.GetYaxis().SetTitleFont(43)
@@ -259,7 +322,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         BHistErr.GetXaxis().SetRangeUser(Xmin,Xmax)
 
     plotpad.cd()
-    
+
     BHistErr.Draw("E2")
     BHist.Draw("HistSAME")
     BHistErr.Draw("E2SAME")
@@ -274,10 +337,13 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         DataHist.Draw("APE1SAME")
 
     plotpad.RedrawAxis()
-    
+
     ratiopad.cd()
-    
-    ratioHist=DataHist.Clone()
+
+    if(includeData):
+        ratioHist=DataHist.Clone()
+    else:
+        ratioHist=BHistErr.Clone()
     ratioHist.SetLineColor(rt.kBlack)
     # ratioHist.Sumw2()
     ratioHist.SetStats(0)
@@ -305,8 +371,8 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     ratioHist.GetXaxis().SetTickLength(0.08)
     ratioHist.GetXaxis().SetNdivisions(506)
 
-    if(YRangeUser):
-        ratioHist.GetYaxis().SetRangeUser(Ymin,Ymax)
+    # if(YRangeUser):
+    #     ratioHist.GetYaxis().SetRangeUser(Ymin,Ymax)
     if(XRangeUser):
         ratioHist.GetXaxis().SetRangeUser(Xmin,Xmax)
         ratioXMin=Xmin
@@ -316,8 +382,8 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         ratioXMax=ratioHist.GetXaxis().GetXmax()
     ratioHist.Draw("ep")
 
-    
-    
+
+
     zeropercent=TLine(ratioXMin,1,ratioXMax,1)
     zeropercent.Draw()
     plus10percent=TLine(ratioXMin,1.1,ratioXMax,1.1)
@@ -326,23 +392,23 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     minus10percent=TLine(ratioXMin,0.9,ratioXMax,0.9)
     minus10percent.SetLineStyle(rt.kDashed)
     minus10percent.Draw()
-    
+
     canv.cd()
     gPad.RedrawAxis()
-    legend.Draw()        
-    
-    latex=TLatex()    
+    legend.Draw()
+
+    latex=TLatex()
     latex.SetNDC(kTRUE)
     latex.SetTextSize(20)
     latex.DrawLatex(0.52,0.953,"%.2f fb^{-1} (13 TeV)"%lumi)
     latex.DrawLatex(0.1,0.953,"private work")
-    
+
     lastcut='nocuts'
     for cut in cutnames:
         # print cut, plotdir
         if cut in plotdir:
             lastcut=cut
-    
+
     # if(not (lastcut=='nocuts')):
     #     latex.SetTextSize(0.03)
     #     for l in range(cutnames.index(lastcut)+1):
@@ -350,13 +416,15 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     canv.Update()
     # canv.Print('Plots/%s_%s.png'%(plotdir,plot))
-    canv.Print('Plots/%s_%s.eps'%(plotdir,plot))
+    canv.Print(outputPath+'/%s_%s.eps'%(plotdir,plot))
+    # canv.Print(outputPath+'/%s.eps'%(plot))
     # canv.Print('%s_%s.eps'%(plotdir,plot))
     #prevents memory leak in Canvas Creation/Deletion
     #see: https://root.cern.ch/root/roottalk/roottalk04/2484.html
     gSystem.ProcessEvents()
-    del canv
-
+    del ratiopad,plotpad,canv
+    # gc.collect()
+    return 'done!'
 if(__name__=='__main__'):
     plotdir='AK8_invMAk4sel_1p0'
 
