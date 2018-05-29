@@ -1,12 +1,23 @@
 import os, shutil, subprocess, glob, csv
 
+def getPointName_old(set,point):
+    name="F%s_"%set
+    # point=10*startx+i*10*increment
+    point = 10 * point
+    # print point ,'->',point/1000,(-point%1000)
+    if(point>=0):
+        name+="%ip%02.0f"%(point/100,(point%100))
+    else:
+        name+="m%ip%02.0f"%(-point/100,(-point%100))    
+    return name
+
+
 def getPointName(set,point):
     name="F%s_"%set
-    #point=10*startx+i*10*increment
-    if(point>=0):
-        name+="%ip%02i"%(point/100,(point%100))
-    else:
-        name+="m%ip%02i"%(-point/100,(-point%100))    
+    name+="%.2f"%(point/100)
+    name = name.replace('.','p')
+    if('-' in name):
+        name = name.replace('-','m')
     return name
 
 if(__name__=="__main__"):
@@ -14,6 +25,7 @@ if(__name__=="__main__"):
     # operators=["S0","S1","M0","M1","M6","M7","T0","T1","T2"]
     BosonChannel="VV"
     operators=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
+    # operators=["M0"]
 
     # sets={
     #     "S0":[1,91,-900.0,20.0],
