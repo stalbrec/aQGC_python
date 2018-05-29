@@ -2,7 +2,7 @@ import collections,csv
 
 sets=collections.OrderedDict()
 
-with open('/afs/desy.de/user/a/albrechs/aQGCVVjj/python/ReweightingRanges/ZZRange.csv','rb') as csvfile:
+with open('/afs/desy.de/user/a/albrechs/aQGCVVjj/python/ReweightingRanges/VVRange.csv','rb') as csvfile:
     setreader=csv.DictReader(csvfile)
     for row in setreader:
         sets.update({row['parameter']:[
@@ -11,7 +11,7 @@ with open('/afs/desy.de/user/a/albrechs/aQGCVVjj/python/ReweightingRanges/ZZRang
                     float(row['stepsize'])
                     ]})
         
-def getPointName(OpName,i): 
+def getPointName_old(OpName,i): 
     # name="%s_"%OpName 
     name=''
     parameter=100*sets[OpName][1]+i*100*sets[OpName][2]
@@ -19,6 +19,15 @@ def getPointName(OpName,i):
         name+="%ip%02i"%(parameter/100,parameter%100)
     else:
         name+="m%ip%02i"%(-parameter/100,-parameter%100)
+    return name
+
+def getPointName(OpName,i):
+    name=""
+    parameter=100*sets[OpName][1]+i*100*sets[OpName][2]
+    name+="%.2f"%(parameter/100)
+    name = name.replace('.','p')
+    if('-' in name):
+        name = name.replace('-','m')
     return name
     
 def fullList(parameters,alternative_iter=[]):
