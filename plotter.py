@@ -91,6 +91,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     else:
         region='SignalRegion'
         referenceHistPath = 'tau21sel/N_pv'
+    referenceHistPath=plotdir+'/'+plot
 
     if(initPath==''):
         path='/nfs/dust/cms/user/albrechs/UHH2_Output/%s/'%region
@@ -111,7 +112,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     scaleVV=(scaleSignal!=0)
     VVScale=scaleSignal
 
-    YRangeUser=True
+    YRangeUser=False
     Ymin=0.11
     Ymax=9*10**3
 
@@ -154,7 +155,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         # referenceHistPath = 'tau21sel/N_AK4'
         # referenceHistPath = 'detaAk8sel/N_pv'
         # referenceHistPath = 'tau21sel/met_pt_over_sumptAK8_2'
-        QCDscale = (float(DataFile.Get(referenceHistPath).Integral())-float(WJetsFile.Get(referenceHistPath).Integral())-float(ZJetsFile.Get(referenceHistPath).Integral()))/float(QCDFile.Get(referenceHistPath).Integral())
+        QCDscale = (float(DataFile.Get(referenceHistPath).Integral())-float(WJetsFile.Get(referenceHistPath).Integral())-float(ZJetsFile.Get(referenceHistPath).Integral())-float(TTFile.Get(referenceHistPath).Integral()))/float(QCDFile.Get(referenceHistPath).Integral())
     else:
         QCDscale = 1.0
     print 'using QCDscale:',QCDscale
@@ -297,12 +298,19 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
             tmpmax=SHists[i].GetMaximum()
             if(tmpmax>SIGMax):
                 SIGMax=tmpmax
+    # if(logY):
+    #     MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
+    #     MIN=float(10**(magnitude(max(BGMax,SIGMax))-4))
+    #     MIN+=float(10**(magnitude(MIN)))
+    # else:
+    #     MAX=1.1*max(BGMax,SIGMax)
+    #     MIN=0.
     if(logY):
-        MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
+        MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+2))
         MIN=float(10**(magnitude(max(BGMax,SIGMax))-4))
         MIN+=float(10**(magnitude(MIN)))
     else:
-        MAX=1.1*max(BGMax,SIGMax)
+        MAX=(1.0/0.7)*max(BGMax,SIGMax)
         MIN=0.
 
     BHistErr.GetYaxis().SetTitle('Events')
