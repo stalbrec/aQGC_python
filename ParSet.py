@@ -159,10 +159,26 @@ class Set:
         RooFitHist(self.RefHist,'%s_%s_refhist'%(self.channel,self.LastCut),path)
             
     def RooFitSignal(self,path=''):
+        
+        i = (len(self.SHists)/2)+3
         # for i in range(len(self.SHists)):
-        for i in [1]:
-            RooFitHist(self.SHists[i],"%s_%s_%s"%(self.channel,self.LastCut,self.getPointName(i)),path)
-                        
+            # chi2s.append(self.SHists[i].GetName()+'- chi2:'+str(RooFitHist(self.SHists[i],"%s_%s_%s"%(self.channel,self.LastCut,self.getPointName(i)),path))+'  N_raw: '+str(self.SHists[i].GetEntries()))
+        binI=self.SHists[i].GetMaximumBin()
+        if(self.SHists[i].GetBinContent(binI)==0):
+            x=0
+        else:
+            # x=self.SHists[i].GetSumOfWeights()
+            x=self.SHists[i].GetStdDevError()
+            # x=self.SHists[i].GetBinError(binI)/self.SHists[i].GetBinContent(binI)
+        
+        chi2s=(RooFitHist(self.SHists[i],"%s_%s_%s"%(self.channel,self.OpName,self.getPointName(i)),path),x)
+
+        print '========================================='
+        print self.channel,self.OpName
+        return chi2s
+        # for chi2 in chi2s:
+        #     print chi2
+        # ri=raw_input("Press Enter to continue")
         
     def exportPlot(self,logY=True,path="./output/plots",rebin=True):
 

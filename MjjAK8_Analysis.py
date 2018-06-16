@@ -1,7 +1,8 @@
 #!/usr/local/bin/python2.7
 import ParSet,subprocess,os,shutil,csv,glob
+from array import array
 from time import gmtime,strftime
-
+from ROOT import TCanvas, TGraph
 def LimitChannel(channel,dim8op,cuts):
 
     for cut in cuts:
@@ -22,7 +23,7 @@ def LimitChannel(channel,dim8op,cuts):
 
         for op in dim8op:
             print '=============%s-%s============='%(op,cut)
-            current_Set_AK8 = ParSet.Set(op,channel,cut,'SignalRegion/tau21sel_45/')
+            current_Set_AK8 = ParSet.Set(op,channel,cut,'SignalRegion/')
             current_Set_AK8.testSensitivity(True,plot_dir)
             print 'Limits:'
             print op,'-',current_Set_AK8.Limits
@@ -58,11 +59,11 @@ def exportMjjPlots(channel,dim8op,cuts):
 
 
 def FitChannel(channel,dim8op,cuts):
-    chi2={}
-    bestn={}
+    chi2s=[]
+    x, y = array( 'd' ), array( 'd' )
     for cut in cuts:
         for op in dim8op:           
-            plot_dir='output/plots/Fits/%s/%s/'%(cut,op)
+            plot_dir='output/plots/Fits/%s/%s/'%(cut,channel)
             if not os.path.exists(plot_dir):
                 os.makedirs(plot_dir)
 
@@ -74,10 +75,26 @@ def FitChannel(channel,dim8op,cuts):
             current_Set=ParSet.Set(op,channel,cut,'SignalRegion')
 
             # current_Set.FitSignal(plot_dir)
-            # current_Set.RooFitSignal(plot_dir)
+            chi2=current_Set.RooFitSignal(plot_dir)
+            print chi2
+            x.append(chi2[1])
+            y.append(chi2[0])
 
-            if(op == 'T0'):
-                current_Set.RooFitSig(refplot_dir)
+    plot1=TCanvas('Chi2Test','Chi2s in Channel %s'%channel,600,600)
+    plot1.SetLogy()
+
+    graph=TGraph(len(x),x,y)
+    graph.SetLineColor( 2 )
+    graph.SetLineWidth( 2 )
+    graph.SetMarkerColor( 1 )
+    graph.SetMarkerStyle( 3 )
+    graph.SetTitle('Chi2s Channel %s'%channel)
+    graph.GetXaxis().SetTitle('StdDevError')
+    graph.GetYaxis().SetTitle('\Chi^2')
+    graph.Draw( 'AP' )
+    plot1.Print('%s_chi2s.eps'%channel)
+            # if(op == 'T0'):
+            #     current_Set.RooFitSig(refplot_dir)
             
     #         chi2.update({cut:current_Set.chi2_dict})
     #         bestn.update(current_Set.best_n)
@@ -98,10 +115,9 @@ if(__name__=="__main__"):
     # channels=["WZ","ZZ"]
 
     dim8op=["S0","S1","M0","M1","M2","M3","M4","M5","M6","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
-    # # channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
+    channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
     # channels=['ssWW','VV','WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
-    channels=['VV','ssWW','ZZ']
-
+    # channels=['VV','ssWW','ZZ']
     # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0','invMAk4sel_1p2','invMAk4sel_1p5_allcuts']
     # cuts=['detaAk8selVV','detaAk4sel','invMAk4sel_1p0']
     cuts=['invMAk4sel_1p0']
@@ -121,9 +137,9 @@ if(__name__=="__main__"):
         csvwriter.writerow([op])
     csv_init.close()
     for channel in channels:
-        LimitChannel(channel,dim8op,cuts)
+        # LimitChannel(channel,dim8op,cuts)
         # exportMjjPlots(channel,dim8op,cuts)
-        # FitChannel(channel,dim8op,cuts)
+        FitChannel(channel,dim8op,cuts)
         # filenames=["%s_%s.eps"%(channel,op) for op in dim8op]
         # os.chdir("plots")
         # subprocess.call(["gs","-sPAPERSIZE=a4","-sDEVICE=pdfwrite","-dNOPAUSE","-dBATCH","-dSAFER","-sOutputFile=plots.pdf"]+filenames)
