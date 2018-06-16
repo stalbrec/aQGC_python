@@ -26,7 +26,7 @@ if(__name__=="__main__"):
     xbins= array('d')
     for i in range(0,nBins+1):
         xbins.append(i*500)
-    print 'nBins:', len(xbins)
+    print('nBins:', len(xbins))
     
     gROOT.SetBatch(True)
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")

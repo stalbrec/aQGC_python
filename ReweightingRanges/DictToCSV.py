@@ -27,7 +27,7 @@ def writeDict(dict,filename="range_%s"%strftime("%m_%d_%H_%M",gmtime()) ):
         
 
     with open(filename+'.csv','w') as csvfile:
-        print 'opened file:',filename+'.csv'
+        print('opened file:',filename+'.csv')
         coloumns=['parameter','anoinput','Npoints','start','end','stepsize']
         writer = csv.DictWriter(csvfile,fieldnames=coloumns)
         writer.writeheader()

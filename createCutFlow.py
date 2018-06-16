@@ -118,14 +118,14 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
     #     for i in range(1,PreSelectionFiles[0].Get('cf_metfilters').GetNbinsX()):
     #         Cuts.insert(Cuts.index(('common','CommonModules')),(PreSelectionFiles[0].Get('cf_metfilters').GetXaxis().GetBinLabel(i),PreSelectionFiles[0].Get('cf_metfilters').GetXaxis().GetBinLabel(i)))
     #     NCuts=NCuts+NMETFilter
-    print 'Plotting Cutflow of',NCuts,'Cuts.'
+    print('Plotting Cutflow of',NCuts,'Cuts.')
     # for dataset in datasets:
     BGStack=THStack('MCBackground','MCBackground')
 
     TotalMinimum=10**10
     NBG=0
     for l in range(len(datasets)):
-        print 'checking', datasets[l][1]
+        print('checking', datasets[l][1])
         if normalise:
             if((len(Cuts)==len(PreSelectionCuts)) or (len(Cuts)==(len(PreSelectionCuts)+len(SelectionCuts))) ):
                 Norm=PreSelectionFiles[l].Get(Cuts[0][0]+'/NEvents_%s'%weightedORraw).GetBinContent(1)
@@ -137,10 +137,10 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
             CurrentMinimum=SelectionFiles[l].Get(SelectionCuts[-1][0]+'/NEvents_%s'%weightedORraw).GetBinContent(1)/Norm
         else:
             CurrentMinimum=PreSelectionFiles[l].Get(PreSelectionCuts[-1][0]+'/NEvents_%s'%weightedORraw).GetBinContent(1)/Norm
-        print CurrentMinimum,TotalMinimum
+        print(CurrentMinimum,TotalMinimum)
 
         if(CurrentMinimum<TotalMinimum):
-            print 'setting ' , datasets[l][1], 'as new minimum'
+            print('setting ' , datasets[l][1], 'as new minimum')
             TotalMinimum=CurrentMinimum
         if(datasets[l][1]=='QCD' or datasets[l][1]=='W+JetsToQQ' or datasets[l][1]=='Z+JetsToQQ'):
             # NBG= NBG + PreSelectionFiles[l].Get(Cuts[0][0]+'/NEvents_%s'%weightedORraw).GetBinContent(1)
@@ -153,7 +153,7 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
             legend.SetTextSize(0.02)
             legend.SetMargin(0.4)
 
-        print 'Drawing',datasets[i][1]
+        print('Drawing',datasets[i][1])
         currentCutflow=TH1F(datasets[i][1],datasets[i][1],NCuts,0,NCuts)
         cutflows.append(currentCutflow)
         #filling the current cutflow (with NEvents_weighted or NEvents_raw)
@@ -195,8 +195,8 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
             MAX=1.1*HistMax
             MIN=0.
         currentCutflow.GetYaxis().SetRangeUser(MIN,MAX)
-        print 'RangeUser=(',MIN,',',MAX,')'
-        print 'drawOptions:',drawOptions
+        print('RangeUser=(',MIN,',',MAX,')')
+        print('drawOptions:',drawOptions)
         if(datasets[i][1]=='Data'):
             # legend.AddEntry(currentCutflow,datasets[i][1],'lep')
             # currentCutflow.SetMarkerStyle(8)

@@ -72,7 +72,7 @@ if(__name__=='__main__'):
     # a.Draw()
     # inter=TGraph()
     inter=getIntersections(a,b)
-    print inter
+    print(inter)
     # inter.Print()
     # inter=TGraph()
     # inter.SetPoint(0,5,5)

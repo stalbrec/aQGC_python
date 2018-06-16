@@ -27,14 +27,14 @@ def CountRegion(filename):
     for substr in path.split('/'):
         if 'Region' in substr:
             region=substr
-    print 'getting NEvents for Region:',region
+    print('getting NEvents for Region:',region)
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
     # DataFile = TFile(path+"/uhh2.AnalysisModuleRunner.Data.DATA.root")
     DataFile = TFile(filename)
     gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
     # referenceHistPath = 'invMAk4sel_1p0/M_jj_AK8'
     IntegralMjj=DataFile.Get(referenceHistPath).Integral()
-    print 'Integral_MjjAK8=',IntegralMjj
+    print('Integral_MjjAK8=',IntegralMjj)
 
     return IntegralMjj
     
@@ -65,22 +65,22 @@ if(__name__=='__main__'):
     csvwriter=csv.DictWriter(csv_out,fieldnames=['channel','region','S','B','S/B'])
     csvwriter.writeheader()
     # for region in regions:
-    #     print 'Region:',regio
+    #     print('Region:',regio)
     #     for channel in channels:       
-    #         print '###########################################'
-    #         print 'channel:',channel
+    #         print('###########################################')
+    #         print('channel:',channel)
     for channel in channels:        
-        print '###########################################'
-        print 'channel:',channel
+        print('###########################################')
+        print('channel:',channel)
         for region in regions:
-            print 'Region:',region
+            print('Region:',region)
 
             Purity=getPurity(channel,region)
-            print color.BOLD+color.YELLOW+'S/B:'+str(Purity[2])+color.END
+            print(color.BOLD+color.YELLOW+'S/B:'+str(Purity[2])+color.END)
             csvwriter.writerow({'channel':channel,
                                 'region':region,
                                 'S':Purity[0],
                                 'B':Purity[1],
                                 'S/B':Purity[2]})
-        print '###########################################'
+        print('###########################################')
                     

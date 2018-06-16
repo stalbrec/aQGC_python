@@ -28,13 +28,13 @@ def CountRegion(filename):
     for substr in path.split('/'):
         if 'Region' in substr:
             region=substr
-    print 'getting NEvents for Region:',region
+    print('getting NEvents for Region:',region)
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
     # DataFile = TFile(path+"/uhh2.AnalysisModuleRunner.Data.DATA.root")
     DataFile = TFile(filename)
     gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
     IntegralMjj=DataFile.Get(referenceHistPath).Integral()
-    print 'Integral_MjjAK8=',IntegralMjj
+    print('Integral_MjjAK8=',IntegralMjj)
 
     return float(int(IntegralMjj))
     
@@ -49,13 +49,13 @@ if(__name__=='__main__'):
     csvwriter.writeheader()
     
     for channel in channels:
-        print '##################################################################'
-        print 'Channel:',channel
+        print('##################################################################')
+        print('Channel:',channel)
         
         filename='uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root'%channel
         N_Events=[]
         for path in RegionPaths:
-            print path
+            print(path)
             N_Events.append(CountRegion(path+'/'+filename))
         N=N_Events[0]+N_Events[1]    
         csvwriter.writerow({'channel':channel,
@@ -65,8 +65,8 @@ if(__name__=='__main__'):
                             'NSideband/NSignal':N_Events[1]/N_Events[0],
                             'NSideband/N':N_Events[1]/N})
         
-        print 'N_Signal in SignalRegion:',N_Events[0],'and in SidebandRegion:',N_Events[1],' (both N_Signal:',N,')'
-        print 'N_Signal_Signal/N_Signal:',str(N_Events[0]/N)
-        print color.BOLD+color.YELLOW+'N_Signal_Sideband/N_Signal_Signal:',str(N_Events[1]/N_Events[0])+color.END
-        print '##################################################################'
-        print ''
+        print('N_Signal in SignalRegion:',N_Events[0],'and in SidebandRegion:',N_Events[1],' (both N_Signal:',N,')')
+        print('N_Signal_Signal/N_Signal:',str(N_Events[0]/N))
+        print(color.BOLD+color.YELLOW+'N_Signal_Sideband/N_Signal_Signal:',str(N_Events[1]/N_Events[0])+color.END)
+        print('##################################################################')
+        print('')

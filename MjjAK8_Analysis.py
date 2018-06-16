@@ -22,13 +22,13 @@ def LimitChannel(channel,dim8op,cuts):
         rows.append(header)
 
         for op in dim8op:
-            print '=============%s-%s============='%(op,cut)
+            print('=============%s-%s============='%(op,cut))
             current_Set_AK8 = ParSet.Set(op,channel,cut,'SignalRegion/')
             current_Set_AK8.testSensitivity(True,plot_dir)
-            print 'Limits:'
-            print op,'-',current_Set_AK8.Limits
-            print '==========================='
-            print        
+            print('Limits:')
+            print(op,'-',current_Set_AK8.Limits)
+            print('===========================')
+            print()
             csvwriter.writerow({'parameter':op,
                                 'limmin':current_Set_AK8.Limits[0],
                                 'limmax':current_Set_AK8.Limits[1],
@@ -71,12 +71,12 @@ def FitChannel(channel,dim8op,cuts):
             if not os.path.exists(refplot_dir):
                 os.makedirs(refplot_dir)
 
-            print '+++++++++++Fit - %s - %s+++++++++++'%(op,cut)
+            print('+++++++++++Fit - %s - %s+++++++++++'%(op,cut))
             current_Set=ParSet.Set(op,channel,cut,'SignalRegion')
 
             # current_Set.FitSignal(plot_dir)
             chi2=current_Set.RooFitSignal(plot_dir)
-            print chi2
+            print(chi2)
             x.append(chi2[1])
             y.append(chi2[0])
 
@@ -100,9 +100,9 @@ def FitChannel(channel,dim8op,cuts):
     #         bestn.update(current_Set.best_n)
             
     # for cut in cuts:
-    #     print '------------------------------- %s -------------------------------:'%cut
-    #     print 'best n:',bestn[cut][0],'w/ chi2/ndf:',bestn[cut][1]
-    #     print chi2[cut]
+    #     print('------------------------------- %s -------------------------------:'%cut)
+    #     print('best n:',bestn[cut][0],'w/ chi2/ndf:',bestn[cut][1])
+    #     print(chi2[cut])
 
 
 

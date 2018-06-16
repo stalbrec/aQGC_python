@@ -4,7 +4,7 @@ def getPointName_old(set,point):
     name="F%s_"%set
     # point=10*startx+i*10*increment
     point = 10 * point
-    # print point ,'->',point/1000,(-point%1000)
+    # print(point ,'->',point/1000,(-point%1000))
     if(point>=0):
         name+="%ip%02.0f"%(point/100,(point%100))
     else:
@@ -69,13 +69,13 @@ if(__name__=="__main__"):
             snippet+='reweight_names.push_back(getParName("%s",%.2ff,%.2ff,i));\n'%(row['parameter'],float(row['start']),float(row['stepsize']))
             snippet+='}\n'
         
-        print 'snippet for Mjj:'
-        print snippet
+        print('snippet for Mjj:')
+        print(snippet)
 
 
 
 
-    print sets
+    print(sets)
     with open(BosonChannel+"Range.dat","wt") as fout:
         fout.write("change helicity False\n")
         fout.write("change rwgt_dir rwgt\n")
@@ -92,4 +92,4 @@ if(__name__=="__main__"):
                 fout.write("        set anoinputs %i %8.6fe-12\n"%(sets[op][0],point/100))
                 fout.write("\n\n")
                 sum_points+=1
-        print "Total number of reweighting points:", sum_points
+        print("Total number of reweighting points:", sum_points)

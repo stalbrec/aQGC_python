@@ -17,11 +17,11 @@ class color:
 process = subprocess.Popen(["module list"],shell=True,stderr=subprocess.PIPE)
 module_list=process.communicate()[1]
 if('root6/6.02' in module_list):
-   print 'Loaded Modules:'
-   print module_list
-   print color.RED+color.BOLD+'For the custom ROOFit Shapes root5.34 is necessary'+color.END
+   print('Loaded Modules:')
+   print(module_list)
+   print(color.RED+color.BOLD+'For the custom ROOFit Shapes root5.34 is necessary'+color.END)
    # change_root_version=subprocess.Popen(["module load","root"],shell=True,stderr=subprocess.PIPE)
-   # print change_root_version.communicate()
+   # print(change_root_version.communicate())
    # exit()
     
 # gROOT.ProcessLine('.L RooFit/RooLogistics.cxx+')
@@ -40,12 +40,12 @@ def RooFitHist(inputhist,title='title',path='.'):
    NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
    for i in range(NBins+1):
       fitbinning.append(1050+i*binwidth)
-      # print fitbinning
+      # print(fitbinning)
 
    hist=inputhist.Rebin(NBins,"fit parameter",fitbinning) 
    meanstart=hist.GetBinCenter(hist.GetMaximumBin())
    sigmastart=hist.GetRMS()
-   print 'meanstart:',meanstart,'sigmastart:',sigmastart
+   print('meanstart:',meanstart,'sigmastart:',sigmastart)
 
     
    # inputhist.Draw()  

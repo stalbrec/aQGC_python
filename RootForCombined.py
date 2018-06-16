@@ -22,6 +22,6 @@ if(__name__=="__main__"):
                 # if not os.path.exists(plot_dir):
                 #     os.makedirs(plot_dir)
                 
-                print '+++++++++++writing RootFiles - %s - %s+++++++++++'%(op,cut)
+                print('+++++++++++writing RootFiles - %s - %s+++++++++++'%(op,cut))
                 current_Set=ParSet.Set(op,channel,cut,region)
                 current_Set.CombinedRootFiles(path)

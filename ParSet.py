@@ -41,7 +41,7 @@ class Set:
         self.jetRadius=int(jR)
         self.chi2_dict={}
         self.best_n={}
-        print 'Channel:',self.channel,'- Cut:',self.LastCut
+        print('Channel:',self.channel,'- Cut:',self.LastCut)
 
         rootdir_suffixe={"WPWP":"WPWPRange",
             "WPWM":"WPWPRange",
@@ -144,7 +144,7 @@ class Set:
            else:
                file= TFile(path+"/%s.root"%filename,"RECREATE");
            if(not file.IsOpen()):
-               print "Error: Could not open File No. %i"%i
+               print("Error: Could not open File No. %i"%i)
                       
            self.SHists[i].Write('radion_invMass'+name_suffix)
            self.BHist.Write('qcd_invMass'+name_suffix)
@@ -173,11 +173,11 @@ class Set:
         
         chi2s=(RooFitHist(self.SHists[i],"%s_%s_%s"%(self.channel,self.OpName,self.getPointName(i)),path),x)
 
-        print '========================================='
-        print self.channel,self.OpName
+        print('=========================================')
+        print(self.channel,self.OpName)
         return chi2s
         # for chi2 in chi2s:
-        #     print chi2
+        #     print(chi2)
         # ri=raw_input("Press Enter to continue")
         
     def exportPlot(self,logY=True,path="./output/plots",rebin=True):
@@ -248,7 +248,7 @@ class Set:
 
     def testSensitivity(self,plot=False,path="./output/plots"):
         if(self.jetRadius!=8):
-            print 'to calculate estimates of Limits use AK8 Jets!'
+            print('to calculate estimates of Limits use AK8 Jets!')
             return -1
 
         Nbins = self.BHist.GetNbinsX()
@@ -267,7 +267,7 @@ class Set:
             for j in range(0,len(self.SHists)):
                 SSums[j]+=self.SHists[j].GetBinContent(i)
             bin=i
-        print 'BSum=',BSum,' -> bin:',bin,';BinCenter:',self.BHist.GetBinCenter(bin)
+        print('BSum=',BSum,' -> bin:',bin,';BinCenter:',self.BHist.GetBinCenter(bin))
 
         lower_limit_index= -1
         upper_limit_index= -1
@@ -284,7 +284,7 @@ class Set:
 
 
         for i in range(0,len(SSums)):           
-            print self.getPoint(i),'-',SSums[i]
+            print(self.getPoint(i),'-',SSums[i])
             if(lower_limit_index==-1):
                 if( SSums[i]<=expectedLimit_S):
                     lower_limit_index=i

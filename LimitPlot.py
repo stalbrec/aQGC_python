@@ -47,13 +47,13 @@ if(__name__=="__main__"):
 
     # SHist = SFile.Get("MjjHists_invMAk4sel_1p0_ZRange/M_jj_AK8_S0_m40p0").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
     # BHist = BFile.Get("invMAk4sel_1p0/M_jj_AK8_highbin").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
-    # print SHist
-    # print BHist
+    # print(SHist)
+    # print(BHist)
 
     SHist = SFile.Get("MjjHists_invMAk4sel_1p0/M_jj_AK8_T1_m0p54").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
     BHist = BFile.Get("invMAk4sel_1p0/M_jj_AK8_highbin").Rebin(len(dijetbinning)-1,"new binning",dijetbinning)
-    print SHist
-    print BHist
+    print(SHist)
+    print(BHist)
 
 
     plottitle = "invariant Mass of AK8 Jets (FT1)"

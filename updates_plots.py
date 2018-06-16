@@ -64,11 +64,11 @@ if(__name__=='__main__'):
     for Region in RegionPaths:
         for cut in cuts:
             for args in plots:
-                print '---------------------------------------------------'
+                print('---------------------------------------------------')
                 args=(cut,)+args
                 args=args+('/nfs/dust/cms/user/albrechs/UHH2_Output/'+Region,)
-                print plotter(*args)
+                print(plotter(*args))
                 counter=counter+1
-                print '--------------------------%03i-----------------------'%counter
+                print('--------------------------%03i-----------------------'%counter)
                 
                 

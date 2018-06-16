@@ -23,10 +23,10 @@ def update_progress(iteration,complete):
 
 def getNEvents(path,filename=''):
     scriptdir=os.getcwd()
-    print '-----------------------------------------------------------------'
-    print '-----------------------------------------------------------------'
-    print 'getting Number of Events from file(s) in ' + path +filename
-    print '-----------------------------------------------------------------'
+    print('-----------------------------------------------------------------')
+    print('-----------------------------------------------------------------')
+    print('getting Number of Events from file(s) in ' + path +filename)
+    print('-----------------------------------------------------------------')
     gROOT.SetBatch(True)
     gROOT.ProcessLine("gErrorIgnoreLevel=2001;")
     os.chdir(path)
@@ -35,11 +35,11 @@ def getNEvents(path,filename=''):
         files=glob.glob('*.root')
         files.sort()
         if(len(ntuples)==0):
-            print "couldn't find any root-Files to extract Number of Events! Setting N=0."
+            print("couldn't find any root-Files to extract Number of Events! Setting N=0.")
             return 0
     else:
         files.append(path+'/'+filename)
-        print files
+        print(files)
     NEvents=0
     for i in range(len(files)):
         rootFile=TFile(files[i])
@@ -50,7 +50,7 @@ def getNEvents(path,filename=''):
             hist=rootFile.Get('tau21sel/N_AK4')
         # NEvents=NEvents+int(hist.GetEntries())
         NEvents=int(hist.Integral())
-        print 'Integral:',NEvents
+        print('Integral:',NEvents)
         targetlumi=36814.0
         if("W" in filename):
             datasetlumi=10476.098
@@ -59,10 +59,10 @@ def getNEvents(path,filename=''):
         elif("QCD" in filename):
             datasetlumi=458.91148
         if(not "Data" in filename):
-            print 'expected: (Entries*(targetlumi/datasetlumi)):' ,hist.GetEntries()*(targetlumi/datasetlumi)
+            print('expected: (Entries*(targetlumi/datasetlumi)):' ,hist.GetEntries()*(targetlumi/datasetlumi))
         update_progress(i+1,len(files))
     os.chdir(scriptdir)
-    print '-----------------------------------------------------------------'
+    print('-----------------------------------------------------------------')
     return float(NEvents)
 
 if(__name__=='__main__'):
@@ -86,6 +86,6 @@ if(__name__=='__main__'):
     NZJets=getNEvents(uhh2path,ZJetsfilename)
     NQCD=getNEvents(uhh2path,QCDfilename)
 
-    print 'NData:',NData,'NWJets:',NWJets,'NZJets:',NZJets
-    print 'NQCD_expected',(NData-NWJets-NZJets),'NQCD_actual:',NQCD
-    print 'scale for QCD:', '(',NData,'-',NWJets,'-',NZJets,')/',NQCD,'=',(NData-NWJets-NZJets)/NQCD
+    print('NData:',NData,'NWJets:',NWJets,'NZJets:',NZJets)
+    print('NQCD_expected',(NData-NWJets-NZJets),'NQCD_actual:',NQCD)
+    print('scale for QCD:', '(',NData,'-',NWJets,'-',NZJets,')/',NQCD,'=',(NData-NWJets-NZJets)/NQCD)

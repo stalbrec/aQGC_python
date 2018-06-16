@@ -31,7 +31,7 @@ if(__name__=='__main__'):
     NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
     for i in range(NBins+1):
         fitbinning.append(1050+i*binwidth)
-    #print fitbinning
+    #print(fitbinning)
     
     VVHist_100GeV=VVHist_1GeV.Rebin(NBins,"fit parameter",fitbinning)
     VBFHist_100GeV=VBFHist_1GeV.Rebin(NBins,"fit parameter",fitbinning)
@@ -114,7 +114,7 @@ if(__name__=='__main__'):
     VVHist_100GeV.Draw('PE1')
     VVTF1.Draw('SAME')
 
-    print 'chi2/ndf:',VVTF1.GetChisquare(),'/',VVTF1.GetNDF()
+    print('chi2/ndf:',VVTF1.GetChisquare(),'/',VVTF1.GetNDF())
 
     latex=TLatex()
     latex.SetNDC(kTRUE)
@@ -153,7 +153,7 @@ if(__name__=='__main__'):
     VBFHist_100GeV.Draw('PE1')
     VBFTF1.Draw('SAME')
     VVTF1.Draw('SAME')
-    print 'chi2/ndf:',VBFTF1.GetChisquare(),'/',VBFTF1.GetNDF()
+    print('chi2/ndf:',VBFTF1.GetChisquare(),'/',VBFTF1.GetNDF())
 
     latexvbf=TLatex()
     latexvbf.SetNDC(kTRUE)

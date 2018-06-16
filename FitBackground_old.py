@@ -16,7 +16,7 @@ if(__name__=='__main__'):
     NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
     for i in range(NBins+1):
         fitbinning.append(1050+i*binwidth)
-    # print fitbinning
+    # print(fitbinning)
     
     VVHist_100GeV=VVHist_1GeV.Rebin(NBins,"fit parameter",fitbinning)
     VBFHist_100GeV=VBFHist_1GeV.Rebin(NBins,"fit parameter",fitbinning)

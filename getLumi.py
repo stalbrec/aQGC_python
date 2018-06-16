@@ -37,7 +37,7 @@ def getCrossSections(channel,indices):
     scriptdir=os.getcwd()
     os.chdir('/nfs/dust/cms/user/albrechs/production/ntuples/split_LHE/%s'%channel)
     xsections=[]
-    print 'getting Cross-Sections from LHE-Logs..'
+    print('getting Cross-Sections from LHE-Logs..')
     for i in range(0,len(indices),1):
         if(os.path.isdir(str(i))):
             files=glob.glob('%i/*.o*'%indices[i])
@@ -47,14 +47,14 @@ def getCrossSections(channel,indices):
                 xsections.append(xsect)
         update_progress(i+1,len(indices))
         if(len(xsections)==0):
-            print "couldn't find any Log-Files to extract cross-section! Continuing with next Channel..."
+            print("couldn't find any Log-Files to extract cross-section! Continuing with next Channel...")
             continue
     os.chdir(scriptdir)
     return xsections
 
 def getNEvents(channel,indices):
     scriptdir=os.getcwd()
-    print 'getting Number of Events from Ntuples...'
+    print('getting Number of Events from Ntuples...')
     gROOT.SetBatch(True)
     gROOT.ProcessLine("gErrorIgnoreLevel=2001;")
     os.chdir('/nfs/dust/cms/user/albrechs/production/ntuples/NT_%s'%channel)
@@ -62,7 +62,7 @@ def getNEvents(channel,indices):
     ntuples.sort()
     NEvents=0
     if(len(ntuples)==0):
-        print "couldn't find any root-Files to extract Number of Events! Setting N=0."
+        print("couldn't find any root-Files to extract Number of Events! Setting N=0.")
         return 0
     for i in range(0,len(indices)):
         rootFile=TFile('Ntuple_%s_%i.root'%(channel,indices[i]))
@@ -88,9 +88,9 @@ def writeConfig(luminosities,Region):
     with open('UHH2Configs/aQGCVVjjhadronic_REGION.xml','r') as template:
         filedata = template.read()
         for (channel,lumi) in luminosities:
-            print 'replacing %sLUMI with %.2f'%(channel,lumi)
+            print('replacing %sLUMI with %.2f'%(channel,lumi))
             filedata=filedata.replace('%sLUMI'%channel,'%.2f'%lumi)
-        print 'replacing REGION with %s'%Region
+        print('replacing REGION with %s'%Region)
         filedata=filedata.replace('REGION',Region)
         with open('UHH2Configs/aQGCVVjjhadronic_%s.xml'%Region,'w') as configFile:
             configFile.write(filedata)
@@ -101,7 +101,7 @@ if(__name__=='__main__'):
     # channels=['ZZ']
     luminosities=[]
     for channel in channels:
-        print '-----------------%s-----------------'%channel
+        print('-----------------%s-----------------'%channel)
         failed_jobs=checkChannelFiles(channel)
         indices=range(0,100)
         for i in indices:
@@ -110,7 +110,7 @@ if(__name__=='__main__'):
         failed_jobs.sort()
         for i in failed_jobs:
             indices.remove(i)
-        print len(failed_jobs),'->',failed_jobs
+        print(len(failed_jobs),'->',failed_jobs)
         NEvents=getNEvents(channel,indices)
         xsections=getCrossSections(channel,indices)
         sum_nom=0
@@ -128,11 +128,11 @@ if(__name__=='__main__'):
             mean=0
             mean_err=0
             lumi=0
-        print 'N_xsection=',len(xsections)
-        print 'gewichteter Mittelwert=',mean,'+-',mean_err,'pb'
-        print 'N_Events:',NEvents
-        print 'resulting Luminosity:',lumi,'pb^-1'
-        print '--------------------------------------\n\n'
+        print('N_xsection=',len(xsections))
+        print('gewichteter Mittelwert=',mean,'+-',mean_err,'pb')
+        print('N_Events:',NEvents)
+        print('resulting Luminosity:',lumi,'pb^-1')
+        print('--------------------------------------\n\n')
 
     for region in regions:
         writeConfig(luminosities,region)

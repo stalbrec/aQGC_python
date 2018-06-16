@@ -39,14 +39,14 @@ def checkChannelFiles(channel):
     files=glob.glob("*.root")
     failed_jobs=range(0,100)
         
-    print '%s (expected #ReweightingPoints %i):'%(channel,N_Reweight_expected)
+    print('%s (expected #ReweightingPoints %i):'%(channel,N_Reweight_expected))
 
     if(len(files)==0):
-        print 'no files in this channel! exiting..'
+        print('no files in this channel! exiting..')
         os.chdir(scriptdir)
         return -1
 
-    print 'number of files:',len(files)
+    print('number of files:',len(files))
 
     for i in range(len(files)):
         size=os.stat(files[i]).st_size
@@ -67,28 +67,28 @@ def checkChannelFiles(channel):
         # else:
         #     N_Reweight_actual-=1080
         N_Reweight_actual-=1080
-        # print 'actual Reweight Points:',N_Reweight_actual
+        # print('actual Reweight Points:',N_Reweight_actual)
         if(N_Reweight_actual==N_Reweight_expected):
             failed_jobs.remove(int(file_index))
         update_progress(i+1,len(files))
-    #print indices of failed jobs (negative indices belong to jobs which failed due to missing motivation of reweighting-procedure
-    print 'Failed Jobs:'
-    #print failed_jobs
+    #print(indices of failed jobs (negative indices belong to jobs which failed due to missing motivation of reweighting-procedure)
+    print('Failed Jobs:')
+    #print(failed_jobs)
     os.chdir(scriptdir)
     
-        #print snippet for resubmit-script
+        #print(snippet for resubmit-script)
     failed_jobs.sort()
     snippet='('
     for job in failed_jobs:
         snippet+='%i '%int(job)
     snippet=snippet[:-1]
     snippet+=')'
-    print 'Number of failed Jobs:',len(failed_jobs)
-    print snippet
+    print('Number of failed Jobs:',len(failed_jobs))
+    print(snippet)
     return failed_jobs
     
 if(__name__=='__main__'):
-    print 'checking Files of following channels:'
+    print('checking Files of following channels:')
     # channels=["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"]
     channels=['WPWP']
     # channels=["WPZ","WMZ","ZZ"]

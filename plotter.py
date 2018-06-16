@@ -103,8 +103,8 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     else:
         CutNumber=Selection.index(plotdir)
     outputPath=outputPath+'/%02i_%s'%(CutNumber,plotdir)+'/'
-    print 'InputPath:',path
-    print 'OutputPath:',outputPath
+    print('InputPath:',path)
+    print('OutputPath:',outputPath)
     #check if OutputPath exists - and if not create it!
     if not os.path.exists(outputPath):
         os.makedirs(outputPath)
@@ -154,7 +154,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         QCDscale = (float(DataFile.Get(referenceHistPath).Integral())-float(WJetsFile.Get(referenceHistPath).Integral())-float(ZJetsFile.Get(referenceHistPath).Integral())-float(TTFile.Get(referenceHistPath).Integral()))/float(QCDFile.Get(referenceHistPath).Integral())
     else:
         QCDscale = 1.0
-    print 'using QCDscale:',QCDscale
+    print('using QCDscale:',QCDscale)
 
     SHists=[]
     for i in range(len(channels)):
@@ -415,7 +415,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     lastcut='nocuts'
     for cut in cutnames:
-        # print cut, plotdir
+        # print(cut, plotdir)
         if cut in plotdir:
             lastcut=cut
 

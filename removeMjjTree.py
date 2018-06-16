@@ -22,18 +22,18 @@ if(__name__=='__main__'):
         for sample in samples:
             FileName=path+region+'/uhh2.AnalysisModuleRunner.'+sample+'.root'
             if(not os.path.isfile(FileName)):
-                print 'file', FileName,'does not exist'
+                print('file', FileName,'does not exist')
                 continue
             newFileName=FileName[:FileName.find('.root')]+'_noscan.root'
             if('Data' in FileName):                
                 newFileName=path+region+'/uhh2.AnalysisModuleRunner.Data.DATA.root'
-            print 'newFileName:',newFileName
+            print('newFileName:',newFileName)
             shutil.copyfile(FileName,newFileName)
             File=TFile(newFileName,'UPDATE')
             keyList=File.GetListOfKeys()
             for key in keyList:
                 if 'Mjj' in key.GetName():
-                    print 'deleting',key.GetName()
+                    print('deleting',key.GetName())
                     gDirectory.Delete(key.GetName()+';1')
             gDirectory.Delete('AnalysisTree;1')
             File.Close()
