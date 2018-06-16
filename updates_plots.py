@@ -5,7 +5,7 @@ if(__name__=='__main__'):
 
     #plotdir= nocuts,cleaner,AK8N2sel,deltaR48,invMAk8sel,detaAk8sel,softdropAK8sel,tau21sel,VVRegion,AK4N2sel,OpSignsel,detaAk4sel,invMAk4sel_1p0
     #histname= N_pv,pdgID,N_AK*,eta/pT_AK*,eta/pT_AK*_{1,2,12},prodeta_AK4_12,M_jj_AK*,M_jj_AK*_highbin,M_softdrop_{1,2,12},tau_21_{1,2,12},met_over_pt_mjjAK8_{2,4},met_over_sumptAK*_{2,4},met_over_sumptJets_{2,4}
-    # *new* : deta_AK*_12
+    # *new* : deta_AK*_12,M_AK8{_{1,2,12}}
     
     channel='ZZ'
     #plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0)
@@ -32,6 +32,10 @@ if(__name__=='__main__'):
         ('pT_AK8_1','p_{T}^{1st AK8}',True,[channel],includeData,0.01),
         ('pT_AK8_2','p_{T}^{2nd AK8}',True,[channel],includeData,0.01),
         ('pT_AK8','p_{T}^{AK8}',True,[channel],includeData,0),
+        ('M_AK8_12','M_{two leading AK8}',True,[channel],includeData,0.01),
+        ('M_AK8_1','M_{1st AK8}',True,[channel],includeData,0.01),
+        ('M_AK8_2','M_{2nd AK8}',True,[channel],includeData,0.01),
+        ('M_AK8','M_{AK8}',True,[channel],includeData,0),
 
         ('M_jj_AK8','M_{jj-AK8}',True,[channel],includeData,0),
         ('M_jj_AK4','M_{jj-AK4}',True,[channel],includeData,0),
@@ -48,11 +52,14 @@ if(__name__=='__main__'):
         ]
 
     # cuts = ['nocuts','common','corrections','cleaner','softdropmassCorr','AK4pfidfilter','AK8pfidfilter','AK8N2sel','invMAk8sel','detaAk8sel','preselection','softdropAK8sel','tau21sel','deltaR48','VVRegion','AK4N2sel','OpSignsel','detaAk4sel','invMAk4sel_1p0']
-    # cuts = ['preselection','softdropAK8sel','tau21sel','deltaR48','VVRegion','AK4N2sel','OpSignsel','detaAk4sel','invMAk4sel_1p0']
-    cuts = ['tau21sel']
+    cuts = ['preselection','softdropAK8sel','tau21sel','deltaR48','VVRegion','AK4N2sel','OpSignsel','detaAk4sel','invMAk4sel_1p0']
+    # cuts = ['tau21sel']
+    # cuts=['nocuts','cleaner','AK8N2sel']
     # RegionPaths=['SignalRegion/tau21sel_45','SignalRegion/tau21sel_35']#,'HIGHSidebandRegion','HIGHSidebandRegionRmEvent']
     # RegionPaths=['SignalRegion/tau21sel_45']#,'HIGHSidebandRegion','HIGHSidebandRegionRmEvent']
-    RegionPaths=['SignalRegion/tau21sel_45','SignalRegion/tau21sel_45/backup','SignalRegion/tau21sel_35','SignalRegion/tau21sel_35/backup']
+    # RegionPaths=['SignalRegion/tau21sel_45','SignalRegion/tau21sel_45/backup','SignalRegion/tau21sel_35','SignalRegion/tau21sel_35/backup']
+    RegionPaths=['SignalRegion','SidebandRegion']
+    # RegionPaths=['PreSelection']
     counter=0
     for Region in RegionPaths:
         for cut in cuts:

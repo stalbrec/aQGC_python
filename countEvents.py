@@ -74,7 +74,7 @@ if(__name__=='__main__'):
     #     outputfile.write(NWJets)
     #     outputfile.write(NZJets)
 
-    uhh2path='/nfs/dust/cms/user/albrechs/UHH2_Output/HIGHSidebandRegion/'
+    uhh2path='/nfs/dust/cms/user/albrechs/UHH2_Output/SignalRegion/tau21_45/'
     WJetsfilename = 'uhh2.AnalysisModuleRunner.MC.MC_WJetsToQQ_HT600ToInf.root'
     ZJetsfilename = 'uhh2.AnalysisModuleRunner.MC.MC_ZJetsToQQ_HT600ToInf.root'
     QCDfilename  = 'uhh2.AnalysisModuleRunner.MC.MC_QCD.root'
