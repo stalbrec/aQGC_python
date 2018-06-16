@@ -21,7 +21,7 @@ gStyle.SetPadLeftMargin(0.1)
 gStyle.SetPadBottomMargin(0.12)
 gStyle.SetPadTopMargin(0.08)
 # gStyle.SetPadRightMargin(0.08)
-gStyle.SetPadRightMargin(0.2)
+gStyle.SetPadRightMargin(0.1)
 gStyle.SetMarkerSize(0.5)
 gStyle.SetHistLineWidth(1)
 gStyle.SetTitleSize(0.05, "XYZ")
@@ -135,13 +135,9 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         SFiles.append(TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%channels[i]))
 
     ##Open Files to get BackgroundHist:
-    print 'qcd file:'
     QCDFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
-    print 'wjets file:'
     WJetsFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_WJetsToQQ_HT600ToInf.root")
-    print 'zjetsfile'
     ZJetsFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_ZJetsToQQ_HT600ToInf.root")
-    print 'ttfile'
     TTFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_TT.root")
 
     #Open File to get DataHist:
@@ -173,7 +169,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         DataHist=DataFile.Get(plotdir+'/'+plot)
 
 
-    canv = TCanvas(plottitle,plottitle,670,600)
+    canv = TCanvas(plottitle,plottitle,600,600)
 
     yplot=0.7
     yratio=0.3
@@ -187,13 +183,13 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     plotpad.SetTopMargin(0.08)
     plotpad.SetBottomMargin(0.016)
     plotpad.SetLeftMargin(0.1)
-    plotpad.SetRightMargin(0.25)
+    plotpad.SetRightMargin(0.05)
     plotpad.SetTicks()
 
     ratiopad.SetTopMargin(0.016)
     ratiopad.SetBottomMargin(0.35)
     ratiopad.SetLeftMargin(0.1)
-    ratiopad.SetRightMargin(0.25)
+    ratiopad.SetRightMargin(0.05)
     ratiopad.SetTicks()
 
     plotpad.Draw()
@@ -203,12 +199,6 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     if(logY):
         plotpad.SetLogy()
         canv.SetLogy()
-
-    legend = TLegend(0.75,0.6,1,0.9)
-    legend.SetFillStyle(0)
-    legend.SetTextSize(0.02)
-    legend.SetMargin(0.4)
-
 
     drawOptions="HE"
 
@@ -246,6 +236,42 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     BHistErr.SetFillStyle(3204)
     BHistErr.SetFillColor(rt.kGray+2)
     BHistErr.SetLineColor(1)
+
+    BGMax=BHist.GetMaximum()
+    SIGMax=0
+    if(VV):
+        SIGMax=VVsum.GetMaximum()
+    else:
+        for i in range(len(channels)):
+            tmpmax=SHists[i].GetMaximum()
+            if(tmpmax>SIGMax):
+                SIGMax=tmpmax
+    if(scaleVV):
+        SIGMax=SIGMax*VVScale
+    # if(logY):
+    #     MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
+    #     MIN=float(10**(magnitude(max(BGMax,SIGMax))-4))
+    #     MIN+=float(10**(magnitude(MIN)))
+    # else:
+    #     MAX=1.1*max(BGMax,SIGMax)
+    #     MIN=0.
+    if(logY):
+        MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
+        MIN=float(10**(magnitude(max(BGMax,SIGMax))-5))
+        MIN+=float(10**(magnitude(MIN)))
+        legendMIN=math.log(max(BGMax,SIGMax))/math.log(MAX)
+    else:
+        MAX=(1.0/0.8)*max(BGMax,SIGMax)
+        legendMIN=0.7
+        MIN=0.
+    legendMIN=(legendMIN*0.7)+0.3-0.016
+
+    legend = TLegend(0.5,0.75,0.8,0.92)
+    legend.SetFillStyle(0)
+    legend.SetTextSize(0.02)
+    legend.SetMargin(0.4)
+    legend.SetNColumns(2)
+    legend.SetColumnSeparation(0.3)
 
     if(includeData):
         DataHist.SetMarkerStyle(8)
@@ -288,30 +314,6 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     canv.SetTitle(plottitle)
 
-
-    BGMax=BHist.GetMaximum()
-    SIGMax=0
-    if(VV):
-        SIGMax=VVsum.GetMaximum()
-    else:
-        for i in range(len(channels)):
-            tmpmax=SHists[i].GetMaximum()
-            if(tmpmax>SIGMax):
-                SIGMax=tmpmax
-    # if(logY):
-    #     MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
-    #     MIN=float(10**(magnitude(max(BGMax,SIGMax))-4))
-    #     MIN+=float(10**(magnitude(MIN)))
-    # else:
-    #     MAX=1.1*max(BGMax,SIGMax)
-    #     MIN=0.
-    if(logY):
-        MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+2))
-        MIN=float(10**(magnitude(max(BGMax,SIGMax))-4))
-        MIN+=float(10**(magnitude(MIN)))
-    else:
-        MAX=(1.0/0.7)*max(BGMax,SIGMax)
-        MIN=0.
 
     BHistErr.GetYaxis().SetTitle('Events')
     BHistErr.GetYaxis().SetRangeUser(MIN,MAX)
@@ -408,7 +410,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     latex=TLatex()
     latex.SetNDC(kTRUE)
     latex.SetTextSize(20)
-    latex.DrawLatex(0.52,0.953,"%.2f fb^{-1} (13 TeV)"%lumi)
+    latex.DrawLatex(0.69,0.953,"%.2f fb^{-1} (13 TeV)"%lumi)
     latex.DrawLatex(0.1,0.953,"private work")
 
     lastcut='nocuts'
