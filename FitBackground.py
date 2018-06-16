@@ -1,16 +1,19 @@
 from array import array
 import csv,collections,numpy
 import ROOT as rt
-from ROOT import gROOT, gStyle, gPad,TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE
+from ROOT import gROOT, gStyle, gPad,TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE,TLatex
 from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooFit, RooArgList,RooFormulaVar,RooGenericPdf
 
 if(__name__=='__main__'):
 
+    gROOT.SetBatch(True)
     
     # SD_REGION='Signal'
-    SD_REGION='Signal'
+    # REGION='SignalRegion'
+    REGION='SidebandRegion'
     #File=TFile('/nfs/dust/cms/user/albrechs/CMSSW_8_1_0/src/DijetCombineLimitCode/input/ZZ_S0_16p00.root','READ')
-    File=TFile('/nfs/dust/cms/user/albrechs/UHH2_Output/'+SD_REGION+'Region/uhh2.AnalysisModuleRunner.MC.MC_QCD.root','READ')
+    # File=TFile('/nfs/dust/cms/user/albrechs/UHH2_Output/'+REGION+'/backup/uhh2.AnalysisModuleRunner.Data.DATA.root','READ')
+    File=TFile('/nfs/dust/cms/user/albrechs/UHH2_Output/'+REGION+'/backup/uhh2.AnalysisModuleRunner.MC.MC_QCD.root','READ')
 
     # VVHist_1GeV= File.Get('qcd_invMass')
     # VBFHist_1GeV= File.Get('qcd_invMass_afterVBFsel')
@@ -28,7 +31,7 @@ if(__name__=='__main__'):
     NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
     for i in range(NBins+1):
         fitbinning.append(1050+i*binwidth)
-    # print fitbinning
+    #print fitbinning
     
     VVHist_100GeV=VVHist_1GeV.Rebin(NBins,"fit parameter",fitbinning)
     VBFHist_100GeV=VBFHist_1GeV.Rebin(NBins,"fit parameter",fitbinning)
@@ -67,21 +70,44 @@ if(__name__=='__main__'):
     # VVndof=VVdh.numEntries()-2
     # VBFndof=VBFdh.numEntries()-2
 
-    
+    twopar='[0]/TMath::Power(x/13000,[1])'
+    threepar='[0]*TMath::Power((1-x)/13000,[2])/TMath::Power(x/13000,[1])'
+    VV_MAXIMUM=0
+    for i in range(VVHist_100GeV.GetNbinsX()):
+        if(VVHist_100GeV.GetBinContent(i)>0):
+            VV_MAXIMUM=VVHist_100GeV.GetBinCenter(i)
+
+    VBF_MAXIMUM=0
+    for i in range(VBFHist_100GeV.GetNbinsX()):
+        if(VBFHist_100GeV.GetBinContent(i)>0):
+            VBF_MAXIMUM=VBFHist_100GeV.GetBinCenter(i)
+            
     
     VVcanv=TCanvas('VV','VV',700,700)
     VVcanv.SetLogy()
     VVcanv.SetLeftMargin(0.20) 
     VVcanv.cd()
+    # threeparfunc=TF1('3par',threepar,1050,FIT_MAX)
+    # threeparfunc.SetParameter(0,0.001)
+    # threeparfunc.SetParameter(1,10)
+    # threeparfunc.SetParameter(0,0)
+   
+    # twoparfunc=TF1('2par',twopar,1050,FIT_MAX)
+    # twoparfunc.SetParameter(0,0.001)
+    # twoparfunc.SetParameter(1,10)
 
-    VVTF1=TF1('VVTF1','[0]/TMath::Power(x/13000,[1])',1050,13000)
-    VVTF1.SetParameter(0,1)
-    VVTF1.SetParameter(1,5)
+    # VVHist_100GeV.Draw('PE1')
+    # test=raw_input('press enter to continue')    
+    fitfunc=twopar
+    
+    VVTF1=TF1('VVTF1',fitfunc,1050,VV_MAXIMUM)
+    VVTF1.SetParameter(0,0.001)
+    VVTF1.SetParameter(1,10)
     VVHist_100GeV.Fit('VVTF1','R')
     VVHist_100GeV.SetMarkerStyle(8)
     VVHist_100GeV.SetLineColor(1)
     VVHist_100GeV.GetYaxis().SetRangeUser(10**(-6),10)
-    VVHist_100GeV.GetXaxis().SetRangeUser(0,8000)
+    VVHist_100GeV.GetXaxis().SetRangeUser(0,VV_MAXIMUM+1000)
     VVHist_100GeV.GetXaxis().SetTitle('M_{jj-AK8} [GeV/c^{2}]')
     VVHist_100GeV.GetYaxis().SetTitle('Normalized # Events')
     VVHist_100GeV.GetYaxis().SetTitleOffset(2)
@@ -90,6 +116,12 @@ if(__name__=='__main__'):
 
     print 'chi2/ndf:',VVTF1.GetChisquare(),'/',VVTF1.GetNDF()
 
+    latex=TLatex()
+    latex.SetNDC(kTRUE)
+    latex.SetTextSize(0.03)
+    # latex.DrawLatex(0.52,0.953,"%.2f fb^{-1} (13 TeV)"%36.1)
+    latex.DrawLatex(0.45,0.65,"#chi^{2}/ndof=%.2f/%.2f=%.2f"%(VVTF1.GetChisquare(),VVTF1.GetNDF(),VVTF1.GetChisquare()/VVTF1.GetNDF()))
+    # latex.Draw("SAME")
     
     VVleg = TLegend(0.45,0.7,0.9,0.9)
     VVleg.SetBorderSize(0)
@@ -98,22 +130,22 @@ if(__name__=='__main__'):
     VVleg.AddEntry(VVTF1,'QCD-!VBF Fit (p_{0}/(x/#sqrt{s})^{p_{1}}','l')
     VVleg.SetTextSize(0.03)
     VVleg.Draw('SAME')
-
-    VVcanv.Print(SD_REGION+'_VVRegion.eps')
+   
+    VVcanv.Print(REGION+'_VVRegion.eps')
 
     VBFcanv=TCanvas('VBF','VBF',700,700)
     VBFcanv.SetLogy()
     VBFcanv.SetLeftMargin(0.20) 
     VBFcanv.cd()
 
-    VBFTF1=TF1('VBFTF1','[0]/TMath::Power(x/13000,[1])',1050,13000)
+    VBFTF1=TF1('VBFTF1',fitfunc,1050,VBF_MAXIMUM)
     VBFTF1.SetParameter(0,1)
     VBFTF1.SetParameter(1,5)
     VBFTF1.SetLineColor(rt.kBlue)
     VBFHist_100GeV.Fit('VBFTF1','R')
     VBFHist_100GeV.SetMarkerStyle(8)
     VBFHist_100GeV.SetLineColor(1)
-    VBFHist_100GeV.GetXaxis().SetRangeUser(0,4000)
+    VBFHist_100GeV.GetXaxis().SetRangeUser(0,VV_MAXIMUM+1000)
     VBFHist_100GeV.GetYaxis().SetRangeUser(10**(-6),10)
     VBFHist_100GeV.GetXaxis().SetTitle('M_{jj-AK8} [GeV/c^{2}]')
     VBFHist_100GeV.GetYaxis().SetTitle('Normalized # Events')
@@ -122,6 +154,11 @@ if(__name__=='__main__'):
     VBFTF1.Draw('SAME')
     VVTF1.Draw('SAME')
     print 'chi2/ndf:',VBFTF1.GetChisquare(),'/',VBFTF1.GetNDF()
+
+    latexvbf=TLatex()
+    latexvbf.SetNDC(kTRUE)
+    latexvbf.SetTextSize(0.03)
+    latexvbf.DrawLatex(0.45,0.65,"#chi^{2}/ndof=%.2f/%.2f=%.2f"%(VBFTF1.GetChisquare(),VBFTF1.GetNDF(),VBFTF1.GetChisquare()/VBFTF1.GetNDF()))
 
     
     VBFleg = TLegend(0.45,0.7,0.9,0.9)
@@ -133,7 +170,7 @@ if(__name__=='__main__'):
     VBFleg.SetTextSize(0.03)
     VBFleg.Draw('SAME')
 
-    VBFcanv.Print(SD_REGION+'_VBFRegion.eps')
+    VBFcanv.Print(REGION+'_VBFRegion.eps')
 
     
  
