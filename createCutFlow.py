@@ -46,7 +46,7 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
     plotstyle=[(1,1),(1,2),(2,1),(2,2),(4,1),(4,2)]
     
     PreSelectionCuts=[
-        # ('nocuts','All'),
+      ('nocuts','All'),
       ('common','CommonModules'),
       # ('corrections','JetCorrections'),
       # ('cleaner','JetCleaner'),
@@ -57,9 +57,9 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
       ('detaAk8sel','|#Delta#eta_{jj-AK8}|<1.3')
     ]
 
-    SelectionCuts=[#('preselection',''),
+    SelectionCuts=[#('preselection','PreSelection-check'),
       ('softdropAK8sel','65 GeV <M_{SD}< 105 GeV'),
-      ('tau21sel','0 #leq #tau_{2}/#tau_{1}<0.45'),
+      ('tau21sel','0 #leq #tau_{2}/#tau_{1}<0.35'),
       ('deltaR48','#Delta R(AK4,leading AK8) > 1.3'),
       # ('VVRegion','VVRegion'),
       ('AK4N2sel','N_{AK4} #geq 2'),
@@ -76,11 +76,11 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
     path='/nfs/dust/cms/user/albrechs/UHH2_Output/'
     
     datasets=[#(filename, Name for Legend, Linestyle, Color)
-        ('MC.MC_aQGC_%sjj_hadronic.root'%channel,channelTex[channel],1,28),
-        ('MC.MC_QCD.root','QCD',1,QCDColor),
-        ('MC.MC_WJetsToQQ_HT600ToInf.root','W+JetsToQQ',1,WJetsColor),
-        ('MC.MC_ZJetsToQQ_HT600ToInf.root','Z+JetsToQQ',1,ZJetsColor),
-        ('Data.DATA.root','Data',1,1)
+        ('MC.MC_aQGC_%sjj_hadronic.root'%channel,channelTex[channel],1,28)#,
+        # ('MC.MC_QCD.root','QCD',1,QCDColor),
+        # ('MC.MC_WJetsToQQ_HT600ToInf.root','W+JetsToQQ',1,WJetsColor),
+        # ('MC.MC_ZJetsToQQ_HT600ToInf.root','Z+JetsToQQ',1,ZJetsColor),
+        # ('Data.DATA.root','Data',1,1)
     ]    
 
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
@@ -94,6 +94,7 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
         
     for dataset in datasets:
         PreSelectionFiles.append(TFile(path+PreSelectionName+"/uhh2.AnalysisModuleRunner.%s"%dataset[0]))
+        # SelectionFiles.append(TFile(path+Region+'/backup/'+"/uhh2.AnalysisModuleRunner.%s"%dataset[0]))
         SelectionFiles.append(TFile(path+Region+"/uhh2.AnalysisModuleRunner.%s"%dataset[0]))
     gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
 
@@ -111,12 +112,12 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
         legend.SetMargin(0.4)
     
     NCuts=len(Cuts)
-    NMETFilter=0
-    if 'common' in Cuts[:][0]:        
-        NMETFilter=PreSelectionFiles[0].Get('cf_metfilters').GetNbinsX()
-        for i in range(1,PreSelectionFiles[0].Get('cf_metfilters').GetNbinsX()):
-            Cuts.insert(Cuts.index(('common','CommonModules')),(PreSelectionFiles[0].Get('cf_metfilters').GetXaxis().GetBinLabel(i),PreSelectionFiles[0].Get('cf_metfilters').GetXaxis().GetBinLabel(i)))
-        NCuts=NCuts+NMETFilter
+    # NMETFilter=0
+    # if 'common' in Cuts[:][0]:        
+    #     NMETFilter=PreSelectionFiles[0].Get('cf_metfilters').GetNbinsX()
+    #     for i in range(1,PreSelectionFiles[0].Get('cf_metfilters').GetNbinsX()):
+    #         Cuts.insert(Cuts.index(('common','CommonModules')),(PreSelectionFiles[0].Get('cf_metfilters').GetXaxis().GetBinLabel(i),PreSelectionFiles[0].Get('cf_metfilters').GetXaxis().GetBinLabel(i)))
+    #     NCuts=NCuts+NMETFilter
     print 'Plotting Cutflow of',NCuts,'Cuts.'
     # for dataset in datasets:
     BGStack=THStack('MCBackground','MCBackground')
@@ -223,7 +224,7 @@ def cutflow(Region='SignalRegion',removeEvents=False,logY=True,normalise=True,si
             # canv.SetGrid()
             canv.SetTicks()
             gPad.RedrawAxis()
-            canv.Print('cutflows/'+Region+'_cutflow_%s.eps'%datasets[i][1])
+            canv.Print('cutflows/'+Region+'_cutflow_%s_%s.eps'%(datasets[i][1],weightedORraw))
     if(not singlePlots):
         if(PlotBGStack):
             BGStack.Draw(drawOptions)
@@ -246,5 +247,5 @@ if(__name__=='__main__'):
         for removeEvent in removeEvents:
             cutflow(Region,removeEvent,True,True,False,'HIST','weighted')
             # cutflow(Region,removeEvent,True,True,False,'HIST','raw')
-            # cutflow(Region,removeEvent,True,False,True,'HIST TEXT90','weighted')
-            # cutflow(Region,removeEvent,True,False,True,'HIST TEXT90','raw')
+            cutflow(Region,removeEvent,True,False,True,'HIST TEXT90','weighted')
+            cutflow(Region,removeEvent,True,False,True,'HIST TEXT90','raw')
