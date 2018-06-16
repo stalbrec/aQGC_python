@@ -5,14 +5,15 @@ from ROOT import *
 
 if(__name__=='__main__'):
     # regions=['SignalRegion','SidebandRegion']
-    # regions=['SignalRegion']
+    regions=['SignalRegion']
     # regions=['LOWSidebandRegion','HIGHSidebandRegion']
-    regions=['HIGHSidebandRegion']
+    # regions=['HIGHSidebandRegion']
     # samples=['MC.MC_aQGC_WPWPjj_hadronic']
     samples=['MC.MC_aQGC_WPWPjj_hadronic','MC.MC_aQGC_WPWMjj_hadronic','MC.MC_aQGC_WMWMjj_hadronic','MC.MC_aQGC_WPZjj_hadronic','MC.MC_aQGC_WMZjj_hadronic','MC.MC_aQGC_ZZjj_hadronic',
              'MC.MC_QCD',
              'MC.MC_WJetsToQQ_HT600ToInf',
              'MC.MC_ZJetsToQQ_HT600ToInf',
+             'MC.MC_TT.root',
              'Data.DATA_JetHT']
     # samples=['MC.MC_WJetsToQQ_HT600ToInf',
     #          'MC.MC_ZJetsToQQ_HT600ToInf']
