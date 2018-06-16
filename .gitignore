@@ -3,6 +3,8 @@
 *.so
 *.pcm
 *.csv
-
+*.eps
+*.tar.gz
 /output/*
 /Plots/*
+/cutflows/*
