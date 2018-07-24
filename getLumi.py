@@ -1,4 +1,4 @@
-import os,sys,glob,numpy
+import os,sys,glob,numpy,subprocess
 from checkRootFiles import checkChannelFiles
 from ROOT import TFile, TH1F,gROOT
 
@@ -52,6 +52,33 @@ def getCrossSections(channel,indices):
     os.chdir(scriptdir)
     return xsections
 
+def getCrabCrossSections(indices):
+    pipeOut=[]
+    scriptdir=os.getcwd()
+    os.chdir('CrossSections')
+    xsections=[]
+    path='/pnfs/desy.de/cms/tier2/store/user/salbrech/Private_MCRun2_71_v1_aQGCZZhadronic/LHE/privateMCProductionLHE/privateMC_LHE_aQGCZZhadronic/180712_222751/0000/log'
+    print('getting Cross-Sections from CrabLogs..')
+    for i in range(0,len(indices)):
+        # index=int(tarFile.split('.')[0].split('_')[-1])
+        index=indices[i]+1
+        pnfsFile='/pnfs/desy.de/cms/tier2/store/user/salbrech/Private_MCRun2_71_v1_aQGCZZhadronic/LHE/privateMCProductionLHE/privateMC_LHE_aQGCZZhadronic/180712_222751/0000/log/cmsRun_%i.log.tar.gz'%index
+        tarFile=pnfsFile.split('/')[-1]
+        pnfs_copy=subprocess.Popen(['srmcp','-2','-streams_num=1','"srm://dcache-se-cms.desy.de:8443/srm/managerv2?SFN=%s file:///%s/%s/%s"'%(pnfsFile,scriptdir,'CrossSections',tarFile)],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        pipeOut.append(pnfs_copy.communicate())
+        untar=subprocess.Popen(['tar','zxaf',tarFile],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        pipeOut.append(untar.communicate())        
+
+        logFileName='cmsRun-stdout-%i.log'%index
+        xsections.append(getCrossSection(logFileName))
+        
+        allFiles=glob.glob('*%i.log.tar.gz'%i)+glob.glob('*%i.log'%i)+glob.glob('*%i.xml'%i)
+        clean=subprocess.Popen(['rm']+allFiles,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        pipeOut.append(clean.communicate())
+        update_progress(i+1,len(indices))
+    return xsections
+    # print(pipeOut)
+
 def getNEvents(channel,indices):
     scriptdir=os.getcwd()
     print('getting Number of Events from Ntuples...')
@@ -96,14 +123,19 @@ def writeConfig(luminosities,Region):
             configFile.write(filedata)
 
 if(__name__=='__main__'):
-    channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
+    # channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
+    channels=['ZZ']
     regions=['SignalRegion','LOWSidebandRegion','HIGHSidebandRegion']
+    Crab=True
     # channels=['ZZ']
     luminosities=[]
     for channel in channels:
         print('-----------------%s-----------------'%channel)
         failed_jobs=checkChannelFiles(channel)
-        indices=range(0,100)
+        if(Crab):
+            indices=range(0,800)
+        else:
+            indices=range(0,100)
         for i in indices:
             if( ((not (os.path.exists('/nfs/dust/cms/user/albrechs/production/ntuples/NT_%s/Ntuple_%s_%i.root'%(channel,channel,i)))) or not( os.stat('/nfs/dust/cms/user/albrechs/production/ntuples/NT_%s/Ntuple_%s_%i.root'%(channel,channel,i)).st_size>1000000  )) and (i not in failed_jobs) ):
                 failed_jobs.append(i)
@@ -111,8 +143,12 @@ if(__name__=='__main__'):
         for i in failed_jobs:
             indices.remove(i)
         print(len(failed_jobs),'->',failed_jobs)
-        NEvents=getNEvents(channel,indices)
-        xsections=getCrossSections(channel,indices)
+        if(Crab):
+            NEvents=getNEvents(channel,indices)
+            xsections=getCrabCrossSections(indices)
+        else:
+            NEvents=getNEvents(channel,indices)
+            xsections=getCrossSections(channel,indices)
         sum_nom=0
         sum_den=0
         for xsect in xsections:
@@ -134,5 +170,5 @@ if(__name__=='__main__'):
         print('resulting Luminosity:',lumi,'pb^-1')
         print('--------------------------------------\n\n')
 
-    for region in regions:
-        writeConfig(luminosities,region)
+    # for region in regions:
+    #     writeConfig(luminosities,region)
