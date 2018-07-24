@@ -55,6 +55,8 @@ if(__name__=="__main__"):
     sets={}
     with open(BosonChannel+'Range.csv','rb') as csvfile:
         snippet=''
+        snippet2=''
+        NPoint=0
         setreader=csv.DictReader(csvfile)
         for row in setreader:
             sets.update({row['parameter']:[
@@ -68,9 +70,18 @@ if(__name__=="__main__"):
             snippet+='for(unsigned int i=0; i<%i; i++){\n'%int(row['Npoints'])
             snippet+='reweight_names.push_back(getParName("%s",%.2ff,%.2ff,i));\n'%(row['parameter'],float(row['start']),float(row['stepsize']))
             snippet+='}\n'
+
+            NPoint+=int(row['Npoints'])
+            snippet2+='if(parameter_index<%i){\n'%NPoint
+            snippet2+='std::string parameter_string="%s";\n'%row['parameter']
+            snippet2+='reweight_names.push_back(getParName("%s",%.2ff,%.2ff,parameter_index-%i));\n'%(row['parameter'],float(row['start']),float(row['stepsize']),(NPoint-int(row['Npoints'])))
+            snippet2+='}else '
         
-        print('snippet for Mjj:')
+        print('snippet for MjjHists:')
         print(snippet)
+
+        print('snippet for PDFHists:')
+        print(snippet2)
 
 
 
