@@ -4,8 +4,79 @@ import os, sys, csv, collections, numpy, math
 from ROOT import gROOT, gStyle, gPad,TCanvas, TColor, TH1F,TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE
 from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooFit, RooArgList,RooCBShape,RooVoigtian,RooBreitWigner,RooFFTConvPdf,RooLandau,RooBifurGauss,RooPolynomial,RooChebychev
 import ROOT as rt
-from RooFitHist import RooFitHist
 
+def BifurFitHist(inputhist,title='title',sigL=-1,sigR=-1):
+   fitbinning=array('d')
+   binwidth=200
+   NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
+   for i in range(NBins+1):
+      fitbinning.append(1050+i*binwidth)
+
+   hist=inputhist.Rebin(NBins,"fit parameter",fitbinning) 
+   meanstart=hist.GetBinCenter(hist.GetMaximumBin())
+   sigmastart=hist.GetRMS()
+   print('meanstart:',meanstart,'sigmastart:',sigmastart)
+
+   gStyle.SetOptFit(1100)
+
+   gStyle.SetOptTitle(0)
+   RooFit.SumW2Error(kTRUE)
+   
+   mjj=RooRealVar('mjj','M_{jj-AK8}',fitbinning[0],fitbinning[len(fitbinning)-1],'GeV')
+   mjjral=RooArgList(mjj)
+   dh=RooDataHist('dh','dh',mjjral,RooFit.Import(hist))
+  
+   #BifurGauss
+   if(sigL==-1):
+      BifurGausslsigma= RooRealVar('#sigma_{left}','mass resolution',sigmastart,0,2*sigmastart)
+   else:
+      BifurGausslsigma= RooRealVar('#sigma_{left}','mass resolution',sigL)
+   if(sigR==-1):
+      BifurGaussrsigma= RooRealVar('#sigma_{right}','mass resolution',sigmastart,0,2*sigmastart)
+   else:
+      BifurGaussrsigma= RooRealVar('#sigma_{right}','mass resolution',sigR)
+
+   BifurGaussmean=RooRealVar('#mu_{BifurGauss}','mean BifurGauss',meanstart,0,2*meanstart)
+   BifurGauss=RooBifurGauss('BifurGauss','BifurGauss',mjj,BifurGaussmean,BifurGausslsigma,BifurGaussrsigma)
+   fname='Bifur-Gaus'
+   plottitle='%s Fit of %s'%(fname,title)
+   shape=BifurGauss
+   shape.fitTo(dh,RooFit.SumW2Error(True))
+   
+   frame=mjj.frame(RooFit.Title(plottitle))
+   frame.GetYaxis().SetTitleOffset(2)
+      
+   dh.plotOn(frame,RooFit.MarkerStyle(4))
+   shape.plotOn(frame,RooFit.LineColor(2))
+      
+   ndof=dh.numEntries()-3
+      
+   #chiSquare legend
+   chi2 = frame.chiSquare()
+   probChi2 = TMath.Prob(chi2*ndof, ndof)
+   chi2 = round(chi2,2)
+   probChi2 = round(probChi2,2)
+   leg = TLegend(0.5,0.5,0.9,0.65)
+   leg.SetBorderSize(0)
+   leg.SetFillStyle(0)
+   shape.paramOn(frame, RooFit.Layout(0.5,0.9,0.9))
+   leg.AddEntry(0,'#chi^{2} ='+str(chi2),'')
+   leg.AddEntry(0,'Prob #chi^{2} = '+str(probChi2),'')
+   leg.SetTextSize(0.04)
+   frame.addObject(leg)
+      
+   canv=TCanvas(plottitle,plottitle,700,700)
+   canv.SetLogy()
+   canv.SetLeftMargin(0.20) 
+   canv.cd()
+      
+   frame.SetMinimum(10**(-3))
+      
+   frame.Draw()
+   canv.Print('JES_Study'+'/%s__%s.eps'%(title,fname))
+
+   return(BifurGaussmean.getVal(),BifurGausslsigma.getVal(),BifurGaussrsigma.getVal())
+          
 class color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -29,9 +100,9 @@ gStyle.SetOptTitle(0)
 RooFit.SumW2Error(kTRUE)
 
 if(__name__=='__main__'):
-   channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
+   # channels=['WPWP','WPWM','WMWM','WPZ','WMZ','ZZ']
    # channels=['WMZ']
-   # channels=['ZZ']
+   channels=['ZZ']
     
    # csv_out=open('RegionComparison_%s.csv'%referenceHistPath.split('/')[0],'wt')
    # csvwriter=csv.DictWriter(csv_out,fieldnames=['channel','NSignal','NSideband','N','NSideband/NSignal','NSideband/N'])
@@ -44,21 +115,30 @@ if(__name__=='__main__'):
       Hists=[]
       directions= ['NOMINAL','UP','DOWN']
       for direction in directions:
+         # filename='/nfs/dust/cms/user/albrechs/UHH2_Output/JEScaleStudy/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root'%(direction,channel)
          filename='/nfs/dust/cms/user/albrechs/UHH2_Output/JEScaleStudy/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root'%(direction,channel)
          gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
          Files.append(TFile(filename))
          # Hists.append(Files[-1].Get('tau21sel/M_jj_AK8_highbin'))
          Hists.append(Files[-1].Get('invMAk4sel_1p0/M_jj_AK8_highbin'))
          gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
+      means=[]
       for i in range(len(directions)):
          print('##################################################################')
          print('##################################################################')
          print(directions[i])
          print('##################################################################')
          print('##################################################################')
-         RooFitHist(Hists[i],channel+'_'+directions[i],'test')
-      for File in Files:
-         File.Close()
+         if('NOMINAL' in directions[i]):
+            nominalWidths=BifurFitHist(Hists[i],channel+'_'+directions[i])
+            means.append(nominalWidths[0])
+         else:
+            means.append(BifurFitHist(Hists[i],channel+'_'+directions[i],nominalWidths[1],nominalWidths[2])[0])
+      for i in range(len(directions)):
+         print directions[i], ' : ',means[i]
+            
+      # for File in Files:
+      #    File.Close()
         # VVcanv=TCanvas('VV','VV',700,700)
         # VVcanv.SetLogy()
         # VVcanv.SetLeftMargin(0.20) 
