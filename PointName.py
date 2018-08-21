@@ -73,12 +73,12 @@ def OpList(parameter,N=-1,alternative_iter=[]):
 
     j=0
     for i in iterations:
-        if(j==(len(iterations))/2):
-            print('----------')
+        # if(j==(len(iterations))/2):
+            # print('----------')
         j+=1    
         if( i != ((sets[parameter][0]-1)/2) ): #don't add 0
             list.append(getPointName(parameter,i))
-            print(i,getPointName(parameter,i))
+            # print(i,getPointName(parameter,i))
     return list
 
 def NPoints(parameter):
