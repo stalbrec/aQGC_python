@@ -28,59 +28,37 @@ def update_progress(iteration,complete):
 def FitGaus(hist,Bin):
     gStyle.SetOptStat(1)
     gStyle.SetOptFit(1111)    
-
     fitcanv=TCanvas("fitcanv","fitcanv",600,600)
     fitcanv.cd()
-
     gaus_sigma=0
-
     hist_mean=hist.GetMean()
     hist_RMS=hist.GetRMS()
-
     range_width_par=3
- 
     xmin=hist_mean-range_width_par*hist_RMS
     xmax=hist_mean+range_width_par*hist_RMS
-    # hist.GetXaxis().SetRangeUser(xmin,xmax)
     hist.GetXaxis().SetRangeUser(0,hist_mean+10*hist_RMS)
-
     f_gaus=TF1("f1","gaus",xmin,xmax)
-
-    # f_gaus.SetParameters(1,Hists[0].GetBinContent(i),Hists[0].GetBinContent(i))
     f_gaus.SetParameters(1,hist.GetMean(),hist.GetRMS())
     hist.Fit(f_gaus,"R")
     gaus_sigma=f_gaus.GetParameter(1)
+    if not os.path.exists('PDFStudy'):
+      os.makedirs('PDFStudy')        
     fitcanv.Print("PDFStudy/PDFRMS_GausFit_Bin_%i.eps"%Bin)
-    # hist.Draw
-    # raw_input("press enter to continue")
-    # gStyle.SetOptStat(0)
-    # gStyle.SetOptFit(0000)    
     return gaus_sigma
 
-
-    
-
-    
 if(__name__=='__main__'):
     channels=['WPWP','WMWM','WPWM','WPZ','WMZ','ZZ']
     path='/nfs/dust/cms/user/albrechs/UHH2_Output/PDFStudy/'
     # gStyle.SetOptStat(0)
     # gStyle.SetOptFit(0000)    
     # gStyle.SetOptTitle(0)
-    GausFit=True
+    GausFit=False
     Point=0
 
     filename='uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic_%i.root'%(channels[5],Point)
 
     f=TFile(path+'/'+filename)
 
-    # PDFHists_invMAk4sel_1p0/M_jj_AK8_PARAM_POINT_pdf_pdfIndex
-    # PDFHists_invMAk4sel_1p0/M_jj_AK8_S0_328p0_pdf_0
-    # for i in range(100):
-    # histgroup='PDFHists_invMAk4sel_1p0/M_jj_AK8_%s_%s_pdf_'%getPointNameI(Point)
-    # print histgroup+str(0)
-    # h_nominal=f.Get(histgroup+str(0))
-    # print h_nominal
     binning=array('d')
     # binwidth=200
     # #NBins=(14000/binwidth) - ( (1040/binwidth) + 1 )
@@ -90,22 +68,20 @@ if(__name__=='__main__'):
 
     for i in range(NBins+1):
         binning.append(int(i*binwidth))
-    print(binning)
+    # print(binning)
 
-    print("NBins:"+str(NBins)+" len(binning): "+str(len(binning)))
+    # print("NBins:"+str(NBins)+" len(binning): "+str(len(binning)))
+
     HistDir=f.GetDirectory('PDFHists_invMAk4sel_1p0')
     Histkeys=HistDir.GetListOfKeys()
     Hists=[]
-    profile=TProfile('prof','prof', NBins,binning)
-    # graph=TGraph(NBins)
+    
     RMSMean=TH1F('RMSMean','RMSMean',NBins,binning)
-    RMSNoMean=TH1F('RMSNoMean','RMSNoMean',NBins,binning)
     RootRMS=TH1F('RootRMS','RootRMS',NBins,binning)
     GausSigma=TH1F('GausSigma','GausSigma',NBins,binning)
     Mean=TH1F('Mean','Mean',NBins,binning)
 
     RMSMean.SetLineColor(46)
-    RMSNoMean.SetLineColor(38)
     RootRMS.SetLineColor(36)
     GausSigma.SetLineColor(42)
     Mean.SetLineColor(1)
@@ -113,12 +89,10 @@ if(__name__=='__main__'):
     linewidth=3
 
     RMSMean.SetLineWidth(linewidth)
-    RMSNoMean.SetLineWidth(linewidth)
     Mean.SetLineWidth(linewidth)
     RootRMS.SetLineWidth(linewidth)
     GausSigma.SetLineWidth(linewidth)   
     RMSMean.SetLineStyle(1)
-    RMSNoMean.SetLineStyle(1)
     RootRMS.SetLineStyle(1)
     GausSigma.SetLineStyle(1)
     Mean.SetLineStyle(2)
@@ -129,7 +103,7 @@ if(__name__=='__main__'):
         OrigHist=key.ReadObj()
 
         #removing one statistical fluctuation
-        OrigHist.SetBinContent(1887,0)
+        # OrigHist.SetBinContent(1887,0)
         #finding bin with stat fluc (in old ZZ-Sample this means BinContent is larger than 1)
         # for i in range(1,OrigHist.GetNbinsX()+1):
         #     if OrigHist.GetBinContent(i) >1:
@@ -173,26 +147,7 @@ if(__name__=='__main__'):
         y=RMS
 
         RMSMean.Fill(x,y)
-        
-        #RMS: StandardDeviation of Variations to ZERO
-        RMS=0
-        for j in range(1,NPDFVariations+1):
-            RMS+=(Hists[j].GetBinContent(i))**2
-        RMS=RMS/(NPDFVariations)
-        RMS=math.sqrt(RMS)
-        y=RMS       
-        RMSNoMean.Fill(x,y)
         del h_slice
-
-
-    # for i in range(1,NBins+1):
-    #     A=RMSMean.GetBinContent(i)
-    #     B=RootRMS.GetBinContent(i)
-    #     if(A>0):
-    #         abweichung=(A-B)/A
-    #     else:
-    #         abweichung=-1
-    #     print "Bin i: ",i," - Abweichung: ",abweichung
         
     gStyle.SetOptStat(0)
         
@@ -204,9 +159,7 @@ if(__name__=='__main__'):
     leg.AddEntry(Mean,'x_{n} (=x_{nominal})','l')
     leg.AddEntry(RMSMean,'#frac{#Sigma^{N}_{i=1} (x_{i}-x_{n})^{2}}{N}','l')
     # leg.AddEntry(RMSMean,'#bar{x} + #frac{#Sigma^{N}_{i=1} (x_{i}-#bar{x})^{2}}{N}','l')
-    # leg.AddEntry(RMSNoMean,'#frac{#Sigma^{N}_{i=1} (x_{i})^{2}}{N}','l')
     # leg.AddEntry(RMSMean,'Standard-Deviation','l')
-    # leg.AddEntry(RMSNoMean,'RootMeanSquared','l')
     leg.AddEntry(RootRMS,'RMS_{Root}','l')
     if(GausFit):
         leg.AddEntry(GausSigma,'#sigma_{gauss-fit}','l')
@@ -219,12 +172,13 @@ if(__name__=='__main__'):
     Mean.SetTitle('RMS Comparison')
     Mean.Draw(drawoptions)
     RMSMean.Draw(drawoptions+'SAME')
-    # RMSNoMean.Draw(drawoptions+'SAME')
     RootRMS.Draw(drawoptions+'SAME')
     if(GausFit):
         GausSigma.Draw(drawoptions+'SAME')
     Mean.Draw(drawoptions+'SAME')
     leg.Draw('SAME')
+    if not os.path.exists('PDFStudy'):
+      os.makedirs('PDFStudy')        
     canv.Print("PDFStudy/comparison.eps")
 
 
