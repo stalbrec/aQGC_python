@@ -30,7 +30,7 @@ gStyle.SetNdivisions(506, "XYZ")
 gStyle.SetLegendBorderSize(0)
 
 
-def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0,initPath=''):
+def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSignal=0,UserRange=[None,None,None,None],initPath=''):
 
     channelTex={'WPWP':'W^{+}W^{+}','WPWM':'W^{+}W^{-}','WMWM':'W^{-}W^{-}','WPZ':'W^{+}Z','WMZ':'W^{-}Z','ZZ':'ZZ'}
     plotstyle=[(1,1),(1,2),(2,1),(2,2),(4,1),(4,2)]
@@ -42,9 +42,9 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
                   'softdropmassCorr',
                   'AK4pfidfilter',
                   'AK8pfidfilter',
-                  'AK8N2sel',
                   'invMAk8sel',
-                  'detaAk8sel'
+                  'detaAk8sel',
+                  'AK8N2sel'
     ]
     Selection=['preselection',
                'softdropAK8sel',
@@ -71,7 +71,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
           'OpSignsel':'#eta_{1-AK4} #eta_{2-AK4} < 0',
           'detaAk4sel':'|#Delta#eta_{jj-AK4}| > 3.0',
           'invMAk4sel_1p0':'M_{jj-AK4} > 1.0 TeV'}
-
+    
     VV=('VV' in channels)
     seperate=(not VV)
     if VV:
@@ -80,6 +80,25 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     plottitle=plotdir+'_'+plot
 
     lumi=36.814
+    xLabelSize=18.
+    yLabelSize=18.
+    xTitleSize=20.
+    yTitleSize=22.
+    xTitleOffset=4.
+    yTitleOffset=1.3
+
+    printout=False
+    Portrait=True
+    ratio=False
+    cutname=False
+    binning='default'
+
+    if(Portrait):
+        canvX=600
+        canvY=600
+    else:
+        canvX=900
+        canvY=675
 
 
     if(plotdir in PreSelection):
@@ -103,8 +122,9 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     else:
         CutNumber=Selection.index(plotdir)
     outputPath=outputPath+'/%02i_%s'%(CutNumber,plotdir)+'/'
-    print('InputPath:',path)
-    print('OutputPath:',outputPath)
+    if(printout):
+        print('InputPath:',path)
+        print('OutputPath:',outputPath)
     #check if OutputPath exists - and if not create it!
     if not os.path.exists(outputPath):
         os.makedirs(outputPath)
@@ -112,20 +132,31 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     scaleVV=(scaleSignal!=0)
     VVScale=scaleSignal
 
-    YRangeUser=False
-    Ymin=0.11
-    Ymax=9*10**3
+    if(UserRange[2] == None or UserRange[3]== None):
+        YRangeUser=False
+        Ymin=UserRange[2]
+        Ymax=UserRange[3]
+    else:
+        YRangeUser=True
+        Ymin=UserRange[2]
+        Ymax=UserRange[3]
 
-    XRangeUser=False
-    Xmin=0
-    Xmax=6000.
+    if(UserRange[0] == None or UserRange[1] == None):
+        XRangeUser=False
+        Xmin=UserRange[0]
+        Xmax=UserRange[1]
+    else:
+        XRangeUser=True
+        Xmin=UserRange[0]
+        Xmax=UserRange[1]
 
-    xLabelSize=18.
-    yLabelSize=18.
-    xTitleSize=20.
-    yTitleSize=22.
-    xTitleOffset=4.
-    yTitleOffset=1.3
+    # YRangeUser=False
+    # Ymin=0.11
+    # Ymax=9*10**3
+
+    # XRangeUser=False
+    # Xmin=0
+    # Xmax=6000.
 
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
     SFiles=[]
@@ -143,7 +174,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     #Open File to get DataHist:
     DataFile = TFile(path+"/uhh2.AnalysisModuleRunner.Data.DATA.root")
 
-    gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
+    # gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
 
 
     if(includeData):
@@ -154,7 +185,8 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         QCDscale = (float(DataFile.Get(referenceHistPath).Integral())-float(WJetsFile.Get(referenceHistPath).Integral())-float(ZJetsFile.Get(referenceHistPath).Integral())-float(TTFile.Get(referenceHistPath).Integral()))/float(QCDFile.Get(referenceHistPath).Integral())
     else:
         QCDscale = 1.0
-    print('using QCDscale:',QCDscale)
+    if(printout):
+        print('using QCDscale:',QCDscale)
 
     SHists=[]
     for i in range(len(channels)):
@@ -167,39 +199,64 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     if(includeData):
         DataHist=DataFile.Get(plotdir+'/'+plot)
+    
+    if(binning='dijetbinning'):
+        fitbinning=array('d')
+        binwidth=200
+        NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
+        NBins=int(NBins)
+        for i in range(NBins+1):
+            fitbinning.append(1050+i*binwidth)
+            
+        for i in range(len(channels)):
+            SHists[i]=SHists[i].Rebin(NBins,"new binning",fitbinning)
+        QCDHist=QCDHist.Rebin(NBins,"new binning",fitbinning)
+        WJetsHist=WJetsHist.Rebin(NBins,"new binning",fitbinning)
+        ZJetsHist=ZJetsHist.Rebin(NBins,"new binning",fitbinning)
+        TTHist=TTHist.Rebin(NBins,"new binning",fitbinning)
+        if(includeData):
+            DataHist=DataHist.Rebin(NBins,"new binning",fitbinning)
 
-
-    canv = TCanvas(plottitle,plottitle,600,600)
+        
+    canv = TCanvas(plottitle,plottitle,canvX,canvY)
 
     yplot=0.7
     yratio=0.3
     ymax=1.0
     xmax=1.0
     xmin=0.0
-    plotpad=TPad("plotpad","Plot",xmin,ymax-yplot,xmax,ymax)
-    ratiopad=TPad("ratiopad","Ratio",xmin,ymax-yplot-yratio,xmax,ymax-yplot)
-
+    if(ratio):
+        plotpad=TPad("plotpad","Plot",xmin,ymax-yplot,xmax,ymax)
+        ratiopad=TPad("ratiopad","Ratio",xmin,ymax-yplot-yratio,xmax,ymax-yplot)
+    else:
+        plotpad=TPad("plotpad","Plot",xmin,ymax-yplot-yratio,xmax,ymax)
 
     plotpad.SetTopMargin(0.08)
-    plotpad.SetBottomMargin(0.016)
     plotpad.SetLeftMargin(0.1)
     plotpad.SetRightMargin(0.05)
     plotpad.SetTicks()
-
-    ratiopad.SetTopMargin(0.016)
-    ratiopad.SetBottomMargin(0.35)
-    ratiopad.SetLeftMargin(0.1)
-    ratiopad.SetRightMargin(0.05)
-    ratiopad.SetTicks()
-
     plotpad.Draw()
-    ratiopad.Draw()
 
-
+    if(ratio):
+        plotpad.SetBottomMargin(0.016)
+        ratiopad.SetTopMargin(0.016)
+        ratiopad.SetBottomMargin(0.35)
+        ratiopad.SetLeftMargin(0.1)
+        ratiopad.SetRightMargin(0.05)
+        ratiopad.SetTicks()
+        ratiopad.Draw()
+    else:
+        plotpad.SetBottomMargin(0.1)
+        
     if(logY):
         plotpad.SetLogy()
         canv.SetLogy()
-
+    if('-logX' in xTitle):
+        plotpad.SetLogx()
+        if(ratio):
+            ratiopad.SetLogx()
+        canv.SetLogx()
+        
     drawOptions="HE"
 
     stack=THStack(plottitle,plottitle)
@@ -322,9 +379,19 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     BHistErr.GetYaxis().SetTitleOffset(yTitleOffset)
     BHistErr.GetYaxis().SetLabelFont(43)
     BHistErr.GetYaxis().SetLabelSize(yLabelSize)
-
-    BHistErr.GetXaxis().SetTitleSize(0.0)
-    BHistErr.GetXaxis().SetLabelSize(0.0)
+    if(ratio):
+        BHistErr.GetXaxis().SetTitleSize(0.0)
+        BHistErr.GetXaxis().SetLabelSize(0.0)
+    else:
+        BHistErr.GetXaxis().SetTitle(xTitle)
+        BHistErr.GetXaxis().SetTitleFont(43)
+        BHistErr.GetXaxis().SetTitleSize(xTitleSize)
+        # BHistErr.GetXaxis().SetTitleOffset(xTitleOffset)
+        BHistErr.GetXaxis().SetTitleOffset(1.2)
+        BHistErr.GetXaxis().SetLabelFont(43)
+        BHistErr.GetXaxis().SetLabelSize(xLabelSize)
+        # BHistErr.GetXaxis().SetTickLength(0.08)
+        # BHistErr.GetXaxis().SetNdivisions(506)
 
     if(YRangeUser):
         BHistErr.GetYaxis().SetRangeUser(Ymin,Ymax)
@@ -339,7 +406,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     if(VV):
         VVsum.Draw("SAME"+drawOptions)
-    else:
+    elif('-noSig' not in xTitle):
         for i in range(len(channels)):
             SHists[i].Draw("SAME"+drawOptions)
 
@@ -347,61 +414,61 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         DataHist.Draw("APE1SAME")
 
     plotpad.RedrawAxis()
+    if(ratio):
+        ratiopad.cd()
 
-    ratiopad.cd()
+        if(includeData):
+            ratioHist=DataHist.Clone()
+        else:
+            ratioHist=BHistErr.Clone()
+        ratioHist.SetLineColor(rt.kBlack)
+        # ratioHist.Sumw2()
+        ratioHist.SetStats(0)
+        ratioHist.Divide(BHistErr)
+        ratioHist.SetMarkerStyle(21)
+        ratioHist.SetMarkerSize(0.7)
 
-    if(includeData):
-        ratioHist=DataHist.Clone()
-    else:
-        ratioHist=BHistErr.Clone()
-    ratioHist.SetLineColor(rt.kBlack)
-    # ratioHist.Sumw2()
-    ratioHist.SetStats(0)
-    ratioHist.Divide(BHistErr)
-    ratioHist.SetMarkerStyle(21)
-    ratioHist.SetMarkerSize(0.7)
+        #Yaxis
+        ratioHist.GetYaxis().SetRangeUser(0.3,1.7)
+        ratioHist.GetYaxis().SetTitle("Data/BG")
+        ratioHist.GetYaxis().CenterTitle()
+        ratioHist.GetYaxis().SetTitleFont(43)
+        ratioHist.GetYaxis().SetTitleSize(yTitleSize)
+        ratioHist.GetYaxis().SetTitleOffset(yTitleOffset)
+        ratioHist.GetYaxis().SetLabelFont(43)
+        ratioHist.GetYaxis().SetLabelSize(yLabelSize)
+        ratioHist.GetYaxis().SetNdivisions(506)
+        #Xaxis
+        ratioHist.GetXaxis().SetTitle(xTitle)
+        ratioHist.GetXaxis().SetTitleFont(43)
+        ratioHist.GetXaxis().SetTitleSize(xTitleSize)
+        ratioHist.GetXaxis().SetTitleOffset(xTitleOffset)
+        ratioHist.GetXaxis().SetLabelFont(43)
+        ratioHist.GetXaxis().SetLabelSize(xLabelSize)
+        ratioHist.GetXaxis().SetTickLength(0.08)
+        ratioHist.GetXaxis().SetNdivisions(506)
 
-    #Yaxis
-    ratioHist.GetYaxis().SetRangeUser(0.3,1.7)
-    ratioHist.GetYaxis().SetTitle("Data/BG")
-    ratioHist.GetYaxis().CenterTitle()
-    ratioHist.GetYaxis().SetTitleFont(43)
-    ratioHist.GetYaxis().SetTitleSize(yTitleSize)
-    ratioHist.GetYaxis().SetTitleOffset(yTitleOffset)
-    ratioHist.GetYaxis().SetLabelFont(43)
-    ratioHist.GetYaxis().SetLabelSize(yLabelSize)
-    ratioHist.GetYaxis().SetNdivisions(506)
-    #Xaxis
-    ratioHist.GetXaxis().SetTitle(xTitle)
-    ratioHist.GetXaxis().SetTitleFont(43)
-    ratioHist.GetXaxis().SetTitleSize(xTitleSize)
-    ratioHist.GetXaxis().SetTitleOffset(xTitleOffset)
-    ratioHist.GetXaxis().SetLabelFont(43)
-    ratioHist.GetXaxis().SetLabelSize(xLabelSize)
-    ratioHist.GetXaxis().SetTickLength(0.08)
-    ratioHist.GetXaxis().SetNdivisions(506)
-
-    # if(YRangeUser):
-    #     ratioHist.GetYaxis().SetRangeUser(Ymin,Ymax)
-    if(XRangeUser):
-        ratioHist.GetXaxis().SetRangeUser(Xmin,Xmax)
-        ratioXMin=Xmin
-        ratioXMax=Xmax
-    else:
-        ratioXMin=ratioHist.GetXaxis().GetXmin()
-        ratioXMax=ratioHist.GetXaxis().GetXmax()
-    ratioHist.Draw("ep")
+        # if(YRangeUser):
+        #     ratioHist.GetYaxis().SetRangeUser(Ymin,Ymax)
+        if(XRangeUser):
+            ratioHist.GetXaxis().SetRangeUser(Xmin,Xmax)
+            ratioXMin=Xmin
+            ratioXMax=Xmax
+        else:
+            ratioXMin=ratioHist.GetXaxis().GetXmin()
+            ratioXMax=ratioHist.GetXaxis().GetXmax()
+        ratioHist.Draw("ep")
 
 
 
-    zeropercent=TLine(ratioXMin,1,ratioXMax,1)
-    zeropercent.Draw()
-    plus10percent=TLine(ratioXMin,1.1,ratioXMax,1.1)
-    plus10percent.SetLineStyle(rt.kDashed)
-    plus10percent.Draw()
-    minus10percent=TLine(ratioXMin,0.9,ratioXMax,0.9)
-    minus10percent.SetLineStyle(rt.kDashed)
-    minus10percent.Draw()
+        zeropercent=TLine(ratioXMin,1,ratioXMax,1)
+        zeropercent.Draw()
+        plus10percent=TLine(ratioXMin,1.1,ratioXMax,1.1)
+        plus10percent.SetLineStyle(rt.kDashed)
+        plus10percent.Draw()
+        minus10percent=TLine(ratioXMin,0.9,ratioXMax,0.9)
+        minus10percent.SetLineStyle(rt.kDashed)
+        minus10percent.Draw()
 
     canv.cd()
     gPad.RedrawAxis()
@@ -419,10 +486,11 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         if cut in plotdir:
             lastcut=cut
 
-    # if(not (lastcut=='nocuts')):
-    #     latex.SetTextSize(0.03)
-    #     for l in range(cutnames.index(lastcut)+1):
-    #         latex.DrawLatex(0.5,0.8-l*0.04,cuts[cutnames[l]])
+    if(not (lastcut=='nocuts') and cutname):
+        # latex.SetTextSize(0.03)
+        latex.SetTextSize(15)
+        for l in range(cutnames.index(lastcut)+1):
+            latex.DrawLatex(0.12,0.8-l*0.04,cuts[cutnames[l]])
 
     canv.Update()
     # canv.Print('Plots/%s_%s.png'%(plotdir,plot))
@@ -432,7 +500,9 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     #prevents memory leak in Canvas Creation/Deletion
     #see: https://root.cern.ch/root/roottalk/roottalk04/2484.html
     gSystem.ProcessEvents()
-    del ratiopad,plotpad,canv
+    if(ratio):
+        del ratiopad
+    del plotpad,canv
     # gc.collect()
     return 'done!'
 if(__name__=='__main__'):
