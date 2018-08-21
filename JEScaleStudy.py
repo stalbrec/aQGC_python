@@ -2,7 +2,7 @@
 from array import array
 import os, sys, csv, collections, numpy, math
 from ROOT import gROOT, gStyle, gPad,TCanvas, TColor, TH1F,TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE
-from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooFit, RooArgList,RooCBShape,RooVoigtian,RooBreitWigner,RooFFTConvPdf,RooLandau,RooBifurGauss,RooPolynomial,RooChebychev
+from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooFit, RooArgList, RooArgSet, RooCBShape,RooVoigtian,RooBreitWigner,RooFFTConvPdf,RooLandau,RooBifurGauss,RooPolynomial,RooChebychev, RooExtendPdf
 import ROOT as rt
 
 def BifurFitHist(inputhist,title='title',sigL=-1,sigR=-1):
@@ -39,8 +39,11 @@ def BifurFitHist(inputhist,title='title',sigL=-1,sigR=-1):
    BifurGaussmean=RooRealVar('#mu_{BifurGauss}','mean BifurGauss',meanstart,0,2*meanstart)
    BifurGauss=RooBifurGauss('BifurGauss','BifurGauss',mjj,BifurGaussmean,BifurGausslsigma,BifurGaussrsigma)
    fname='Bifur-Gaus'
+   nBiFur=RooRealVar("N","number of signal events",500,0.,10000);
+   shape=RooExtendPdf("BifurGauss_N","BifurGauss_N",BifurGauss,nBiFur);
+
    plottitle='%s Fit of %s'%(fname,title)
-   shape=BifurGauss
+   # shape=BifurGauss
    shape.fitTo(dh,RooFit.SumW2Error(True))
    
    frame=mjj.frame(RooFit.Title(plottitle))
@@ -70,11 +73,14 @@ def BifurFitHist(inputhist,title='title',sigL=-1,sigR=-1):
    canv.SetLeftMargin(0.20) 
    canv.cd()
       
-   frame.SetMinimum(10**(-3))
+   frame.SetMinimum(10**(-1))
       
    frame.Draw()
-   canv.Print('JES_Study'+'/%s__%s.eps'%(title,fname))
-
+   plot_dir='JES_Study'
+   if not os.path.exists(plot_dir):
+      os.makedirs(plot_dir)        
+   canv.Print(plot_dir+'/%s__%s.eps'%(title,fname))
+   del canv
    return(BifurGaussmean.getVal(),BifurGausslsigma.getVal(),BifurGaussrsigma.getVal())
           
 class color:
@@ -133,11 +139,14 @@ if(__name__=='__main__'):
             nominalWidths=BifurFitHist(Hists[i],channel+'_'+directions[i])
             means.append(nominalWidths[0])
          else:
-            means.append(BifurFitHist(Hists[i],channel+'_'+directions[i],nominalWidths[1],nominalWidths[2])[0])
-      for i in range(len(directions)):
-         print directions[i], ' : ',means[i]
-            
-      # for File in Files:
+            means.append(BifurFitHist(Hists[i],channel+'_'+directions[i]+'_fixed_Sigmas',nominalWidths[1],nominalWidths[2])[0])
+            means.append(BifurFitHist(Hists[i],channel+'_'+directions[i])[0])
+      
+      # for i in range(len(directions)):
+      #    print directions[i], ' : ',means[i]
+      #    print tf1[i]
+
+            # for File in Files:
       #    File.Close()
         # VVcanv=TCanvas('VV','VV',700,700)
         # VVcanv.SetLogy()
