@@ -2,7 +2,7 @@ from array import array
 import sys,csv,collections,numpy
 from ROOT import gROOT, gStyle, gPad,TCanvas, TColor, TF1, TFile, TLegend, THStack, TGraph, TMath, kTRUE, kFALSE
 from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooFit, RooArgList,RooCBShape,RooVoigtian,RooBreitWigner,RooFFTConvPdf,RooLandau,RooBifurGauss,RooPolynomial,RooChebychev
-
+import ROOT as rt
 from RooFitHist import RooFitHist
 
 #corresponding reweightingrange will be taken from first in list
@@ -117,7 +117,8 @@ class Set:
         # self.RefHist=self.SFile.Get('%s/M_jj_AK%i_highbin'%(self.LastCut,self.jetRadius))
 
         self.BHist=self.BFile.Get('%s/M_jj_AK%i_highbin'%(self.LastCut,self.jetRadius))
-
+        self.sidebandDataFile=TFile('/nfs/dust/cms/user/albrechs/UHH2_Output/SidebandRegion/uhh2.AnalysisModuleRunner.Data.DATA.root')
+        self.sidebandDataHist=self.sidebandDataFile.Get('%s/M_jj_AK%i_highbin'%(self.LastCut,self.jetRadius))
         ##################################################################################################################################
 
 
@@ -141,11 +142,43 @@ class Set:
            filename=self.getFileName(i)
            if(VBF):
                file= TFile(path+"/%s.root"%filename,"UPDATE");
+               # file= TFile(path+"/%s_SignalInjection.root"%filename,"UPDATE");
+               # file= TFile(path+"/%s_SidebandData.root"%filename,"UPDATE");
            else:
                file= TFile(path+"/%s.root"%filename,"RECREATE");
+               # file= TFile(path+"/%s_SignalInjection.root"%filename,"RECREATE");
+               # file= TFile(path+"/%s_SidebandData.root"%filename,"RECREATE");
            if(not file.IsOpen()):
                print("Error: Could not open File No. %i"%i)
-                      
+
+           # r_newbinning=range(0,14000,100)
+           # d_newbinning=array('d')
+           # for b in r_newbinning:
+           #     d_newbinning.append(b)
+           # radion=self.SHists[i].Rebin(len(d_newbinning)-1,"new binning",d_newbinning) 
+           # qcd_data=self.BHist.Rebin(len(d_newbinning)-1,"new binning",d_newbinning) 
+           # radion.Write('radion_invMass'+name_suffix)
+           # qcd_data.Write('qcd_invMass'+name_suffix)
+           # qcd_data.Write('data_invMass'+name_suffix)
+
+           #With SidebandData
+           # signalHist=self.SHists[i]
+           # backgroundHist=self.BHist
+           # sidebandDataHist=self.sidebandDataHist
+           # signalHist.Write('radion_invMass'+name_suffix)
+           # backgroundHist.Write('qcd_invMass'+name_suffix)
+           # sidebandDataHist.Write('data_invMass'+name_suffix)
+
+           # #For SignalInjectionTest
+           #signalHist=self.SHists[i]
+           #backgroundHist=self.BHist
+           #fakedataHist=backgroundHist.Clone()
+           #fakedataHist.Add(signalHist)
+           #signalHist.Write('radion_invMass'+name_suffix)
+           #backgroundHist.Write('qcd_invMass'+name_suffix)
+           #fakedataHist.Write('data_invMass'+name_suffix)
+
+           #Standard (with Background as FakeData)
            self.SHists[i].Write('radion_invMass'+name_suffix)
            self.BHist.Write('qcd_invMass'+name_suffix)
            self.BHist.Write('data_invMass'+name_suffix)
@@ -191,7 +224,7 @@ class Set:
 
         legend = TLegend(0.5,0.7,0.9,0.9)
         
-        drawOptions="HE"
+        drawOptions="Hist"
         if(logY):
             canv.SetLogy()
             
@@ -209,16 +242,22 @@ class Set:
         BGHist.SetTitle(plottitle)
         BGHist.GetXaxis().SetTitle('M_{jj-AK8} [GeV/c^{2}]')
         BGHist.GetYaxis().SetTitle('Events')
-        BGHist.GetXaxis().SetRangeUser(0,7500)
-        # BGHist.GetYaxis().SetRangeUser(10**(-3),10**5)
+        BGHist.GetXaxis().SetRangeUser(0,9000)
+        BGHist.GetYaxis().SetRangeUser(10**(-5),10**2)
         BGHist.GetYaxis().SetTitleOffset(1.3)
 
         legend.AddEntry(BGHist,"QCD","f")
-        # BGHist.Draw(""+drawOptions)
+
+        BGHistErr=BGHist.Clone()
+        BGHistErr.SetFillColor(rt.kGray+2)
+        BGHistErr.SetFillStyle(3204)
+        BGHistErr.Draw('E2')
+        BGHist.Draw("SAME"+drawOptions)
+        BGHistErr.Draw('E2SAME')
 
         stack=THStack('stack',plottitle)
-        stack.Add(BGHist)
-
+        # stack.Add(BGHist)
+        
         histcounter=1
         
         #number of Parameters to plot:        
@@ -231,17 +270,25 @@ class Set:
                 hist=self.SHists[index].Rebin(len(self.dijetbinning)-1,"new binning",self.dijetbinning)
             else:
                 hist=self.SHists[index]
+            # hist.Add(BGHist)    
             hist.SetLineColor(histcounter)
+            hist.SetMarkerStyle(8)
+            hist.SetMarkerSize(0.6)
+            hist.SetMarkerColor(histcounter)
             # hist.Draw("SAME"+drawOptions)
             stack.Add(hist)
             legend.AddEntry(hist,"%sjj (%s=%.1fTeV^{-4})"%(self.channel,self.OpName,self.getPoint(index)))
             histcounter+=1
         canv.SetTitle(plottitle)
-        stack.Draw('nostack'+drawOptions)
-        stack.GetXaxis().SetRangeUser(0,9000)
-        stack.Draw('nostack'+drawOptions)
+        # stack.Draw('nostack'+drawOptions)
+        # stack.GetXaxis().SetRangeUser(0,9000)
+        # stack.Draw('nostack'+drawOptions)
+        # stack.Draw('nostackep'+SAME)
+        # stack.GetXaxis().SetRangeUser(0,9000)
+        stack.Draw('nostackep'+'SAME')
         
-        legend.Draw()        
+        legend.Draw()
+        gPad.RedrawAxis()
         canv.Update()
         canv.Print("%s/%s_AK%i_%s.eps"%(path,self.channel,self.jetRadius,self.OpName))
         del stack
