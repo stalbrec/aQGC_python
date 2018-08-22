@@ -34,6 +34,11 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     channelTex={'WPWP':'W^{+}W^{+}','WPWM':'W^{+}W^{-}','WMWM':'W^{-}W^{-}','WPZ':'W^{+}Z','WMZ':'W^{-}Z','ZZ':'ZZ'}
     plotstyle=[(1,1),(1,2),(2,1),(2,2),(4,1),(4,2)]
+    #             0              1                       2                        3             4              5             6
+    Backgrounds=['QCD',         'WJetsToQQ_HT600ToInf', 'ZJetsToQQ_HT600ToInf',  'TT',         'WW',          'WZ',         'ZZ']
+    BGColors=   [rt.kAzure+7,   rt.kRed-4,              rt.kOrange-2,            rt.kGreen+2,  rt.kOrange+7,  rt.kOrange+9, rt.kOrange+11]
+    BGTeX=      ['QCD',         'W+JetsToQQ',           'Z+JetsToQQ',            'TTbar',      'WW',          'WZ',         'ZZ']
+    stackOrder= [4,5,6,2,1,3,0]
 
     PreSelection=['nocuts',
                   'common',
@@ -91,7 +96,10 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     Portrait=True
     ratio=False
     cutname=False
-    binning='default'
+    if('highbin' in plot):
+        binning='dijetbinning'
+    else:
+        binning='default'
 
     if(Portrait):
         canvX=600
@@ -160,16 +168,13 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     gROOT.ProcessLine( "gErrorIgnoreLevel = 2001;")
     SFiles=[]
-
-    
     for i in range(len(channels)):
         SFiles.append(TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%channels[i]))
 
     ##Open Files to get BackgroundHist:
-    QCDFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
-    WJetsFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_WJetsToQQ_HT600ToInf.root")
-    ZJetsFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_ZJetsToQQ_HT600ToInf.root")
-    TTFile = TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_TT.root")
+    BFiles=[]
+    for i in range(len(Backgrounds)):
+        BFiles.append(TFile(path+"/uhh2.AnalysisModuleRunner.MC.MC_%s.root"%Backgrounds[i]))
 
     #Open File to get DataHist:
     DataFile = TFile(path+"/uhh2.AnalysisModuleRunner.Data.DATA.root")
@@ -182,7 +187,14 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         # referenceHistPath = 'tau21sel/N_AK4'
         # referenceHistPath = 'detaAk8sel/N_pv'
         # referenceHistPath = 'tau21sel/met_pt_over_sumptAK8_2'
-        QCDscale = (float(DataFile.Get(referenceHistPath).Integral())-float(WJetsFile.Get(referenceHistPath).Integral())-float(ZJetsFile.Get(referenceHistPath).Integral())-float(TTFile.Get(referenceHistPath).Integral()))/float(QCDFile.Get(referenceHistPath).Integral())
+        QCDscale = float(DataFile.Get(referenceHistPath).Integral())
+        QCDNorm=1
+        for i in range(len(BFiles)):
+            if('QCD' in BFiles[i].GetName()):
+                QCDNorm=float(BFiles[i].Get(referenceHistPath).Integral())
+            else:
+                QCDscale-=float(BFiles[i].Get(referenceHistPath).Integral())
+        QCDscale/=QCDNorm
     else:
         QCDscale = 1.0
     if(printout):
@@ -191,16 +203,17 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     SHists=[]
     for i in range(len(channels)):
         SHists.append(SFiles[i].Get(plotdir+'/'+plot))
-    QCDHist=QCDFile.Get(plotdir+'/'+plot)
-    QCDHist.Scale(QCDscale)
-    WJetsHist=WJetsFile.Get(plotdir+'/'+plot)
-    ZJetsHist=ZJetsFile.Get(plotdir+'/'+plot)
-    TTHist=TTFile.Get(plotdir+'/'+plot)
+
+    BHists=[]
+    for i in range(len(BFiles)):
+        BHists.append(BFiles[i].Get(plotdir+'/'+plot))
+        if('QCD' in BFiles[i].GetName()):
+            BHists[-1].Scale(QCDscale)
 
     if(includeData):
         DataHist=DataFile.Get(plotdir+'/'+plot)
     
-    if(binning='dijetbinning'):
+    if(binning=='dijetbinning'):
         fitbinning=array('d')
         binwidth=200
         NBins=(14000/binwidth) - ( (1040/binwidth)+1 )
@@ -210,10 +223,9 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
             
         for i in range(len(channels)):
             SHists[i]=SHists[i].Rebin(NBins,"new binning",fitbinning)
-        QCDHist=QCDHist.Rebin(NBins,"new binning",fitbinning)
-        WJetsHist=WJetsHist.Rebin(NBins,"new binning",fitbinning)
-        ZJetsHist=ZJetsHist.Rebin(NBins,"new binning",fitbinning)
-        TTHist=TTHist.Rebin(NBins,"new binning",fitbinning)
+        for i in range(len(Backgrounds)):
+            BHists[i]=BHists[i].Rebin(NBins,"new binning",fitbinning)
+
         if(includeData):
             DataHist=DataHist.Rebin(NBins,"new binning",fitbinning)
 
@@ -264,31 +276,17 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     BHist=THStack(plottitle,plottitle)
 
 
-    QCDColor=rt.kAzure+7
-    WJetsColor=rt.kRed-4
-    ZJetsColor=rt.kOrange-2
-    TTColor=rt.kGreen+2
-
-    QCDHist.SetFillColor(QCDColor)
-    TTHist.SetFillColor(TTColor)
-    WJetsHist.SetFillColor(WJetsColor)
-    ZJetsHist.SetFillColor(ZJetsColor)
-
-    QCDHist.SetLineColor(QCDColor)
-    TTHist.SetLineColor(TTColor)
-    WJetsHist.SetLineColor(WJetsColor)
-    ZJetsHist.SetLineColor(ZJetsColor)
-
-    BHist.Add(ZJetsHist,"HIST")
-    BHist.Add(WJetsHist,"HIST")
-    BHist.Add(TTHist,"HIST")
-    BHist.Add(QCDHist,"HIST")
+    # for i in range(len(Backgrounds)):
+    for i in stackOrder:
+        BHists[i].SetFillColor(BGColors[i])
+        BHists[i].SetLineColor(BGColors[i])
+        BHist.Add(BHists[i],'Hist')
 
     BHist.SetTitle(plottitle)
-    BHistErr=QCDHist.Clone()
-    BHistErr.Add(TTHist)
-    BHistErr.Add(WJetsHist)
-    BHistErr.Add(ZJetsHist)
+
+    BHistErr=BHists[0].Clone()
+    for i in range(1,len(Backgrounds)):
+        BHistErr.Add(BHists[i])
 
     BHistErr.SetFillStyle(3204)
     BHistErr.SetFillColor(rt.kGray+2)
@@ -304,14 +302,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
             if(tmpmax>SIGMax):
                 SIGMax=tmpmax
     if(scaleVV):
-        SIGMax=SIGMax*VVScale
-    # if(logY):
-    #     MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
-    #     MIN=float(10**(magnitude(max(BGMax,SIGMax))-4))
-    #     MIN+=float(10**(magnitude(MIN)))
-    # else:
-    #     MAX=1.1*max(BGMax,SIGMax)
-    #     MIN=0.
+        SIGMax=SIGMax*VVScale        
     if(logY):
         MAX=0.9*float(10**(magnitude(max(BGMax,SIGMax))+1))
         MIN=float(10**(magnitude(max(BGMax,SIGMax))-5))
@@ -323,7 +314,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
         MIN=0.
     legendMIN=(legendMIN*0.7)+0.3-0.016
 
-    legend = TLegend(0.5,0.75,0.8,0.92)
+    legend = TLegend(0.5,0.75,0.85,0.89)
     legend.SetFillStyle(0)
     legend.SetTextSize(0.02)
     legend.SetMargin(0.4)
@@ -360,10 +351,8 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
                 legentry+=' *%.2E'%VVScale
             legend.AddEntry(SHists[i],legentry)
 
-    legend.AddEntry(ZJetsHist,"Z+JetsToQQ","f")
-    legend.AddEntry(WJetsHist,"W+JetsToQQ","f")
-    legend.AddEntry(TTHist,"TTbar","f")
-    legend.AddEntry(QCDHist,"QCD","f")
+    for i in stackOrder:
+        legend.AddEntry(BHists[i],BGTeX[i],"f")
     legend.AddEntry(BHistErr,"stat. Uncertainty","f")
 
     if(includeData):
@@ -482,7 +471,6 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     lastcut='nocuts'
     for cut in cutnames:
-        # print(cut, plotdir)
         if cut in plotdir:
             lastcut=cut
 
@@ -493,10 +481,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
             latex.DrawLatex(0.12,0.8-l*0.04,cuts[cutnames[l]])
 
     canv.Update()
-    # canv.Print('Plots/%s_%s.png'%(plotdir,plot))
     canv.Print(outputPath+'/%s_%s.eps'%(plotdir,plot))
-    # canv.Print(outputPath+'/%s.eps'%(plot))
-    # canv.Print('%s_%s.eps'%(plotdir,plot))
     #prevents memory leak in Canvas Creation/Deletion
     #see: https://root.cern.ch/root/roottalk/roottalk04/2484.html
     gSystem.ProcessEvents()
