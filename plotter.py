@@ -94,8 +94,9 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
 
     printout=False
     Portrait=True
-    ratio=False
-    cutname=False
+    cutname=False        
+    ratio=includeData
+
     if('highbin' in plot):
         binning='dijetbinning'
     else:
