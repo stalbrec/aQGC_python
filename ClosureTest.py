@@ -254,7 +254,7 @@ def FitRegion(REGION='SignalRegion'):
 
  
 if(__name__=='__main__'):
-    # regions=['SignalRegion','SidebandRegion']
-    regions=['SidebandRegion']
+    regions=['SignalRegion','SidebandRegion']
+    # regions=['SidebandRegion']
     for region in regions:
         FitRegion(region)
