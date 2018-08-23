@@ -36,7 +36,7 @@ def plotter(plotdir,plot,xTitle,logY,channels=['VV'],includeData=False,scaleSign
     plotstyle=[(1,1),(1,2),(2,1),(2,2),(4,1),(4,2)]
     #             0              1                       2                        3             4              5             6
     Backgrounds=['QCD',         'WJetsToQQ_HT600ToInf', 'ZJetsToQQ_HT600ToInf',  'TT',         'WW',          'WZ',         'ZZ']
-    BGColors=   [rt.kAzure+7,   rt.kRed-4,              rt.kOrange-2,            rt.kGreen+2,  rt.kOrange+7,  rt.kOrange+9, rt.kOrange+11]
+    BGColors=   [rt.kAzure+7,   rt.kRed-4,              rt.kOrange-2,            rt.kGreen+2,  rt.kOrange+7,  rt.kBlue+1,   rt.kMagenta+2]
     BGTeX=      ['QCD',         'W+JetsToQQ',           'Z+JetsToQQ',            'TTbar',      'WW',          'WZ',         'ZZ']
     stackOrder= [4,5,6,2,1,3,0]
 
