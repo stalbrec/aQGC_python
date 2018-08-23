@@ -27,6 +27,10 @@ for line in pdfsetfile:
     prevLine=line
 
 
+first_index=[]
+for set in sets[:-1]:   
+    first_index.append(set[0])
+
 pdfsetwebsite=open('website.lhaids')
 
 correctnumbers={}
@@ -44,13 +48,13 @@ for line in pdfsetwebsite:
 
 table=[]
 for i in range(len(setids)):
-    table.append((i,int(setids[i]),int(using[i]),len(sets[i]),int(correctnumbers[setids[i]][0]),correctnumbers[setids[i]][1]))
+    table.append((i,int(setids[i]),int(first_index[i]),int(using[i]),len(sets[i]),int(correctnumbers[setids[i]][0]),correctnumbers[setids[i]][1]))
     # print "Set Number: ",i,"Set-ID:",setids[i]
     # print "#Members: ",len(sets[i]) , "correct:",correctnumbers[setids[i]] 
 
-print "%-12s%-12s%-12s%-12s%-12s%-12s"%("Index","SetID","#using","#used","#avail","name")
+print "%-12s%-12s%-12s%-12s%-12s%-12s%-12s"%("Index","SetID","first index","#using","#used","#avail","name")
 for row in table:
-    print '%-12i%-12i%-12i%-12i%-12i%-12s' % row
+    print '%-12i%-12i%-12i%-12i%-12i%-12i%-12s' % row
 NTotal=0
 for N in using:
     NTotal+=int(N)
