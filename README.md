@@ -1,1 +1,11 @@
 # aQGC_python
+- to create input files for DijetCombineLimitCode use `python produce_combine_input.py`
+  - before usage make sure to update all relevant paths, filenames, hist-dirs/-names:
+    - in `produce_combine_input.py` change:
+      - `path` to output dir -> `/PATH/TO/DijetCombineLimitCode/input/`
+      - `cuts`-> these are the hist-dirs where script will get hists from (correspond to regions in fit)
+    - in `ParSet.py`adjust:
+      - `self.UHH2_Output`to directory where UHH2 writes the files containing the hists in histdirs specified in `cuts`
+      - you'll probably also have to change file names at L57 and L60 
+      - histdir template in L82
+      - histnames at L96,L98 and L112
