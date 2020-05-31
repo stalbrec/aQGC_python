@@ -123,8 +123,8 @@ class Set:
         for i in range(1,len(boundaries)):
 	    self.dijetbinning.append(boundaries[i])
 
-    def CombinedRootFiles(self,path=''):
-        VBF=(self.LastCut=='invMAk4sel_1p0')
+    def CombinedRootFiles(self,path='',VBF_cut='invMAk4sel_1p0'):
+        VBF=(self.LastCut==VBF_cut)
         if(VBF):
             name_suffix='_afterVBFsel'
         else:

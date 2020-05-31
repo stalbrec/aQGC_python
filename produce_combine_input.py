@@ -8,10 +8,10 @@ if(__name__=="__main__"):
     
     region='SignalRegion'
     channels=['ZZ']
-    cuts=['VVRegion','invMAk4sel_1p0']
+    cuts=['VVRegion','invMAk4sel_1p0'] # second cut is treated as VBF cut
     for channel in channels:
         for cut in cuts:
             for op in dim8op:                
                 print('+++++++++++writing RootFiles - %s - %s+++++++++++'%(op,cut))
                 current_Set=ParSet.Set(op,channel,cut,region)
-                current_Set.CombinedRootFiles(path)
+                current_Set.CombinedRootFiles(path, cuts[1])
