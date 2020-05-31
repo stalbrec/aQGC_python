@@ -11,14 +11,13 @@ channelgroups={'VV':["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"],
           'WW':["WPWP","WPWM","WMWM"],
           'WZ':["WPZ","WMZ"]}
 
-
-#import myutils,shutil,os
 gROOT.Reset()
 
 sets=collections.OrderedDict()
 
 class Set:
     def __init__(self, dim8op,channelname,Cut,region,jR=8):
+        self.UHH2_Output = "/nfs/dust/cms/user/albrechs/UHH2_Output/"
         gROOT.SetBatch(True)
         self.channel=channelname
         tosum=[]
@@ -39,8 +38,6 @@ class Set:
         self.OpName=dim8op
         self.LastCut=Cut
         self.jetRadius=int(jR)
-        self.chi2_dict={}
-        self.best_n={}
         print('Channel:',self.channel,'- Cut:',self.LastCut)
 
         rootdir_suffixe={"WPWP":"WPWPRange",
@@ -57,13 +54,10 @@ class Set:
         self.SFiles=[]
 
         for i in range(len(tosum)):
-            self.SFiles.append(TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%(region,tosum[i])))
+            self.SFiles.append(TFile(self.UHH2_Output + "/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%(region,tosum[i])))
 
         ##Open File to get BackgroundHist:
-        self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/%s/uhh2.AnalysisModuleRunner.MC.MC_QCD.root"%region)
-
-        # self.SFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%self.channel)
-        # self.BFile = TFile("/nfs/dust/cms/user/albrechs/UHH2_Output/uhh2.AnalysisModuleRunner.MC.MC_QCD.root")
+        self.BFile = TFile(self.UHH2_Output + "/%s/uhh2.AnalysisModuleRunner.MC.MC_QCD.root"%region)
         
         gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
 
@@ -86,7 +80,6 @@ class Set:
                 rootdir_suffix=rootdir_suffixe[self.channel]
             
             SHistDir=self.SFiles[i].GetDirectory('MjjHists_%s'%(tmpCut))
-            # SHistDir=self.SFiles[i].GetDirectory('MjjHists_%s_%s'%(tmpCut,rootdir_suffix))
             SHistkeys=SHistDir.GetListOfKeys()
             j=0
             for key in SHistkeys:
@@ -117,8 +110,8 @@ class Set:
         # self.RefHist=self.SFile.Get('%s/M_jj_AK%i_highbin'%(self.LastCut,self.jetRadius))
 
         self.BHist=self.BFile.Get('%s/M_jj_AK%i_highbin'%(self.LastCut,self.jetRadius))
-        self.sidebandDataFile=TFile('/nfs/dust/cms/user/albrechs/UHH2_Output/SidebandRegion/uhh2.AnalysisModuleRunner.Data.DATA.root')
-        self.sidebandDataHist=self.sidebandDataFile.Get('%s/M_jj_AK%i_highbin'%(self.LastCut,self.jetRadius))
+        # self.sidebandDataFile=TFile(self.UHH2_Output + '/SidebandRegion/uhh2.AnalysisModuleRunner.Data.DATA.root')
+        # self.sidebandDataHist=self.sidebandDataFile.Get('%s/M_jj_AK%i_highbin'%(self.LastCut,self.jetRadius))
         ##################################################################################################################################
 
 
@@ -137,18 +130,17 @@ class Set:
         else:
             name_suffix=''
 
-        # for i in range(1):
         for i in range(len(self.SHists)):         
            filename=self.getFileName(i)
            if(VBF):
-               file= TFile(path+"/%s.root"%filename,"UPDATE");
+               oFile= TFile(path+"/%s.root"%filename,"UPDATE");
                # file= TFile(path+"/%s_SignalInjection.root"%filename,"UPDATE");
                # file= TFile(path+"/%s_SidebandData.root"%filename,"UPDATE");
            else:
-               file= TFile(path+"/%s.root"%filename,"RECREATE");
+               oFile= TFile(path+"/%s.root"%filename,"RECREATE");
                # file= TFile(path+"/%s_SignalInjection.root"%filename,"RECREATE");
                # file= TFile(path+"/%s_SidebandData.root"%filename,"RECREATE");
-           if(not file.IsOpen()):
+           if(not oFile.IsOpen()):
                print("Error: Could not open File No. %i"%i)
 
            # r_newbinning=range(0,14000,100)
@@ -183,7 +175,7 @@ class Set:
            self.BHist.Write('qcd_invMass'+name_suffix)
            self.BHist.Write('data_invMass'+name_suffix)
            update_progress(i+1,len(self.SHists))
-           file.Close()
+           oFile.Close()
 
     def RooFitSig(self,path=''):
         #new binning from 1050GeV to 14000GeV in 10GeV steps:
