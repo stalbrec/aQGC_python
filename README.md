@@ -4,6 +4,7 @@
     - in `produce_combine_input.py` change:
       - `path` to output dir -> `/PATH/TO/DijetCombineLimitCode/input/`
       - `cuts`-> these are the hist-dirs where script will get hists from (correspond to regions in fit)
+      - `region` -> this corresponds to possible subdirs in which root files from UHH2 are stored (e.g. `PATH/TO/UHH2Output/SignalRegion/*.root`)
     - in `ParSet.py`adjust:
       - `self.UHH2_Output`to directory where UHH2 writes the files containing the hists in histdirs specified in `cuts`
       - you'll probably also have to change file names at L57 and L60 
