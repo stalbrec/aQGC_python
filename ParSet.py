@@ -5,6 +5,9 @@ from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooF
 import ROOT as rt
 from RooFitHist import RooFitHist
 
+if(sys.version_info[0] != 3):
+    raise BaseException("You should run this with python 3")
+
 #corresponding reweightingrange will be taken from first in list
 channelgroups={'VV':["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"],
           'ssWW':["WPWP","WMWM"],
