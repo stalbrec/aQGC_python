@@ -26,8 +26,8 @@ class Set:
         else:
             tosum.append(channelname)
 
-        with open("ReweightingRanges/"+tosum[0]+'Range.csv','rb') as csvfile:
-            setreader=csv.DictReader(csvfile)
+        with open('range_short_positive.csv','rb') as csvfile:
+            setreader=csv.DictReader(csvfile,delimiter=";")
             for row in setreader:
                 sets.update({row['parameter']:[
                             int(row['Npoints']),
