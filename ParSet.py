@@ -5,8 +5,8 @@ from ROOT import RooRealVar, RooDataHist, RooPlot, RooGaussian, RooAbsData, RooF
 import ROOT as rt
 from RooFitHist import RooFitHist
 
-if(sys.version_info[0] != 3):
-    raise BaseException("You should run this with python 3")
+# if(sys.version_info[0] != 3):
+#     raise BaseException("You should run this with python 3")
 
 #corresponding reweightingrange will be taken from first in list
 channelgroups={'VV':["WPWP","WPWM","WMWM","WPZ","WMZ","ZZ"],
@@ -124,7 +124,7 @@ class Set:
 
         self.dijetbinning = array( 'd' )
         for i in range(1,len(boundaries)):
-	    self.dijetbinning.append(boundaries[i])
+            self.dijetbinning.append(boundaries[i])
 
     def CombinedRootFiles(self,path='',VBF_cut='invMAk4sel_1p0'):
         VBF=(self.LastCut==VBF_cut)
