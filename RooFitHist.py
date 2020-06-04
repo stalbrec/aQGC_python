@@ -176,3 +176,9 @@ def RooFitHist(inputhist,title='title',path='.'):
       frame.Draw()
       canv.Print(path+'/%s__%s.eps'%(title,fname))
       return chi2
+
+if(__name__=="__main__"):
+   #replace signal.root, histDir and histName with you respective paths and names!
+   f = TFile("signal.root")
+   hist = f.Get("histDir/histName")
+   RooFitHist(hist,title='title')
