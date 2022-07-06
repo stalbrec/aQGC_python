@@ -2,11 +2,11 @@ import ParSet
 
 
 if(__name__=="__main__"):
-    path='/nfs/dust/cms/user/albrechs/CMSSW_8_1_0/src/DijetCombineLimitCode/input'
+    path='test/'
     
     dim8op=["S0","S1","S2","M0","M1","M2","M3","M4","M5","M7","T0","T1","T2","T5","T6","T7","T8","T9"]
     
-    region='SignalRegion'
+    region=''
     channels=['ZZ']
     cuts=['VVRegion','invMAk4sel_1p0'] # second cut is treated as VBF cut
     for channel in channels:

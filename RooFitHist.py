@@ -25,8 +25,8 @@ if('root6/6.02' in module_list):
    # exit()
     
 # gROOT.ProcessLine('.L RooFit/RooLogistics.cxx+')
-# gROOT.ProcessLine('.L RooFit/RooExpAndGauss.C+')
-# from ROOT import RooLogistics,RooExpAndGauss
+gROOT.ProcessLine('.L RooFit/RooExpAndGauss.C+')
+from ROOT import RooExpAndGauss
 RooFit.SumW2Error(kTRUE)
 
 

@@ -19,8 +19,8 @@ gROOT.Reset()
 sets=collections.OrderedDict()
 
 class Set:
-    def __init__(self, dim8op,channelname,Cut,region,jR=8):
-        self.UHH2_Output = "/nfs/dust/cms/user/albrechs/UHH2_Output/"
+    def __init__(self, dim8op,channelname,Cut,region="",jR=8):
+        self.UHH2_Output = "/afs/desy.de/user/a/albrechs/xxl/af-cms/UHH2/10_2_v2/CMSSW_10_2_16/src/UHH2/aQGCVVjjhadronic/"
         gROOT.SetBatch(True)
         self.channel=channelname
         tosum=[]
@@ -57,10 +57,10 @@ class Set:
         self.SFiles=[]
 
         for i in range(len(tosum)):
-            self.SFiles.append(TFile(self.UHH2_Output + "/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic.root"%(region,tosum[i])))
+            self.SFiles.append(TFile(self.UHH2_Output + "/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_%sjj_hadronic_2016v3_test.root"%(region,tosum[i])))
 
         ##Open File to get BackgroundHist:
-        self.BFile = TFile(self.UHH2_Output + "/%s/uhh2.AnalysisModuleRunner.MC.MC_QCD.root"%region)
+        self.BFile = TFile(self.UHH2_Output + "/%s/uhh2.AnalysisModuleRunner.MC.MC_aQGC_ZZjj_hadronic_2016v3.root"%region)
         
         gROOT.ProcessLine( "gErrorIgnoreLevel = 0;")
 
